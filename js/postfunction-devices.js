@@ -1,3 +1,4 @@
+import { postWithBearer } from "https://jscroot.github.io/api/croot.js";
 import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
@@ -28,25 +29,9 @@ export default function postSignUp() {
     user: getCookie("token"),
   };
 
-  fetch(target_url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(datainjson),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      responseData(result);
-    })
-    .catch((error) => {
-      // Handle errors (e.g., network issues)
-      console.error("Error:", error);
-    })
-    .finally(() => {
-      // Hide the loading animation when the request is done (whether successful or failed)
-      loadingElement.style.display = "none";
-    });
+  postWithBearer(target_url, token, datainjson, responseData, () => {
+    loadingElement.style.display = "none";
+  });
 }
 
 function responseData(result) {
