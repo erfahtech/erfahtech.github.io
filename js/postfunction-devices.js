@@ -26,10 +26,10 @@ export default function postSignUp() {
   let datainjson = {
     name: nama,
     topic: topic,
-    user: getCookie("token"),
+    // user: getCookie("token"),
   };
 
-  postWithBearer(target_url, token, datainjson, responseData, () => {
+  postWithBearer(target_url, getCookie("token"), datainjson, responseData, () => {
     loadingElement.style.display = "none";
   });
 }
