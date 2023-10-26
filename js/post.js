@@ -1,5 +1,3 @@
-// import { postWithToken } from "https://jscroot.github.io/api/croot.js";
-// import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
-import postLogin from "./postfunction-login.js";
+import postLogin from "https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@main/login.js";
 
 window.postLogin = postLogin;

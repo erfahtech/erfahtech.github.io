@@ -1,0 +1,18 @@
+#loading {
+    display: block;
+    text-align: center;
+    animation: blink 1s infinite alternate;
+    /* Blink animation */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+        /* Fully visible */
+    }
+
+    100% {
+        opacity: 0;
+        /* Fully hidden */
+    }
+}
