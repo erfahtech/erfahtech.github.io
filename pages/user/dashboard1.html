@@ -115,14 +115,6 @@
             </div>
 
             <div class="hidden md:flex flex-col items-center gap-3 mt-auto">
-                <div class="relative" aria-label="Logout" data-microtip-position="top" role="tooltip">
-                    <!-- Logout -->
-                    <a href="#" onclick="logout()" type="submit" id="logout"
-                        class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
-                        <span class="material-symbols-outlined">Logout</span>
-                    </a>
-                </div>
-
                 <!-- light dark -->
                 <div class="relative" aria-label="Brightness" data-microtip-position="top" role="tooltip">
                     <!-- light & dark -->
@@ -132,6 +124,15 @@
                         <span class="material-symbols-outlined dark-block">dark_mode</span>
                     </button>
                 </div>
+
+
+                <div class="relative" aria-label="Logout" data-microtip-position="top" role="tooltip">
+                    <!-- Logout -->
+                    <a href="#" onclick="logout()" type="submit" id="logout"
+                        class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
+                        <span class="material-symbols-outlined">Logout</span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -140,17 +141,15 @@
             <div
                 class="flex flex-wrap w-full flex-col gap-8 md:p-10 bg-surface-100 dark:bg-surfacedark-100  rounded-2xl">
                 <div class="flex flex-col gap-2">
-                    <h2 class="text-xl leading-tight">Dashboard</h2>
+                    <h2 class="text-xl leading-tight">Selamat Datang User</h2>
                     <div
                         class="bg-neutral-10 dark:bg-neutral-900 p-6 md:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl">
-
-
                         <div class="flex flex-wrap flex-row">
                             <div class="flex-shrink max-w-full w-full order-2 md:order-1 xl:w-2/3">
                                 <div class="flex flex-wrap flex-row">
                                     <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
                                         <div
-                                            class="bg-white dark:border-gray-700 dark:bg-surfacedark-100   rounded-lg shadow-lg h-full p-6">
+                                            class="bg-surface-100 dark:border-gray-700 dark:bg-surfacedark-100   rounded-lg shadow-lg h-full p-6">
                                             <div class="flex flex-wrap flex-row items-center">
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <h5 class="text-gray-500 mb-1">Total view</h5>
@@ -179,8 +178,9 @@
                                                     </p><br>
                                                     <!-- switch with icon -->
                                                     <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
-                                                        <input id="switch3" class="toggle-checkbox hidden" type="checkbox">
-                                                        <label for="switch3"
+                                                        <input id="switch" class="toggle-checkbox hidden"
+                                                            type="checkbox">
+                                                        <label for="switch"
                                                             class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
                                                     </div>
                                                 </div>
@@ -193,7 +193,7 @@
                                         </div>
                                     </div>
                                     <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
-                                        <div class="bg-white dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
+                                        <div class="bg-surface-100 dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
                                             <div class="flex flex-wrap flex-row items-center">
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <h5 class="text-gray-500 mb-1">Total likes</h5>
@@ -216,7 +216,14 @@
                                                             </path>
                                                         </svg>
                                                         16.2%
-                                                    </p>
+                                                    </p><br>
+                                                    <!-- switch with icon -->
+                                                    <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
+                                                        <input id="switch1" class="toggle-checkbox hidden"
+                                                            type="checkbox">
+                                                        <label for="switch1"
+                                                            class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
+                                                    </div>
                                                 </div>
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <canvas class="max-w-100" id="BarChartSm"
@@ -227,7 +234,7 @@
                                         </div>
                                     </div>
                                     <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
-                                        <div class="bg-white dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
+                                        <div class="bg-surface-100 dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
                                             <div class="flex flex-wrap flex-row items-center">
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <h5 class="text-gray-500 mb-1">Total Comments</h5>
@@ -253,7 +260,14 @@
                                                             </path>
                                                         </svg>
                                                         11.2%
-                                                    </p>
+                                                    </p><br>
+                                                    <!-- switch with icon -->
+                                                    <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
+                                                        <input id="switch2" class="toggle-checkbox hidden"
+                                                            type="checkbox">
+                                                        <label for="switch2"
+                                                            class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
+                                                    </div>
                                                 </div>
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <canvas class="max-w-100" id="BarComments"
@@ -264,7 +278,7 @@
                                         </div>
                                     </div>
                                     <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
-                                        <div class="bg-white dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
+                                        <div class="bg-surface-100 dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
                                             <div class="flex flex-wrap flex-row items-center">
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <h5 class="text-gray-500 mb-1">Total Share</h5>
@@ -287,7 +301,14 @@
                                                             </path>
                                                         </svg>
                                                         6.2%
-                                                    </p>
+                                                    </p><br>
+                                                    <!-- switch with icon -->
+                                                    <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
+                                                        <input id="switch3" class="toggle-checkbox hidden"
+                                                            type="checkbox">
+                                                        <label for="switch3"
+                                                            class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
+                                                    </div>
                                                 </div>
                                                 <div class="flex-shrink max-w-full w-1/2">
                                                     <canvas class="max-w-100" id="BarShare"
@@ -299,10 +320,10 @@
                                     </div>
 
                                     <div class="flex-shrink max-w-full px-4 w-full mb-6">
-                                        <div class="bg-white dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
+                                        <div class="bg-surface-100 dark:bg-surfacedark-100  rounded-lg shadow-lg h-full p-6">
                                             <div class="flex flex-row justify-between pb-6">
                                                 <div class="flex flex-col">
-                                                    <h3 class="text-base font-bold">Visitor traffic</h3>
+                                                    <h3 class="text-base font-bold">Penggunaan Listrik</h3>
                                                 </div>
                                                 <div x-data="{ open: false }" class="relative">
                                                     <button @click="open = ! open"
