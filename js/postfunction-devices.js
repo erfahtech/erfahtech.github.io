@@ -40,7 +40,7 @@ function responseData(result) {
     Swal.fire({
       icon: "success",
       title: "Tambah Device Berhasil",
-      text: "You have successfully",
+      text: result.message,
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         window.location.href = "tambah-devices.html";
@@ -56,4 +56,3 @@ function responseData(result) {
 }
 
 console.log(getCookie("token"));
-console.log(result.message);
