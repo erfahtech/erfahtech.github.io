@@ -22,7 +22,7 @@ export default function postSignUp() {
     return;
   }
 
-  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertDevice";
+  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertdevices";
   let datainjson = {
     name: nama,
     topic: topic,
