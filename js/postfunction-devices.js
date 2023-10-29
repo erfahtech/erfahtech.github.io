@@ -43,8 +43,7 @@ function responseData(result) {
       text: "You have successfully",
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
-        // window.location.href = "dashboard.html";
-        console.log(result.message);
+        window.location.href = "tambah-devices.html";
       }
     });
   } else {
@@ -57,3 +56,4 @@ function responseData(result) {
 }
 
 console.log(getCookie("token"));
+console.log(result.message);
