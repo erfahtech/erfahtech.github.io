@@ -16,6 +16,8 @@ export default function getDevices() {
 }
 
 function responseData(result) {
+  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+
   if (result) {
     // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
