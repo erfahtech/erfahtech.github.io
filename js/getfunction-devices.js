@@ -24,7 +24,8 @@ function responseData(result) {
       text: result.message,
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
-        window.location.href = "tambah-devices.html";
+        // window.location.href = "tambah-devices.html";
+        console.log("Data dari API:", result.data);
       }
     });
   } else {
@@ -33,10 +34,6 @@ function responseData(result) {
       title: "Get Device Gagal",
       text: result.message,
     });
-  }
-
-  if (result.data) {
-    console.log("Data dari API:", result.data);
   }
 }
 
