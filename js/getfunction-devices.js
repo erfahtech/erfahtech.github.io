@@ -16,18 +16,11 @@ export default function getDevices() {
 }
 
 function responseData(result) {
-  if (result) {
-    // Tampilkan SweetAlert berhasil signUp
-    Swal.fire({
-      icon: "success",
-      title: "Get Device Berhasil",
-      text: result.message,
-    }).then((result) => {
-      if (result.isConfirmed || result.isDismissed) {
-        // window.location.href = "tambah-devices.html";
-        console.log("Data dari API:", result.data);
-      }
-    });
+  if (result && result.success) {
+    // Tampilkan data dari respons API
+    if (result.data) {
+      console.log("Data dari API:", result.data);
+    }
   } else {
     Swal.fire({
       icon: "error",
