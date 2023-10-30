@@ -22,6 +22,10 @@ function responseData(result) {
       icon: "success",
       title: "Get Device Berhasil",
       text: result.message,
+    }).then((result) => {
+      if (result.isConfirmed || result.isDismissed) {
+        loadingElement.style.display = "none";
+      }
     });
   } else {
     Swal.fire({
