@@ -20,20 +20,23 @@ function responseData(result) {
     // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
-      title: "Tambah Device Berhasil",
+      title: "Get Device Berhasil",
       text: result.message,
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         window.location.href = "tambah-devices.html";
-        console.log(result.Data);
       }
     });
   } else {
     Swal.fire({
       icon: "error",
-      title: "Tambah Device Gagal",
+      title: "Get Device Gagal",
       text: result.message,
     });
+  }
+
+  if (result.data) {
+    console.log("Data dari API:", result.data);
   }
 }
 
