@@ -8,7 +8,7 @@ export default function getDevices() {
   // Show the loading animation
   loadingElement.style.display = "block";
 
-  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertdevices";
+  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
   postWithBearer(target_url, getCookie("token"), responseData, () => {
     loadingElement.style.display = "none";
