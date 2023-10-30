@@ -25,6 +25,7 @@ function responseData(result) {
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         window.location.href = "tambah-devices.html";
+        console.log(result.Data);
       }
     });
   } else {
