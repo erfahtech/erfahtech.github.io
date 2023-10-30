@@ -23,7 +23,7 @@ function responseData(result) {
       title: "Get Device Berhasil",
       text: result.message,
     }).then((result) => {
-      if (result.isConfirmed || result.isDismissed) {
+      if (result.isConfirmed) {
         loadingElement.style.display = "none";
       }
     });
