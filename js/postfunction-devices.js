@@ -10,6 +10,16 @@ export default function postSignUp() {
   // Show the loading animation
   loadingElement.style.display = "block";
 
+  // Mengambil elemen loading dan tombol "Save" dengan ID
+  // const saveButton = document.getElementById('saveButton');
+
+  // Mengganti tampilan tombol "Save" menjadi hidden
+  saveButton.style.display = 'none';
+
+  // Menampilkan elemen loading
+  loadingElement.style.display = 'block';
+
+
   // Validasi isian tidak boleh kosong
   if (nama == "" || topic == "") {
     Swal.fire({
@@ -26,7 +36,6 @@ export default function postSignUp() {
   let datainjson = {
     name: nama,
     topic: topic,
-    // user: getCookie("token"),
   };
 
   postWithBearer(target_url, getCookie("token"), datainjson, responseData, () => {
@@ -43,7 +52,7 @@ function responseData(result) {
       text: result.message,
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
-        window.location.href = "tambah-devices.html";
+        window.location.href = "device_control.html";
       }
     });
   } else {
@@ -55,4 +64,3 @@ function responseData(result) {
   }
 }
 
-console.log(getCookie("token"));
