@@ -10,13 +10,6 @@ export default function postSignUp() {
   // Show the loading animation
   loadingElement.style.display = "block";
 
-  // Mengambil elemen loading dan tombol "Save" dengan ID
-  const saveButton = document.getElementById('saveButton');
-
-  // Mengganti tampilan tombol "Save" menjadi hidden
-  saveButton.style.display = 'none';
-
-
   // Validasi isian tidak boleh kosong
   if (nama == "" || topic == "") {
     Swal.fire({
