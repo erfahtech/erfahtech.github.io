@@ -13,6 +13,11 @@ export default function getDevices() {
   postWithBearer(target_url, getCookie("token"), responseData, () => {
     loadingElement.style.display = "none";
   });
+
+  // let content =
+  //     isiCard.replace("#namadecive#", value.name)
+  //             .replace("#topicdevice#", value.topic);
+  //             addInner
 }
 
 function responseData(result) {
