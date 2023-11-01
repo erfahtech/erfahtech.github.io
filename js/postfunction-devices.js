@@ -20,6 +20,7 @@ export default function postDevices() {
     });
     // Hide the loading animation in case of validation error
     loadingElement.style.display = "none";
+    document.getElementById('diabutton').style.display = "block";
     return;
   }
 
