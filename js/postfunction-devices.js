@@ -11,7 +11,7 @@ export default function postSignUp() {
   loadingElement.style.display = "block";
 
   // Validasi isian tidak boleh kosong
-  if (!nama || !topic) {
+  if (nama == "" || topic == "") {
     Swal.fire({
       icon: "error",
       title: "Gagal Menambahkan Device",
