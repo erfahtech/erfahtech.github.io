@@ -6,7 +6,7 @@ export default function postDevices() {
   const topic = document.getElementById("isiTopic").value;
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
-  document.getElementById('diabutton').style.display = "none";
+  //document.getElementById('diabutton').style.display = "none";
 
   // Show the loading animation
   loadingElement.style.display = "block";
