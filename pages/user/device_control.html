@@ -328,11 +328,7 @@
                       placeholder="Masukkan Topic" required />
                   </div>
                 </div>
-                <div class="flex flex-row justify-end gap-2 px-8 py-8">
-                  <div clas id="loading" style="display: none">
-                    <!-- Add your loading animation here, e.g., a spinner or progress bar -->
-                    Loading...
-                  </div>
+                <div id="diabutton" class="flex flex-row justify-end gap-2 px-8 py-8">
                   <button data-close="#dialog_add"
                     class="closeDialog relative flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] font-medium text-primary-600 hover:bg-surface-200 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-200 dark:focus:bg-surfacedark-400">
                     Cancel
@@ -342,6 +338,12 @@
                     class="btn relative flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
                     Save
                   </button>
+                </div>
+                <div id="loading" style="display: none" >
+                  <div class="flex flex-row justify-end gap-2 px-8 py-8">
+                    <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+                    Loading...
+                  </div>
                 </div>
 
               </div>

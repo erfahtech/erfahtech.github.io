@@ -7,8 +7,11 @@ export default function postSignUp() {
   let topic = getValue("isiTopic");
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
+  document.getElementById('diabutton').style.display = "none";
+
   // Show the loading animation
   loadingElement.style.display = "block";
+  
 
   // Validasi isian tidak boleh kosong
   if (nama == "" || topic == "") {
