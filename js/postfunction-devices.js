@@ -11,13 +11,10 @@ export default function postSignUp() {
   loadingElement.style.display = "block";
 
   // Mengambil elemen loading dan tombol "Save" dengan ID
-  // const saveButton = document.getElementById('saveButton');
+  const saveButton = document.getElementById('saveButton');
 
   // Mengganti tampilan tombol "Save" menjadi hidden
   saveButton.style.display = 'none';
-
-  // Menampilkan elemen loading
-  loadingElement.style.display = 'block';
 
 
   // Validasi isian tidak boleh kosong
