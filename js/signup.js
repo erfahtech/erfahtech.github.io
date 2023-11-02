@@ -39,6 +39,7 @@ const postSignUp = () => {
     })
     .catch((error) => {
       console.error("Error:", error);
+      console.log("Error:", result.message);
     })
     .finally(() => {
       loadingElement.style.display = "none";
