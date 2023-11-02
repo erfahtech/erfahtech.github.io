@@ -33,9 +33,9 @@ const postSignUp = () => {
     },
     body: JSON.stringify(datainjson),
   })
-    .then((result) => {
-      if (result.status === true) {
-        return result.json();
+    .then((response) => {
+      if (response.status === true) {
+        return response.json();
       } else {
         throw new Error("Server returned an error");
       }
