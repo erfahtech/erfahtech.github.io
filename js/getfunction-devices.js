@@ -30,7 +30,7 @@ function postWithBearer(target_url, token, responseFunction) {
 }
 
 console.log(getCookie("token"));
-console.log("Data dari API:", result.data);
+// console.log("Data dari API:", result.data);
 
 
 // Fungsi untuk mengisi tampilan dengan data dari getDevices
