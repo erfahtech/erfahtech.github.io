@@ -10,9 +10,9 @@ export default function getDevices() {
 
   let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
-  postWithBearer(target_url, getCookie("token"), responseData, () => {
-    //loadingElement.style.display = "none";
-  });
+  // postWithBearer(target_url, getCookie("token"), responseData, () => {
+  //   //loadingElement.style.display = "none";
+  // });
 }
 
 function responseData(result) {
