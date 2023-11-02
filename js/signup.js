@@ -33,24 +33,12 @@ const postSignUp = () => {
     },
     body: JSON.stringify(datainjson),
   })
-    .then((response) => {
-      if (response.status === true) {
-        return response.json();
-      } else {
-        throw new Error("Server returned an error");
-      }
-    })
+    .then((response) => response.json())
     .then((result) => {
       responseData(result);
     })
     .catch((error) => {
-      // Handle errors (e.g., network issues or server errors)
-      console.error("Error:", error.message);
-      Swal.fire({
-        icon: "error",
-        title: "Signup Failed",
-        text: error.message,
-      });
+      console.error("Error:", error);
     })
     .finally(() => {
       loadingElement.style.display = "none";
@@ -58,7 +46,8 @@ const postSignUp = () => {
 };
 
 const responseData = (result) => {
-  if (result) {
+  if (result.status === true) {
+    // Ganti "status" dengan properti yang sesuai dalam respons Anda
     Swal.fire({
       icon: "success",
       title: "SignUp Successful",
@@ -72,7 +61,7 @@ const responseData = (result) => {
     Swal.fire({
       icon: "error",
       title: "Signup Failed",
-      text: result.message,
+      text: result.message, // Ganti "message" dengan properti yang sesuai dalam respons Anda
     });
   }
 };
