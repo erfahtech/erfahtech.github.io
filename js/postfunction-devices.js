@@ -5,8 +5,10 @@ export default function postDevices() {
   const nama = document.getElementById("isiName").value;
   const topic = document.getElementById("isiTopic").value;
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+  const diabuttonElement = document.getElementById("diabutton");
 
-  document.getElementById('diabutton').style.display = "none";
+  // Hide the "Save" and "Cancel" buttons
+  diabuttonElement.style.display = "none";
 
   // Show the loading animation
   loadingElement.style.display = "block";
@@ -20,7 +22,7 @@ export default function postDevices() {
     });
     // Hide the loading animation in case of validation error
     loadingElement.style.display = "none";
-    document.getElementById('diabutton').style.display = "block";
+    diabuttonElement.style.display = "flex";
     return;
   }
 
@@ -32,6 +34,7 @@ export default function postDevices() {
 
   postWithBearer(target_url, getCookie("token"), datainjson, responseData, () => {
     loadingElement.style.display = "none";
+    diabuttonElement.style.display = "flex";
   });
 }
 
