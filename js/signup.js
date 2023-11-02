@@ -1,26 +1,27 @@
-import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
+import { getValue } from "https://jscroot.github.io/element/croot.js";
+export default function postSignUp() {
+  let email = getValue("emailsignup");
+  let username = getValue("usernamesignup");
+  let password = getValue("passwordsignup");
+  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
-const postSignUp = () => {
-  const email = getValue("emailsignup");
-  const username = getValue("usernamesignup");
-  const password = getValue("passwordsignup");
-  const loadingElement = document.getElementById("loading");
-
+  // Show the loading animation
   loadingElement.style.display = "block";
 
+  // Validasi isian tidak boleh kosong
   if (!email || !username || !password) {
     Swal.fire({
       icon: "error",
       title: "Signup Failed",
       text: "Please fill in all fields.",
     });
-
+    // Hide the loading animation in case of validation error
     loadingElement.style.display = "none";
     return;
   }
 
-  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
-  const datainjson = {
+  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
+  let datainjson = {
     email: email,
     username: username,
     password: password,
@@ -38,15 +39,18 @@ const postSignUp = () => {
       responseData(result);
     })
     .catch((error) => {
+      // Handle errors (e.g., network issues)
       console.error("Error:", error);
     })
     .finally(() => {
+      // Hide the loading animation when the request is done (whether successful or failed)
       loadingElement.style.display = "none";
     });
-};
+}
 
-const responseData = (result) => {
+function responseData(result) {
   if (result) {
+    // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
       title: "SignUp Successful",
@@ -63,6 +67,4 @@ const responseData = (result) => {
       text: result.message,
     });
   }
-};
-
-window.postSignUp = postSignUp;
+}
