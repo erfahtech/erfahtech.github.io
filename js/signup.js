@@ -1,30 +1,29 @@
-import { getValue } from "https://jscroot.github.io/element/croot.js";
-export default function postSignUp() {
-  let email = getValue("emailsignup");
-  let username = getValue("usernamesignup");
-  let password = getValue("passwordsignup");
-  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 
-  // Show the loading animation
+const postSignUp = () => {
+  const email = getValue("emailsignup");
+  const username = getValue("usernamesignup");
+  const password = getValue("passwordsignup");
+  const loadingElement = document.getElementById("loading");
+
   loadingElement.style.display = "block";
 
-  // Validasi isian tidak boleh kosong
   if (!email || !username || !password) {
     Swal.fire({
       icon: "error",
       title: "Signup Failed",
       text: "Please fill in all fields.",
     });
-    // Hide the loading animation in case of validation error
+
     loadingElement.style.display = "none";
     return;
   }
 
-  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
-  let datainjson = {
-    email: email,
-    username: username,
-    password: password,
+  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
+  const datainjson = {
+    email,
+    username,
+    password,
   };
 
   fetch(target_url, {
@@ -34,23 +33,32 @@ export default function postSignUp() {
     },
     body: JSON.stringify(datainjson),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error("Server returned an error");
+      }
+    })
     .then((result) => {
       responseData(result);
     })
     .catch((error) => {
-      // Handle errors (e.g., network issues)
-      console.error("Error:", error);
+      // Handle errors (e.g., network issues or server errors)
+      console.error("Error:", error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Signup Failed",
+        text: error.message,
+      });
     })
     .finally(() => {
-      // Hide the loading animation when the request is done (whether successful or failed)
       loadingElement.style.display = "none";
     });
-}
+};
 
-function responseData(result) {
+const responseData = (result) => {
   if (result) {
-    // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
       title: "SignUp Successful",
@@ -67,6 +75,6 @@ function responseData(result) {
       text: result.message,
     });
   }
-}
+};
 
 window.postSignUp = postSignUp;
