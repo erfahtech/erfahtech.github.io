@@ -9,35 +9,7 @@ export default function getDevices() {
 
   let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
-  postWithBearer(target_url, getCookie("token"), responseData);
-}
-
-function responseData(result) {
-  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
-
-  if (result) {
-    // Tampilkan SweetAlert berhasil signUp
-    Swal.fire({
-      icon: "success",
-      title: "Get Device Berhasil",
-      text: result.message,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fillDeviceData(result.data);
-        // loadingElement.style.display = "none";
-      }
-    });
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Get Device Gagal",
-      text: result.message,
-    });
-  }
-
-  // if (result.data) {
-  //   console.log("Data dari API:", result.data);
-  // }
+  postWithBearer(target_url, getCookie("token"), fillDeviceData);
 }
 
 function postWithBearer(target_url, token, responseFunction) {
@@ -58,6 +30,7 @@ function postWithBearer(target_url, token, responseFunction) {
 }
 
 console.log(getCookie("token"));
+console.log("Data dari API:", result.data);
 
 
 // Fungsi untuk mengisi tampilan dengan data dari getDevices
