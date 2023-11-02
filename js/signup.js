@@ -37,10 +37,6 @@ const postSignUp = () => {
     .then((result) => {
       responseData(result);
     })
-    .catch((error) => {
-      console.error("Error:", error);
-      console.log("Error:", result.message);
-    })
     .finally(() => {
       loadingElement.style.display = "none";
     });
@@ -48,7 +44,6 @@ const postSignUp = () => {
 
 const responseData = (result) => {
   if (result.status === true) {
-    // Ganti "status" dengan properti yang sesuai dalam respons Anda
     Swal.fire({
       icon: "success",
       title: "SignUp Successful",
@@ -62,7 +57,7 @@ const responseData = (result) => {
     Swal.fire({
       icon: "error",
       title: "Signup Failed",
-      text: result.message, // Ganti "message" dengan properti yang sesuai dalam respons Anda
+      text: result.message,
     });
   }
 };
