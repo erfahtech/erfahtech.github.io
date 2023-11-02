@@ -19,7 +19,7 @@ const postSignUp = () => {
     return;
   }
 
-  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
+  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/post-signUp";
   const datainjson = {
     email,
     username,
