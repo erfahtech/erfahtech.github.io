@@ -38,9 +38,9 @@ function responseData(result) {
         setCookieWithExpireHour("token", result.token, 2);
 
         const loginButton = document.getElementById("buttonlogin");
-        const loadingElement = document.getElementById("loading");
+        
         loginButton.style.display = "none";
-        loadingElement.style.display = "none";
+        
         Swal.fire({
             icon: "success",
             title: "Login Successful",
@@ -51,12 +51,13 @@ function responseData(result) {
             }
         });
     } else {
+        const loadingElement = document.getElementById("loading");
         Swal.fire({
             icon: "error",
             title: "Login Failed",
             text: result.message
         });
-        
+        loadingElement.style.display = "none";
     }
 }
 
