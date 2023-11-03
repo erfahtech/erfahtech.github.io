@@ -7,14 +7,14 @@ const postLogin = () => {
     const password = getValue("passwordlogin");
     const loadingElement = document.getElementById("loading");
 
-    loadingElement.style.display = "none";
+    loadingElement.style.display = "block";
     if (!email || !password) {
         Swal.fire({
             icon: "error",
             title: "Login Failed",
             text: "Please fill in both email and password fields."
         });
-         loadingElement.style.display = "block";
+         loadingElement.style.display = "none";
         return;
     }
 
