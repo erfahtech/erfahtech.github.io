@@ -13,11 +13,11 @@ const postLogin = () => {
             title: "Login Failed",
             text: "Please fill in both email and password fields."
         });
-        loadingElement.style.display = "none";
+         loadingElement.style.display = "none";
         return;
     }
 
-    //loadingElement.style.display = "block";
+    loadingElement.style.display = "block";
 
     const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-login";
     const tokenkey = "token";
