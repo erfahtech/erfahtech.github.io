@@ -26,7 +26,7 @@ export const cardDevice = `
             </p>
           </div>
           <div class="flex-shrink max-w-full w-1/2">
-            <canvas class="max-w-100" id="BarComments"
+            <canvas class="max-w-100" 
               style="display: block; box-sizing: border-box; height: 66px; width: 132px;" width="528"
               height="264"></canvas>
           </div>
