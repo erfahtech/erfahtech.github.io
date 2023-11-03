@@ -55,6 +55,7 @@ function responseData(result) {
             title: "Login Failed",
             text: result.message
         });
+        loadingElement.style.display = "none";
     }
 }
 
