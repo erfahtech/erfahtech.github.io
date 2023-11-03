@@ -2,7 +2,7 @@
 
 // window.getDevices = getDevices;
 
-import { URLGetDevice, responseData } from "./getdevice.js  ";
+import { URLGetDevice, responseData } from "../js/getdevice.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const get = (target_url, responseFunction) => {
