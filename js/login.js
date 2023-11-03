@@ -7,17 +7,18 @@ const postLogin = () => {
     const password = getValue("passwordlogin");
     const loadingElement = document.getElementById("loading");
 
+    loadingElement.style.display = "none";
     if (!email || !password) {
         Swal.fire({
             icon: "error",
             title: "Login Failed",
             text: "Please fill in both email and password fields."
         });
-         loadingElement.style.display = "none";
+         loadingElement.style.display = "block";
         return;
     }
 
-    loadingElement.style.display = "block";
+    
 
     const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-login";
     const tokenkey = "token";
