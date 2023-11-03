@@ -14,11 +14,11 @@ const postLogin = () => {
             title: "Login Failed",
             text: "Please fill in both email and password fields."
         });
-         loadingElement.style.display = "none";
+        loadingElement.style.display = "none";
         return;
     }
 
-    
+
 
     const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-login";
     const tokenkey = "token";
@@ -38,8 +38,9 @@ function responseData(result) {
         setCookieWithExpireHour("token", result.token, 2);
 
         const loginButton = document.getElementById("buttonlogin");
+        const loadingElement = document.getElementById("loading");
         loginButton.style.display = "none";
-
+        loadingElement.style.display = "none";
         Swal.fire({
             icon: "success",
             title: "Login Successful",
@@ -55,7 +56,7 @@ function responseData(result) {
             title: "Login Failed",
             text: result.message
         });
-        loadingElement.style.display = "none";
+        
     }
 }
 
