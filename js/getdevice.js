@@ -40,7 +40,7 @@ export function responseData(results) {
 }
 
 export function isiCard(value) {
-    const content = tableMagang
+    const content = cardDevice
         .replace("#Topic#", value.topic)
         .replace("#Name#", value.name)
         .replace("#Status#", value.status);
