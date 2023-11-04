@@ -5,9 +5,9 @@
 import { URLGetDevice, responseData } from "../js/getdevice.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const get = (target_url, responseFunction) => {
+const get = (target_url, token, responseFunction) => {
   const myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer " + getCookie("Authorization"));
+  myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
   const requestOptions = {
     method: "GET",
