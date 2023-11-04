@@ -34,9 +34,8 @@ export const cardDevice = `
 `;
 
 export function responseData(results) {
-  console.log(results.data);
   console.log(results);
-  results.forEach(isiCard);
+  results.data.forEach(isiCard);
 }
 
 export function isiCard(value) {
