@@ -1,7 +1,6 @@
 import { addInner } from "https://jscroot.github.io/element/croot.js";
 
-export const URLGetDevice =
-    "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
+export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
 export const cardDevice = `
 <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
@@ -35,14 +34,13 @@ export const cardDevice = `
 `;
 
 export function responseData(results) {
-    console.log(results);
-    results.forEach(isiCard);
+  console.log(results.data);
+  console.log(results);
+  results.forEach(isiCard);
 }
 
 export function isiCard(value) {
-    const content = cardDevice
-        .replace("#TOPIC#", value.topic)
-        .replace("#NAME#", value.name)
-        // .replace("#STATUS#", value.status);
-    addInner("devices", content);
+  const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
+  // .replace("#STATUS#", value.status);
+  addInner("devices", content);
 }
