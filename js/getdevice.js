@@ -1,5 +1,4 @@
 // mqtt.js
-import mqtt from "../node_modules/mqtt/build/mqtt"; // Impor library MQTT
 const connect = mqtt.connect;
 
 //mqtt client
@@ -11,6 +10,7 @@ function connectToMqttBroker() {
 
   mqttClient.on("connect", () => {
     console.log("Terhubung ke broker MQTT");
+    console.log(client.subscribe("test/topic"));
   });
 
   mqttClient.on("error", (error) => {

@@ -1,14 +1,15 @@
 // mqtt.js
-import mqtt from "../node_modules/mqtt/build/mqtt"; // Impor library MQTT
+const connect = mqtt.connect;
 
 let mqttClient = null;
 
 function connectToMqttBroker() {
   const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
-  mqttClient = mqtt.connect(brokerUrl);
+  mqttClient = connect(brokerUrl);
 
   mqttClient.on("connect", () => {
     console.log("Terhubung ke broker MQTT");
+    console.log(client.subscribe("test/topic"));
   });
 
   mqttClient.on("error", (error) => {
