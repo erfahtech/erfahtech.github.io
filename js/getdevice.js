@@ -1,6 +1,19 @@
-import { addInner } from "https://jscroot.github.io/element/croot.js";
+import { connect } from "mqtt";
 
-export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
+let mqttClient = null;
+
+function connectToMqttBroker() {
+  const brokerUrl = "ws://broker.emqx.io:8083/mqtt";
+  mqttClient = connect(brokerUrl);
+
+  mqttClient.on("connect", () => {
+    console.log("Terhubung ke broker MQTT");
+  });
+
+  mqttClient.on("error", (error) => {
+    console.error("Kesalahan koneksi MQTT:", error);
+  });
+}
 
 export const cardDevice = `
 <div id="device" class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
@@ -24,7 +37,6 @@ export const cardDevice = `
           On
         </p>
         <br />
-        <!-- switch with icon -->
         <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
           <input id="switch" class="toggle-checkbox hidden" type="checkbox" checked />
           <label for="switch" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
@@ -36,7 +48,7 @@ export const cardDevice = `
       </div>
     </div>
   </div>
-  </div>
+</div>
 `;
 
 export function responseData(results) {
@@ -46,6 +58,21 @@ export function responseData(results) {
 
 export function isiCard(value) {
   const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
-  // .replace("#STATUS#", value.status);
   addInner("devices", content);
+
+  const toggleSwitch = document.querySelector("#switch");
+
+  toggleSwitch.addEventListener("change", (event) => {
+    const topic = value.topic;
+    const payload = event.target.checked ? "1" : "0";
+
+    if (mqttClient && mqttClient.connected) {
+      mqttClient.publish(topic, payload);
+      console.log(`Mengirim payload ${payload} ke topik ${topic}`);
+    } else {
+      console.error("Koneksi MQTT tidak aktif");
+    }
+  });
 }
+
+connectToMqttBroker();
