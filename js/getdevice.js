@@ -99,3 +99,5 @@ export function isiCard(value) {
 document.addEventListener("DOMContentLoaded", function () {
   connectToMqttBroker();
 });
+
+//test
