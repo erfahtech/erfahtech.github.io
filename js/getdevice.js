@@ -19,12 +19,13 @@ function connectToMqttBroker() {
 
 // import
 import { addInner } from "https://jscroot.github.io/element/croot.js";
+
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
 export const cardDevice = `
-<div id="device" class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
-  <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
+<div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
+  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
       <div class="flex-shrink max-w-full w-1/2">
         <h5 class="text-gray-500 mb-1">#TOPIC#</h5>
@@ -45,8 +46,8 @@ export const cardDevice = `
         </p>
         <br />
         <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
-          <input id="#TOPIC_ID#" class="toggle-checkbox hidden" type="checkbox" checked />
-          <label for="#TOPIC_ID#" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>        
+          <input id="switch" class="toggle-checkbox hidden" type="checkbox" checked data-topic="#TOPIC#" />
+          <label for="switch" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
         </div>
       </div>
       <div class="flex-shrink max-w-full w-1/2">
@@ -64,13 +65,10 @@ export function responseData(results) {
 }
 
 export function isiCard(value) {
-  const content = cardDevice
-    .replace("#TOPIC#", value.topic)
-    .replace("#NAME#", value.name)
-    .replace(/#TOPIC_ID#/g, `switch-${value.topic}`);
+  const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
   addInner("devices", content);
 
-  const toggleSwitch = document.querySelector(`#switch-${value.topic}`);
+  const toggleSwitch = document.querySelector(`input[data-topic="${value.topic}"]`);
 
   toggleSwitch.addEventListener("change", (event) => {
     const topic = value.topic;
