@@ -1,4 +1,4 @@
-import { connect } from "mqtt";
+const connect = mqtt.connect;
 
 let mqttClient = null;
 
