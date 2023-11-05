@@ -41,5 +41,6 @@ export const cardDevice = `
 
 export function responseData(results) {
   console.log(results);
-  addInner("devices", cardDevice);
+  const content = cardDevice(results);
+  addInner("devices", content);
 }
