@@ -45,8 +45,8 @@ export const cardDevice = `
         </p>
         <br />
         <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
-          <input id="switch" class="toggle-checkbox hidden" type="checkbox" checked />
-          <label for="switch" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
+          <input id="#TOPIC_ID#" class="toggle-checkbox hidden" type="checkbox" checked />
+          <label for="#TOPIC_ID#" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>        
         </div>
       </div>
       <div class="flex-shrink max-w-full w-1/2">
@@ -64,13 +64,13 @@ export function responseData(results) {
 }
 
 export function isiCard(value) {
-  const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
+  const content = cardDevice
+    .replace("#TOPIC#", value.topic)
+    .replace("#NAME#", value.name)
+    .replace(/#TOPIC_ID#/g, `switch-${value.topic}`);
+  addInner("devices", content);
 
-  const card = document.createElement("div");
-  card.innerHTML = content;
-  addInner("devices", card);
-
-  const toggleSwitch = card.querySelector("#switch");
+  const toggleSwitch = document.querySelector(`#switch-${value.topic}`);
 
   toggleSwitch.addEventListener("change", (event) => {
     const topic = value.topic;
