@@ -6,7 +6,9 @@ const postLogin = () => {
     const email = getValue("emaillogin");
     const password = getValue("passwordlogin");
     const loadingElement = document.getElementById("loading");
-
+    const loginButton = document.getElementById("buttonlogin");
+        
+    loginButton.style.display = "none";
     loadingElement.style.display = "block";
     if (!email || !password) {
         Swal.fire({
@@ -15,6 +17,7 @@ const postLogin = () => {
             text: "Please fill in both email and password fields."
         });
         loadingElement.style.display = "none";
+        loginButton.style.display = "flex";
         return;
     }
 
