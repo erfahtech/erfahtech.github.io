@@ -1,3 +1,3 @@
-# aplikasi
+# aplikasi Ur Smart Ecosystem
 
-https://erfahtech.github.io/apps/
+https://erfahtech.github.io
