@@ -46,8 +46,8 @@ export const cardDevice = `
         </p>
         <br />
         <div class="toggle-switch relative inline-flex w-[52px] h-1 mb-6">
-          <input id="switch" class="toggle-checkbox hidden" type="checkbox" checked data-topic="#TOPIC#" />
-          <label for="switch" class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
+          <input class="toggle-checkbox hidden" type="checkbox" checked data-topic="#TOPIC#" />
+          <label class="toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out"></label>
         </div>
       </div>
       <div class="flex-shrink max-w-full w-1/2">
@@ -67,20 +67,24 @@ export function responseData(results) {
 export function isiCard(value) {
   const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
   addInner("devices", content);
-
-  const toggleSwitch = document.querySelector(`input[data-topic="${value.topic}"]`);
-
-  toggleSwitch.addEventListener("change", (event) => {
-    const topic = value.topic;
-    const payload = event.target.checked ? "1" : "0";
-
-    if (mqttClient && mqttClient.connected) {
-      mqttClient.publish(topic, payload);
-      console.log(`Mengirim payload ${payload} ke topik ${topic}`);
-    } else {
-      console.error("Koneksi MQTT tidak aktif");
-    }
-  });
 }
 
-connectToMqttBroker();
+document.addEventListener("DOMContentLoaded", function () {
+  connectToMqttBroker();
+
+  const toggleSwitches = document.querySelectorAll("input[data-topic]");
+
+  toggleSwitches.forEach((toggleSwitch) => {
+    toggleSwitch.addEventListener("change", (event) => {
+      const topic = toggleSwitch.getAttribute("data-topic");
+      const payload = event.target.checked ? "1" : "0";
+
+      if (mqttClient && mqttClient.connected) {
+        mqttClient.publish(topic, payload);
+        console.log(`Mengirim payload ${payload} ke topik ${topic}`);
+      } else {
+        console.error("Koneksi MQTT tidak aktif");
+      }
+    });
+  });
+});
