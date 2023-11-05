@@ -1,6 +1,6 @@
 const connect = mqtt.connect;
 
-const client = mqtt.connect("wss://broker.emqx.io:8083/mqtt", {
+const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", {
   clientId: "javascript",
 });
 client.on("connect", function () {
@@ -71,5 +71,3 @@ export function isiCard(value) {
     }
   });
 }
-
-connectToMqttBroker();
