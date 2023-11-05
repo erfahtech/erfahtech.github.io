@@ -18,7 +18,7 @@ function connectToMqttBroker() {
 }
 
 // import
-import { addInner } from "https://jscroot.github.io/element/croot.js";
+// import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
