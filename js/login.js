@@ -55,11 +55,14 @@ function responseData(result) {
         });
     } else {
         const loadingElement = document.getElementById("loading");
+        const loginButton = document.getElementById("buttonlogin");
         Swal.fire({
             icon: "error",
             title: "Login Failed",
             text: result.message
         });
+                
+        loginButton.style.display = "block";
         loadingElement.style.display = "none";
     }
 }
