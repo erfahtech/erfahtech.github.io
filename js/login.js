@@ -7,7 +7,7 @@ const postLogin = () => {
     const password = getValue("passwordlogin");
     const loadingElement = document.getElementById("loading");
     const loginButton = document.getElementById("buttonlogin");
-
+        
     loginButton.style.display = "none";
     loadingElement.style.display = "block";
     if (!email || !password) {
@@ -16,8 +16,6 @@ const postLogin = () => {
             title: "Login Failed",
             text: "Please fill in both email and password fields."
         });
-        email.value = "";
-        password.value = "";
         loadingElement.style.display = "none";
         loginButton.style.display = "block";
         return;
@@ -39,15 +37,13 @@ const postLogin = () => {
 }
 
 function responseData(result) {
-    const email = getValue("emaillogin");
-    const password = getValue("passwordlogin");
-    const loadingElement = document.getElementById("loading");
-    const loginButton = document.getElementById("buttonlogin");
-
     if (result.token) {
         setCookieWithExpireHour("token", result.token, 2);
-        loginButton.style.display = "none";
 
+        const loginButton = document.getElementById("buttonlogin");
+        
+        loginButton.style.display = "none";
+        
         Swal.fire({
             icon: "success",
             title: "Login Successful",
@@ -58,13 +54,13 @@ function responseData(result) {
             }
         });
     } else {
+        const loadingElement = document.getElementById("loading");
+        const loginButton = document.getElementById("buttonlogin");
         Swal.fire({
             icon: "error",
             title: "Login Failed",
             text: result.message
-        });
-        email.value = "";
-        password.value = "";
+        });     
         loginButton.style.display = "block";
         loadingElement.style.display = "none";
     }
