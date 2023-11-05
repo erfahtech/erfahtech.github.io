@@ -2,14 +2,20 @@
 const connect = mqtt.connect;
 
 //mqtt client
-const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", {
-  clientId: "javascript",
-});
-client.on("connect", function () {
-  console.log("Tersambung ke broker!");
-  // client.subscribe("koalawan/iot/temperature");
-  // client.subscribe("koalawan/iot/humidity");
-});
+let mqttClient = null;
+
+function connectToMqttBroker() {
+  const brokerUrl = "ws://broker.emqx.io:8083/mqtt";
+  mqttClient = connect(brokerUrl);
+
+  mqttClient.on("connect", () => {
+    console.log("Terhubung ke broker MQTT");
+  });
+
+  mqttClient.on("error", (error) => {
+    console.error("Kesalahan koneksi MQTT:", error);
+  });
+}
 
 // import
 import { addInner } from "https://jscroot.github.io/element/croot.js";
@@ -75,3 +81,5 @@ export function isiCard(value) {
     }
   });
 }
+
+connectToMqttBroker();
