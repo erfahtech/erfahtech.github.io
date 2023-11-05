@@ -5,7 +5,7 @@ const connect = mqtt.connect;
 let mqttClient = null;
 
 function connectToMqttBroker() {
-  const brokerUrl = "ws://broker.emqx.io:8083/mqtt";
+  const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
   mqttClient = connect(brokerUrl);
 
   mqttClient.on("connect", () => {
