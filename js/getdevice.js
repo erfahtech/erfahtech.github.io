@@ -65,9 +65,12 @@ export function responseData(results) {
 
 export function isiCard(value) {
   const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
-  addInner("devices", content);
 
-  const toggleSwitch = document.querySelector("#switch");
+  const card = document.createElement("div");
+  card.innerHTML = content;
+  addInner("devices", card);
+
+  const toggleSwitch = card.querySelector("#switch");
 
   toggleSwitch.addEventListener("change", (event) => {
     const topic = value.topic;
