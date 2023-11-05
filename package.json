@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "mqtt": "^5.1.4",
     "preline": "^1.9.0"
   },
   "devDependencies": {

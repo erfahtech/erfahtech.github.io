@@ -48,4 +48,8 @@ export function isiCard(value) {
   const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
   // .replace("#STATUS#", value.status);
   addInner("devices", content);
+
+  // Inisialisasi toggle switch dengan elemen card yang sesuai
+  const cardElement = document.getElementById("device");
+  initializeToggleSwitch(cardElement);
 }
