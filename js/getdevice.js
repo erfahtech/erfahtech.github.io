@@ -2,7 +2,7 @@ import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
-export const cardDevice = `
+export const cardDevice = (results) => `
 <div id="device" class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
   <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
