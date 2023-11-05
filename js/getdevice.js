@@ -1,5 +1,5 @@
 // mqtt.js
-import * as mqtt from "../node_modules/mqtt/build/mqtt"; // Impor library MQTT
+import * as mqtt from "https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"; // Impor library MQTT
 
 let mqttClient = null;
 
@@ -99,5 +99,3 @@ export function isiCard(value) {
 document.addEventListener("DOMContentLoaded", function () {
   connectToMqttBroker();
 });
-
-//test
