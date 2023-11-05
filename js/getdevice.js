@@ -1,12 +1,11 @@
-// // mqtt.js
-// const connect = mqtt.connect;
+// mqtt.js
+import mqtt from "mqtt"; // Impor library MQTT
 
-//mqtt client
 let mqttClient = null;
 
 function connectToMqttBroker() {
   const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
-  mqttClient = connect(brokerUrl);
+  mqttClient = mqtt.connect(brokerUrl);
 
   mqttClient.on("connect", () => {
     console.log("Terhubung ke broker MQTT");
@@ -16,9 +15,6 @@ function connectToMqttBroker() {
     console.error("Kesalahan koneksi MQTT:", error);
   });
 }
-
-// import
-// import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -40,7 +36,7 @@ export function isiCard(value) {
   toggleSwitch.className = "toggle-switch relative inline-flex w-[52px] h-1 mb-6";
 
   const input = document.createElement("input");
-  input.className = "toggle-checkbox hidden";
+  input.className = "toggle-checkbox";
   input.type = "checkbox";
   input.checked = true;
   input.setAttribute("data-topic", topic);
@@ -75,11 +71,10 @@ export function isiCard(value) {
             On
           </p>
           <br />
-          </div>
-          <div class="flex-shrink max-w-full w-1/2">
-            <canvas class="max-w-100" id="LineAreaSm" style="display: block; box-sizing: border-box; height: 66px; width: 132px" width="528"
-              height="264"></canvas>
-          </div>
+        </div>
+        <div class="flex-shrink max-w-full w-1/2">
+          <canvas class="max-w-100" id="LineAreaSm" style="display: block; box-sizing: border-box; height: 66px; width: 132px" width="528"
+            height="264"></canvas>
         </div>
       </div>
     </div>
