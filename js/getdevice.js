@@ -1,21 +1,21 @@
 // mqtt.js
-import * as mqtt from "https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"; // Impor library MQTT
+// import * as mqtt from "https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"; // Impor library MQTT
 
 let mqttClient = null;
 
-function connectToMqttBroker() {
-  const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
-  mqttClient = mqtt.connect(brokerUrl);
+// function connectToMqttBroker() {
+const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
+mqttClient = mqtt.connect(brokerUrl);
 
-  mqttClient.on("connect", () => {
-    console.log("Terhubung ke broker MQTT");
-    console.log(mqttClient.subscribe("test/topic"));
-  });
+mqttClient.on("connect", () => {
+  console.log("Terhubung ke broker MQTT");
+  console.log(mqttClient.subscribe("test/topic"));
+});
 
-  mqttClient.on("error", (error) => {
-    console.error("Kesalahan koneksi MQTT:", error);
-  });
-}
+mqttClient.on("error", (error) => {
+  console.error("Kesalahan koneksi MQTT:", error);
+});
+// }
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -96,6 +96,6 @@ export function isiCard(value) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  connectToMqttBroker();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   connectToMqttBroker();
+// });
