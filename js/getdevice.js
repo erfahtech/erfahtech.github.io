@@ -1,4 +1,5 @@
 // mqtt.js
+import mqtt from "https://unpkg.com/mqtt/dist/mqtt.min.js";
 const connect = mqtt.connect;
 
 //mqtt client
