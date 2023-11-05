@@ -1,5 +1,7 @@
+// mqtt.js
 const connect = mqtt.connect;
 
+//mqtt client
 const client = mqtt.connect("wss://broker.emqx.io:8084/mqtt", {
   clientId: "javascript",
 });
@@ -9,6 +11,8 @@ client.on("connect", function () {
   // client.subscribe("koalawan/iot/humidity");
 });
 
+// import
+import { addInner } from "https://jscroot.github.io/element/croot.js";
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
