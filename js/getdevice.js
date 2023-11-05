@@ -1,4 +1,5 @@
 import { addInner } from "https://jscroot.github.io/element/croot.js";
+import { initializeToggleSwitch } from "./mqttControl.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
