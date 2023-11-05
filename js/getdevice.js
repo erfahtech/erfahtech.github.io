@@ -74,10 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
   connectToMqttBroker();
 
   const toggleSwitches = document.querySelectorAll("input[data-topic]");
+  console.log("Jumlah toggle-switches yang ditemukan:", toggleSwitches.length);
 
   toggleSwitches.forEach((toggleSwitch) => {
     toggleSwitch.addEventListener("change", (event) => {
       const topic = toggleSwitch.getAttribute("data-topic");
+      console.log("Klik toggle-switch dengan topic:", topic);
       const payload = event.target.checked ? "1" : "0";
 
       if (mqttClient && mqttClient.connected) {
