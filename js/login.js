@@ -17,7 +17,7 @@ const postLogin = () => {
             text: "Please fill in both email and password fields."
         });
         loadingElement.style.display = "none";
-        loginButton.style.display = "flex";
+        loginButton.style.display = "block";
         return;
     }
 
