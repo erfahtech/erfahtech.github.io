@@ -10,7 +10,7 @@ function connectToMqttBroker() {
 
   mqttClient.on("connect", () => {
     console.log("Terhubung ke broker MQTT");
-    console.log(client.subscribe("test/topic"));
+    console.log(mqttClient.subscribe("test/topic"));
   });
 
   mqttClient.on("error", (error) => {
