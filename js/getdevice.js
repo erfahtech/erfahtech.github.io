@@ -51,6 +51,6 @@ export function isiCard(value) {
   addInner("devices", content);
 
   // Inisialisasi toggle switch dengan elemen card yang sesuai
-  const cardElement = document.getElementById("device");
-  initializeToggleSwitch(cardElement);
+  // const cardElement = document.getElementById("device");
+  // initializeToggleSwitch(cardElement);
 }
