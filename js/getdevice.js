@@ -1,5 +1,5 @@
-// mqtt.js
-const connect = mqtt.connect;
+// // mqtt.js
+// const connect = mqtt.connect;
 
 //mqtt client
 let mqttClient = null;
