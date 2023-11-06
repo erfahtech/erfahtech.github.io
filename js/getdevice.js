@@ -35,17 +35,11 @@ export function isiCard(value) {
   // Buat elemen toggle switch
   const toggleSwitch = document.createElement("div");
   toggleSwitch.className = "toggle-switch relative inline-flex w-[52px] h-1 mb-6";
-
-  const input = document.createElement("input");
-  input.className = "toggle-checkbox";
-  input.type = "checkbox";
-  input.checked = true;
-  input.setAttribute("data-topic", topic);
+  toggleSwitch.setAttribute("data-topic", topic);
 
   const label = document.createElement("label");
   label.className = "toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out";
 
-  toggleSwitch.appendChild(input);
   toggleSwitch.appendChild(label);
 
   // Tambahkan elemen toggle switch ke container
@@ -86,8 +80,12 @@ export function isiCard(value) {
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
 
-  input.addEventListener("change", (event) => {
-    const payload = event.target.checked ? "1" : "0";
+  toggleSwitch.addEventListener("click", (event) => {
+    const toggleSwitch = event.currentTarget;
+    const input = toggleSwitch.querySelector("input");
+    input.checked = !input.checked;
+
+    const payload = input.checked ? "1" : "0";
 
     if (mqttClient && mqttClient.connected) {
       mqttClient.publish(topic, payload);
