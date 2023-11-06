@@ -28,7 +28,7 @@ export function responseData(results) {
   results.data.forEach(isiCard);
 }
 
-export function isiCard(value) {
+function isiCard(value) {
   const topic = value.topic;
   const name = value.name;
 
@@ -61,6 +61,10 @@ export function isiCard(value) {
           <canvas class="max-w-100" id="LineAreaSm" style="display: block; box-sizing: border-box; height: 66px; width: 132px" width="528"
             height="264"></canvas>
         </div>
+      </div>
+      <div class="toggle-switch">
+        <input type="checkbox" class="toggle-checkbox" id="toggle-${topic}">
+        <label for="toggle-${topic}"></label>
       </div>
     </div>
   `;
