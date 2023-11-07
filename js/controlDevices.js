@@ -16,6 +16,7 @@ export function isiCard(value) {
   const topic = value.topic;
   const name = value.name;
 
+  // Buat elemen toggle switch
   const toggleSwitch = document.createElement("div");
   toggleSwitch.className = "toggle-switch relative inline-flex w-[52px] h-1 mb-6";
 
@@ -27,11 +28,13 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(input);
 
-  const statusSpan = document.createElement("span"); // Tambahkan elemen span untuk status
-  statusSpan.textContent = "ON"; // Inisialisasi status dengan "ON"
-  statusSpan.id = `status-${topic}`; // Atur ID yang sesuai dengan card
+  const label = document.createElement("label");
+  label.className = "toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out";
+  label.setAttribute("for", `toggle-${topic}`);
 
-  // Tambahkan elemen span status ke cardDiv
+  toggleSwitch.appendChild(label);
+
+  // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
@@ -54,7 +57,7 @@ export function isiCard(value) {
                 d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z">
               </path>
             </svg>
-            <span id="status"></span>
+            <span id="status-${topic}"></span>
           </p>
           <br />
         </div>
@@ -67,7 +70,6 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
-  cardDiv.querySelector(".status").appendChild(statusSpan); // Tambahkan statusSpan ke cardDiv
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
@@ -76,6 +78,7 @@ export function isiCard(value) {
     const statusSpan = document.getElementById(cardId); // Dapatkan elemen status yang sesuai
 
     input.checked = !input.checked;
+
     const payload = input.checked ? "1" : "0";
 
     if (mqttClient && mqttClient.connected) {
