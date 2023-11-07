@@ -34,30 +34,6 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(label);
 
-  // Buat tombol delete dan edit
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
-  deleteButton.id = `delete-${topic}`;
-  deleteButton.textContent = "Delete";
-  deleteButton.style.display = "block";
-
-  const editButton = document.createElement("button");
-  editButton.className = "edit-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-  editButton.id = `edit-${topic}`;
-  editButton.textContent = "Edit";
-  editButton.style.display = "block";
-
-  // Tambahkan event listener untuk tombol delete dan edit
-  deleteButton.addEventListener("click", (event) => {
-    // Implementasikan fungsi delete di sini
-    console.log(`Deleting ${topic}`);
-  });
-
-  editButton.addEventListener("click", (event) => {
-    // Implementasikan fungsi edit di sini
-    console.log(`Editing ${topic}`);
-  });
-
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
@@ -95,8 +71,6 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
-  cardDiv.querySelector(".flex-shrink").appendChild(deleteButton);
-  cardDiv.querySelector(".flex-shrink").appendChild(editButton);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
