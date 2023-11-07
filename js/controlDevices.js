@@ -26,6 +26,32 @@ export function isiCard(value) {
   input.checked = false;
   input.style.display = "none"; // Sembunyikan checkbox
 
+  // Buat tombol delete dan edit
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "delete-button";
+  deleteButton.id = `delete-${topic}`;
+  deleteButton.textContent = "Delete";
+
+  const editButton = document.createElement("button");
+  editButton.className = "edit-button";
+  editButton.id = `edit-${topic}`;
+  editButton.textContent = "Edit";
+
+  // Tambahkan event listener untuk tombol delete dan edit
+  deleteButton.addEventListener("click", (event) => {
+    // Implementasikan fungsi delete di sini
+    console.log(`Deleting ${topic}`);
+  });
+
+  editButton.addEventListener("click", (event) => {
+    // Implementasikan fungsi edit di sini
+    console.log(`Editing ${topic}`);
+  });
+
+  // Tambahkan tombol ke dalam card
+  cardDiv.querySelector(".flex-shrink").appendChild(deleteButton);
+  cardDiv.querySelector(".flex-shrink").appendChild(editButton);
+
   toggleSwitch.appendChild(input);
 
   const label = document.createElement("label");
@@ -67,16 +93,6 @@ export function isiCard(value) {
               width="528" height="264"></canvas>
       </div>
   </div>
-  <div class="absolute top-4 right-4">
-      <button data-type="dialogs" data-target="#dialog_edit"
-          class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
-          Edit
-      </button>
-      <button
-          class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover-bg-surface-300 focus-bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
-          Delete
-      </button>
-    </div
 </div>
   `;
 
