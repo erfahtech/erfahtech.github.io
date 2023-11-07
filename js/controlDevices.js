@@ -50,7 +50,7 @@ export function isiCard(value) {
             </svg>
             ${name}
           </h3>
-          <p class="text-sm text-green-500">
+          <p class="status text-sm text-green-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 class="inline-block w-4 h-4 bi bi-arrow-down-short" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -75,6 +75,13 @@ export function isiCard(value) {
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
     input.checked = !input.checked;
+
+    const status = event.currentTarget.querySelector(".status");
+    if (input.checked) {
+      status.textContent = "On";
+    } else {
+      status.textContent = "Off";
+    }
 
     const payload = input.checked ? "1" : "0";
 
