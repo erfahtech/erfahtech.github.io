@@ -26,6 +26,23 @@ export function isiCard(value) {
   input.checked = false;
   input.style.display = "none"; // Sembunyikan checkbox
 
+    // Create Update and Delete buttons
+    const updateButton = document.createElement("button");
+    updateButton.className = "update-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+    updateButton.textContent = "Update";
+    updateButton.style.marginRight = "10px"; // Adjust margin as needed
+  
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
+    deleteButton.textContent = "Delete";
+  
+    // Create a container for the buttons and set its position
+    const buttonContainer = document.createElement("div");
+    buttonContainer.className = "button-container absolute top-0 right-0 mt-2 mr-2";
+    buttonContainer.appendChild(updateButton);
+    buttonContainer.appendChild(deleteButton);
+  
+
   toggleSwitch.appendChild(input);
 
   const label = document.createElement("label");
@@ -67,21 +84,12 @@ export function isiCard(value) {
               width="528" height="264"></canvas>
       </div>
   </div>
-  <div class="absolute top-4 right-4">
-      <button data-type="dialogs" data-target="#dialog_edit"
-          class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
-          Edit
-      </button>
-      <button
-          class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover-bg-surface-300 focus-bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
-          Delete
-      </button>
-    </div>
 </div>
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
+  cardDiv.appendChild(buttonContainer);
 
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
