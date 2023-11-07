@@ -1,6 +1,3 @@
-// mqtt.js
-// import * as mqtt from "https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"; // Impor library MQTT
-
 let mqttClient = null;
 
 // function connectToMqttBroker() {
@@ -9,13 +6,12 @@ mqttClient = mqtt.connect(brokerUrl);
 
 mqttClient.on("connect", () => {
   console.log("Terhubung ke broker MQTT");
-  console.log(mqttClient.subscribe("test/topic"));
+  // console.log(mqttClient.subscribe("test/topic"));
 });
 
 mqttClient.on("error", (error) => {
   console.error("Kesalahan koneksi MQTT:", error);
 });
-// }
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -97,12 +93,9 @@ export function isiCard(value) {
     if (mqttClient && mqttClient.connected) {
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
+      insertHistory();
     } else {
       console.error("Koneksi MQTT tidak aktif");
     }
   });
 }
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   connectToMqttBroker();
-// });

@@ -1,8 +1,7 @@
 // import getDevices from "./getfunction-devices.js";
-
 // window.getDevices = getDevices;
 
-import { URLGetDevice, responseData } from "../js/getdevice.js";
+import { URLGetDevice, responseData } from "./controlDevices.js";
 // import { URLGetDevice, responseData } from "../js/device.control.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
