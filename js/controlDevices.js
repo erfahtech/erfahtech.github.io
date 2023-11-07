@@ -48,17 +48,7 @@ export function isiCard(value) {
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
-  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6 relative">
-    <div class="absolute top-2 right-2">
-      <button class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
-        Edit
-      </button>
-    </div>
-    <div class="absolute top-2 right-10">
-      <button class="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
-        Delete
-      </button>
-    </div>
+  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full w-1/2">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
