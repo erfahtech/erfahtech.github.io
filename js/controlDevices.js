@@ -38,7 +38,7 @@ export function isiCard(value) {
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
-  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
+  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6 relative">
     <div class="absolute top-2 right-2">
       <button class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
         Edit
