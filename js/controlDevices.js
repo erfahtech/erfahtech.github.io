@@ -36,12 +36,12 @@ export function isiCard(value) {
 
   // Buat tombol delete dan edit
   const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
+  deleteButton.className = "delete-button bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded block";
   deleteButton.id = `delete-${topic}`;
   deleteButton.textContent = "Delete";
 
   const editButton = document.createElement("button");
-  editButton.className = "edit-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+  editButton.className = "edit-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block";
   editButton.id = `edit-${topic}`;
   editButton.textContent = "Edit";
 
