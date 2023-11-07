@@ -93,7 +93,7 @@ export function isiCard(value) {
     if (mqttClient && mqttClient.connected) {
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
-      insertHistory();
+      // insertHistory();
     } else {
       console.error("Koneksi MQTT tidak aktif");
     }
