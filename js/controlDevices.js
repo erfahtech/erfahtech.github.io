@@ -34,21 +34,33 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(label);
 
-  // Buat elemen tombol Edit
+  // Buat tombol delete dan edit
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "delete-button";
+  deleteButton.id = `delete-${topic}`;
+  deleteButton.textContent = "Delete";
+
   const editButton = document.createElement("button");
-  editButton.className = "p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 absolute top-2 right-2";
+  editButton.className = "edit-button";
+  editButton.id = `edit-${topic}`;
   editButton.textContent = "Edit";
 
-  // Buat elemen tombol Delete
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300 absolute top-2 right-10";
-  deleteButton.textContent = "Delete";
+  // Tambahkan event listener untuk tombol delete dan edit
+  deleteButton.addEventListener("click", (event) => {
+    // Implementasikan fungsi delete di sini
+    console.log(`Deleting ${topic}`);
+  });
+
+  editButton.addEventListener("click", (event) => {
+    // Implementasikan fungsi edit di sini
+    console.log(`Editing ${topic}`);
+  });
 
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
-  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6 relative">
+  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full w-1/2">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
