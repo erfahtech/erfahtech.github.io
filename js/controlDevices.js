@@ -40,12 +40,12 @@ export function isiCard(value) {
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="absolute top-2 right-2">
-      <button class="edit-button p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+      <button class="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
         Edit
       </button>
     </div>
     <div class="absolute top-2 right-10">
-      <button class="delete-button p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
+      <button class="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
         Delete
       </button>
     </div>
