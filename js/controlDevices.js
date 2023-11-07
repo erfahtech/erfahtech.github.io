@@ -26,28 +26,6 @@ export function isiCard(value) {
   input.checked = false;
   input.style.display = "none"; // Sembunyikan checkbox
 
-  // Buat tombol delete dan edit
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-button p-1 bg-red-500 text-white rounded";
-  deleteButton.id = `delete-${topic}`;
-  deleteButton.textContent = "Delete";
-
-  const editButton = document.createElement("button");
-  editButton.className = "edit-button mr-2 p-1 bg-blue-500 text-white rounded";
-  editButton.id = `edit-${topic}`;
-  editButton.textContent = "Edit";
-
-  // Tambahkan event listener untuk tombol delete dan edit
-  deleteButton.addEventListener("click", (event) => {
-    // Implementasikan fungsi delete di sini
-    console.log(`Deleting ${topic}`);
-  });
-
-  editButton.addEventListener("click", (event) => {
-    // Implementasikan fungsi edit di sini
-    console.log(`Editing ${topic}`);
-  });
-
   toggleSwitch.appendChild(input);
 
   const label = document.createElement("label");
@@ -61,6 +39,12 @@ export function isiCard(value) {
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
+    <button class="edit-button absolute top-2 right-2 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+      Edit
+    </button>
+    <button class="delete-button absolute top-2 right-10 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
+      Delete
+    </button>
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full w-1/2">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
@@ -93,8 +77,6 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
-  cardDiv.querySelector(".flex-shrink").appendChild(deleteButton);
-  cardDiv.querySelector(".flex-shrink").appendChild(editButton);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
