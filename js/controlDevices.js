@@ -23,7 +23,7 @@ export function isiCard(value) {
   const input = document.createElement("input");
   input.className = "toggle-checkbox";
   input.type = "checkbox";
-  input.checked = true;
+  input.checked = false;
   input.style.display = "none"; // Sembunyikan checkbox
 
   toggleSwitch.appendChild(input);
@@ -57,7 +57,7 @@ export function isiCard(value) {
                 d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z">
               </path>
             </svg>
-            <span id="status-${topic}"></span>
+            <span id="status-${topic}">OFF</span>
           </p>
           <br />
         </div>
