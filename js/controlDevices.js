@@ -50,7 +50,7 @@ export function isiCard(value) {
             </svg>
             ${name}
           </h3>
-          <p class="status text-sm text-green-500">
+          <p class="text-sm text-green-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 class="inline-block w-4 h-4 bi bi-arrow-down-short" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -76,7 +76,7 @@ export function isiCard(value) {
     const input = event.currentTarget.querySelector("input");
     input.checked = !input.checked;
 
-    const status = event.currentTarget.querySelector(".status");
+    const status = event.currentTarget.querySelector(".text-sm.text-green-500");
     if (input.checked) {
       status.textContent = "On";
     } else {
