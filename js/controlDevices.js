@@ -48,10 +48,6 @@ export function isiCard(value) {
     console.log(`Editing ${topic}`);
   });
 
-  // Tambahkan tombol ke dalam card
-  cardDiv.querySelector(".flex-shrink").appendChild(deleteButton);
-  cardDiv.querySelector(".flex-shrink").appendChild(editButton);
-
   toggleSwitch.appendChild(input);
 
   const label = document.createElement("label");
@@ -97,6 +93,8 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
+  cardDiv.querySelector(".flex-shrink").appendChild(deleteButton);
+  cardDiv.querySelector(".flex-shrink").appendChild(editButton);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
