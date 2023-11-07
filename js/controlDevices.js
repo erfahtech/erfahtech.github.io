@@ -1,17 +1,5 @@
-let mqttClient = null;
-
-// function connectToMqttBroker() {
-const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
-mqttClient = mqtt.connect(brokerUrl);
-
-mqttClient.on("connect", () => {
-  console.log("Terhubung ke broker MQTT");
-  // console.log(mqttClient.subscribe("test/topic"));
-});
-
-mqttClient.on("error", (error) => {
-  console.error("Kesalahan koneksi MQTT:", error);
-});
+// import mqqtt connection
+import mqttClient from "./mqttConnection";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
