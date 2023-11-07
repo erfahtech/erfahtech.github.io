@@ -34,6 +34,16 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(label);
 
+  // Buat elemen tombol Edit
+  const editButton = document.createElement("button");
+  editButton.className = "p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 absolute top-2 right-2";
+  editButton.textContent = "Edit";
+
+  // Buat elemen tombol Delete
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "p-2 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300 absolute top-2 right-10";
+  deleteButton.textContent = "Delete";
+
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
@@ -81,6 +91,8 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
+  cardDiv.appendChild(editButton);
+  cardDiv.appendChild(deleteButton);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
