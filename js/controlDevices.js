@@ -1,5 +1,5 @@
 // import mqqtt connection
-import mqttClient from "./mqttConnection";
+import mqttClient from "./mqttConnection.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
