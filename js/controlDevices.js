@@ -40,7 +40,7 @@ export function isiCard(value) {
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
-        <div class="flex-shrink max-w-full">
+        <div class="flex-shrink max-w-full sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
             <h3 class="text-lg font-bold mb-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
