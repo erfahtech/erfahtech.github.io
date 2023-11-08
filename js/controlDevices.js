@@ -40,7 +40,7 @@ export function isiCard(value) {
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
-        <div class="flex-shrink max-w-full w-1/2">
+        <div class="flex-shrink max-w-full">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
             <h3 class="text-lg font-bold mb-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -59,12 +59,7 @@ export function isiCard(value) {
                 </svg>
                 <span id="status-${topic}">OFF</span>
             </p>
-            <br />
-        </div>
-        <div class="flex-shrink max-w-full w-1/2">
-            <canvas class="max-w-100" id="LineAreaSm"
-                style="display: block; box-sizing: border-box; height: 66px; width: 132px"
-                width="528" height="264"></canvas>
+            <br/>
         </div>
     </div>
   </div>
