@@ -1,6 +1,5 @@
 
 import { URLGetDevice, responseData } from "./gettbl.js";
-// import { URLGetDevice, responseData } from "../js/device.control.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const get = (target_url, responseFunction) => {

@@ -2,7 +2,7 @@ import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
-export const cardDevice = `
+export const tableDevice = `
 <tr class="h-18 border-b border-coolGray-100">
     <td class="whitespace-nowrap px-4 bg-white text-left">
         <div class="flex items-center -m-2">
@@ -42,11 +42,11 @@ export const cardDevice = `
 
 export function responseData(results) {
     console.log(results);
-    results.data.forEach(isiCard);
+    results.data.forEach(isiTable);
 }
 
-export function isiCard(value) {
-    const content = cardDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
+export function isiTable(value) {
+    const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
     // .replace("#STATUS#", value.status);
     addInner("devices", content);
 }
