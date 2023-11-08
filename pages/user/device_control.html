@@ -93,7 +93,8 @@
           <p class="text-xs text-neutral-900 dark:text-neutral-100 tracking-[.0416em] leading-tight">Device Control</p>
         </a>
 
-        <a href="history.html" class="group min-h-[56px] w-1/4 md:w-auto flex flex-col items-center justify-center px-0 gap-1">
+        <a href="history.html"
+          class="group min-h-[56px] w-1/4 md:w-auto flex flex-col items-center justify-center px-0 gap-1">
           <div
             class="relative w-14 h-8 hover-icon group-hover:bg-secondary-100 dark:group-hover:bg-secondary-700 group-hover:bg-opacity-80 dark:group-hover:bg-opacity-80 flex items-center justify-center rounded-2xl">
             <span class="material-symbols-outlined">History</span>
@@ -101,7 +102,8 @@
           <p class="text-xs text-neutral-900 dark:text-neutral-100 tracking-[.0416em] leading-tight">History</p>
         </a>
 
-        <a href="profile.html" class="group min-h-[56px] w-1/4 md:w-auto flex flex-col items-center justify-center px-0 gap-1">
+        <a href="profile.html"
+          class="group min-h-[56px] w-1/4 md:w-auto flex flex-col items-center justify-center px-0 gap-1">
           <div
             class="relative w-14 h-8 hover-icon group-hover:bg-secondary-100 dark:group-hover:bg-secondary-700 group-hover:bg-opacity-80 dark:group-hover:bg-opacity-80 flex items-center justify-center rounded-2xl">
             <span class="material-symbols-outlined">manage_accounts</span>
@@ -135,7 +137,17 @@
     <div class="flex flex-col w-full gap-12 md:gap-2 overflow-hidden">
       <div class="flex flex-wrap w-full flex-col gap-8 md:p-10 bg-surface-100 dark:bg-surfacedark-100 rounded-2xl">
         <div class="flex flex-col gap-2">
-          <h2 class="text-xl leading-tight">Selamat Datang User</h2>
+          <div class="flex items-end justify-between">
+            <h2 class="text-xl leading-tight">Selamat Datang User</h2>
+            <div class="flex gap-2">
+              <button class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
+                Edit
+              </button>
+              <button class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover-bg-surface-300 focus-bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
+                Delete
+              </button>
+            </div>
+          </div>
           <div class="flex-shrink max-w-full w-full order-2 md:order-1 xl:w-2/3">
             <div id="devices" class="flex flex-wrap flex-row"></div>
             <div data-type="dialogs" data-target="#dialog_add" class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
