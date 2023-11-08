@@ -155,15 +155,42 @@
                 <div class="flex flex-col gap-2">
                     <h2 class="text-xl leading-tight">Selamat Datang User</h2>
 
-                    <div
-                        class="bg-neutral-10 dark:bg-neutral-900 p-6 md:p-8 border border-gray-200 dark:border-gray-700 rounded-2xl">
-                        <div class="flex flex-wrap gap-4 md:gap-12">
-                            
+                    <div class="bg-white p-4 rounded-xl shadow-xl items-center justify-center mt-1">
+                        <div class="space-x-0 items-center">
+                            <div class="mb-2">
+                                <input type="text" name="search" id="search" onkeyup="searchFunction()"
+                                    placeholder="Cari nama, npm, atau kelas.."
+                                    class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+                            <div class="overflow-hidden border border-coolGray-100 rounded-md shadow-dashboard">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full" id="iniTabelproyek1">
+                                        <p class="font-semibold text-base ml-2 mt-2 mb-2" id="textproyek1"></p>
+                                        <tr
+                                            class="whitespace-nowrap h-11 bg-coolGray-50 bg-opacity-80 border-b border-coolGray-100">
+                                            <th
+                                                class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left">
+                                                <div class="flex items-center">
+                                                    <p>Nama</p>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="px-4 font-semibold text-xs text-coolGray-500 uppercase text-left">
+                                                <div class="flex items-center">
+                                                    <p>Topic</p>
+                                                </div>
+                                            </th>
+                                            <th
+                                                class="whitespace-nowrap px-4 font-semibold text-xs text-coolGray-500 uppercase text-center">
+                                                Action</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
 
-                    <div id="device" class="flex flex-wrap flex-row"></div>
 
                     <class class="relative overflow-hidden">
                         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
@@ -193,7 +220,7 @@
     <script type="module" src="../../js/get-tbl.js"></script>
 
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/logout.js"></script>
-    
+
     <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authHalaman.js"></script> -->
     <script>
         localStorage.setItem("previousPageURL", window.location.href);
