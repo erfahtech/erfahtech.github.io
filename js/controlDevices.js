@@ -78,9 +78,11 @@ export function isiCard(value) {
     const payload = input.checked ? "1" : "0";
 
     if (mqttClient && mqttClient.connected) {
+      // Kirim payload ke topik
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
       statusSpan.textContent = input.checked ? "ON" : "OFF";
+      color = input.checked ? "text-green-500" : "text-red-500";
       // insertHistory();
     } else {
       console.error("Koneksi MQTT tidak aktif");
