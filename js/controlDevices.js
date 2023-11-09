@@ -78,7 +78,7 @@ export function isiCard(value) {
     const payload = input.checked ? "1" : "0";
 
     if (mqttClient && mqttClient.connected) {
-      // Kirim payload ke topik
+      // Kirim payload ke topik - mqtt.publish
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
 
