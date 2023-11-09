@@ -7,6 +7,7 @@ const mqttClient = mqtt.connect(brokerUrl);
 // Menetapkan event handler ketika koneksi berhasil terhubung
 mqttClient.on("connect", () => {
   console.log("Terhubung ke broker MQTT");
+  mqttClient.subscribe("urse/#");
 });
 
 // Menetapkan event handler untuk menangani kesalahan koneksi MQTT
