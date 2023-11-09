@@ -2,15 +2,15 @@
 import mqttClient from "./mqttConnection.js";
 
 // Function to create a card with the received message
-function createMessageCard(message) {
-  const cardDiv = document.createElement("div");
-  cardDiv.className = "message-card";
-  cardDiv.innerHTML = `<p>${message}</p>`;
-  document.getElementById("messagesContainer").appendChild(cardDiv);
-}
+// function createMessageCard(message) {
+//   const cardDiv = document.createElement("div");
+//   cardDiv.className = "message-card";
+//   cardDiv.innerHTML = `<p>${message}</p>`;
+//   document.getElementById("messagesContainer").appendChild(cardDiv);
+// }
 
 // Subscribe to a topic
-const topicToSubscribe = "your/topic"; // Replace with the actual topic
+const topicToSubscribe = "urse/#"; // Replace with the actual topic
 mqttClient.subscribe(topicToSubscribe);
 
 // Listen for incoming messages on the subscribed topic
