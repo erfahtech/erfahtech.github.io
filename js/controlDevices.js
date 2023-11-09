@@ -81,8 +81,11 @@ export function isiCard(value) {
       // Kirim payload ke topik
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
+
+      // Ubah teks status
       statusSpan.textContent = input.checked ? "ON" : "OFF";
-      color = input.checked ? "text-green-500" : "text-red-500";
+      statusSpan.style.color = input.checked ? "green" : "red";
+
       // insertHistory();
     } else {
       console.error("Koneksi MQTT tidak aktif");
