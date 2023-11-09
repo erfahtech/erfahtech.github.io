@@ -19,7 +19,7 @@ mqttClient.on("message", (topic, message) => {
   console.log(`Received message on topic ${topic}: ${receivedMessage}`);
 
   // Display the received message in a card
-  createMessageCard(receivedMessage);
+  //   createMessageCard(receivedMessage);
 });
 
 // Handle errors in MQTT connection
