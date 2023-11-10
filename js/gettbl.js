@@ -59,38 +59,20 @@ export const tableDevice = `
 </tr>
 `;
 
-// Menambahkan event listener pada tombol "Edit"
-document.querySelectorAll('.edit-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const dialog = document.getElementById('dialog_edit'); // Ganti dengan ID dialog Anda
+export function showEditDialog(index) {
+    const dialog = document.getElementById('edit-dialog');
+    dialog.style.display = 'block';
+    const device = tableDevice.devices[index];
+    const nameInput = document.getElementById('device-name');
+    const topicInput = document.getElementById('device-topic');
+    nameInput.value = device.name;
+    topicInput.value = device.topic;
+}
 
-        // Tampilkan dialog
-        dialog.style.display = 'block';
-
-        // Mendapatkan nilai dari kolom #NAME# dan #TOPIC# untuk diedit
-        const name = button.closest('tr').querySelector('.text-coolGray-800').textContent.trim();
-        const topic = button.closest('tr').querySelector('.text-coolGray-500').textContent.trim();
-
-        // Isi nilai kolom pada dialog
-        document.getElementById('isiName').value = name;
-        document.getElementById('isiTopic').value = topic;
-
-        // Setelah pengguna selesai mengedit, Anda dapat menangani penyimpanan perubahan dengan mengatur event handler pada tombol "Save" di dalam dialog.
-        const saveButton = dialog.querySelector('.btn');
-        saveButton.addEventListener('click', () => {
-            // Lakukan logika untuk menyimpan perubahan di sini
-
-            // Setelah selesai, sembunyikan dialog
-            dialog.style.display = 'none';
-        });
-
-        // Atau Anda juga bisa menambahkan event listener untuk tombol "Cancel" di dalam dialog untuk menyembunyikan dialog saat tombol "Cancel" ditekan.
-        const cancelButton = dialog.querySelector('.closeDialog');
-        cancelButton.addEventListener('click', () => {
-            dialog.style.display = 'none';
-        });
-    });
-});
+export function closeEditDialog() {
+    const dialog = document.getElementById('edit-dialog');
+    dialog.style.display = 'none';
+}
 
 
 export function responseData(results) {

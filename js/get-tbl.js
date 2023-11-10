@@ -1,5 +1,5 @@
 
-import { URLGetDevice, responseData } from "./gettbl.js";
+import { URLGetDevice, responseData, showEditDialog, closeEditDialog } from "./gettbl.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const get = (target_url, responseFunction) => {
@@ -18,4 +18,4 @@ const get = (target_url, responseFunction) => {
     .catch((error) => console.log("error", error));
 };
 
-get(URLGetDevice, responseData);
+get(URLGetDevice, responseData, showEditDialog, closeEditDialog);
