@@ -4,22 +4,28 @@ import mqttClient from "./mqttConnection.js";
 // Function to update the temperature on the card
 function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature");
-  temperatureElement.textContent = `Indoor Temperature: ${temperature}°C`;
+  if (temperatureElement) {
+    temperatureElement.textContent = temperature ? `Indoor Temperature: ${temperature}°C` : "Indoor Temperature: --";
+  }
 }
 
 // Function to update the humidity on the card
 function updateHumidity(humidity) {
   const humidityElement = document.getElementById("humidity");
-  humidityElement.textContent = `Indoor Humidity: ${humidity}%`;
+  if (humidityElement) {
+    humidityElement.textContent = humidity ? `Indoor Humidity: ${humidity}%` : "Indoor Humidity: --";
+  }
 }
 
-// Subscribe to topics
-const temperatureTopic = "urse/suhu";
-const humidityTopic = "urse/humidity";
+// Listen for successful MQTT connection
+mqttClient.on("connect", () => {
+  console.log("Terhubung ke broker MQTT");
 
-mqttClient.subscribe(temperatureTopic);
-mqttClient.subscribe(humidityTopic);
-console.log(`Berlangganan ke topik ${temperatureTopic} dan ${humidityTopic}`);
+  // Subscribe to topics
+  mqttClient.subscribe("urse/suhu");
+  mqttClient.subscribe("urse/humidity");
+  console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
+});
 
 // Listen for incoming messages on the subscribed topics
 mqttClient.on("message", (topic, message) => {
@@ -27,9 +33,9 @@ mqttClient.on("message", (topic, message) => {
   console.log(`Received message on topic ${topic}: ${receivedMessage}`);
 
   // Update card based on the received topic and message
-  if (topic === temperatureTopic) {
+  if (topic === "urse/suhu") {
     updateTemperature(receivedMessage);
-  } else if (topic === humidityTopic) {
+  } else if (topic === "urse/humidity") {
     updateHumidity(receivedMessage);
   }
 });
@@ -37,4 +43,7 @@ mqttClient.on("message", (topic, message) => {
 // Handle errors in MQTT connection
 mqttClient.on("error", (error) => {
   console.error("Kesalahan koneksi MQTT:", error);
+  // Update card with placeholders when there is an error
+  updateTemperature(null);
+  updateHumidity(null);
 });
