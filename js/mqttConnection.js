@@ -1,8 +1,14 @@
 // Mendefinisikan URL broker MQTT yang akan dihubungi
 const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
+const clientId = "urse-user";
+const password = "urse-secret";
 
-// Membuat koneksi MQTT menggunakan URL broker
-const mqttClient = mqtt.connect(brokerUrl);
+// Membuat koneksi MQTT menggunakan URL broker dan informasi klien
+const mqttClient = mqtt.connect(brokerUrl, {
+  clientId: clientId,
+  username: clientId,
+  password: password,
+});
 
 // Menetapkan event handler ketika koneksi berhasil terhubung
 mqttClient.on("connect", () => {
