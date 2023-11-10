@@ -6,13 +6,13 @@ export const tableDevice = `
 <tr class="h-18 border-b border-coolGray-100">
     <td class="whitespace-nowrap px-6 bg-white text-left">
         <div class="flex items-center">
-                <p class="text-xs font-semibold text-coolGray-800">
+                <p class=" font-semibold text-coolGray-800">
                 #NAME#
                 </p>
     </td>
     <td class="whitespace-nowrap px-6 bg-white text-left">
     <div class="flex items-center">
-            <p class="text-xs font-semibold text-coolGray-500">#TOPIC#</p>
+            <p class=" font-semibold text-coolGray-500">#TOPIC#</p>
     </div>
     </td>
     <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
