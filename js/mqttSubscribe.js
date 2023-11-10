@@ -27,3 +27,6 @@ mqttClient.on("message", (topic, message) => {
 mqttClient.on("error", (error) => {
   console.error("Kesalahan koneksi MQTT:", error);
 });
+
+window.mqttClient = mqttClient;
+window.topicToSubscribe = topicToSubscribe;
