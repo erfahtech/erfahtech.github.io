@@ -62,7 +62,7 @@ export const tableDevice = `
 // Menambahkan event listener pada tombol "Edit"
 document.querySelectorAll('.edit-button').forEach(button => {
     button.addEventListener('click', () => {
-        const dialog = document.getElementById('your-dialog-id'); // Ganti dengan ID dialog Anda
+        const dialog = document.getElementById('dialog_edit'); // Ganti dengan ID dialog Anda
 
         // Tampilkan dialog
         dialog.style.display = 'block';
