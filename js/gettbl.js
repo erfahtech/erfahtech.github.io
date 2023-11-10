@@ -48,5 +48,5 @@ export function responseData(results) {
 export function isiTable(value) {
     const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
     // .replace("#STATUS#", value.status);
-    addInner("devices", content);
+    addInner("device", content);
 }
