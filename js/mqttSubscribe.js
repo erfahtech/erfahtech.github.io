@@ -17,15 +17,10 @@ function updateHumidity(humidity) {
   }
 }
 
-// Listen for successful MQTT connection
-mqttClient.on("connect", () => {
-  console.log("Terhubung ke broker MQTT");
-
-  // Subscribe to topics
-  mqttClient.subscribe("urse/suhu");
-  mqttClient.subscribe("urse/humidity");
-  console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
-});
+// Subscribe to topics
+mqttClient.subscribe("urse/suhu");
+mqttClient.subscribe("urse/humidity");
+console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
 
 // Listen for incoming messages on the subscribed topics
 mqttClient.on("message", (topic, message) => {
