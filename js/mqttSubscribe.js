@@ -10,8 +10,9 @@ import mqttClient from "./mqttConnection.js";
 // }
 
 // Subscribe to a topic
-const topicToSubscribe = "urse/#"; // Replace with the actual topic
+const topicToSubscribe = "urse/#"; // Change this to your topic
 mqttClient.subscribe(topicToSubscribe);
+console.log(`Berlangganan ke topik ${topicToSubscribe}`);
 
 // Listen for incoming messages on the subscribed topic
 mqttClient.on("message", (topic, message) => {
