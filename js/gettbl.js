@@ -16,8 +16,16 @@ export const tableDevice = `
     </div>
     </td>
     <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-     <button class="edit-button">Edit</button>
-     <button class="delete-button">Delete</button>
+     <button class="edit-button">
+        <span class="material-symbols-outlined">
+        edit
+        </span>
+     </button>
+     <button class="delete-button">
+        <span class="material-symbols-outlined">
+        delete
+        </span>
+     </button>
      </td>
     </td>
 </tr>
@@ -39,14 +47,14 @@ export const tableDevice = `
 //     </td>
 //     <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
 //         <button id="edit_button" title="Edit">
-//             <span class="material-symbols-outlined">
-//                 edit
-//             </span>
+            // <span class="material-symbols-outlined">
+            //     edit
+            // </span>
 //         </button>
 //         <button type="button" id="del_button" onclick="" title="Delete">
-//             <span class="material-symbols-outlined">
-//                 delete
-//             </span>
+            // <span class="material-symbols-outlined">
+            //     delete
+            // </span>
 //         </button>
 //     </td>
 // </tr>
