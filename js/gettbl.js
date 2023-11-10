@@ -4,18 +4,18 @@ export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions
 
 export const tableDevice = `
 <tr class="h-18 border-b border-coolGray-100">
-    <td class="whitespace-nowrap px-4 bg-white text-left">
+    <td class="whitespace-nowrap px-6 bg-white text-left">
         <div class="flex items-center">
                 <p class="text-xs font-semibold text-coolGray-800">
                 #NAME#
                 </p>
     </td>
-    <td class="whitespace-nowrap px-4 bg-white text-left">
+    <td class="whitespace-nowrap px-6 bg-white text-left">
     <div class="flex items-center">
             <p class="text-xs font-semibold text-coolGray-500">#TOPIC#</p>
     </div>
     </td>
-    <td class="whitespace-nowrap px-4 bg-white text-sm font-medium text-coolGray-800 text-center">
+    <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
     <a type="button" href="#" class="mr-4" title="Edit">
             <span class="material-symbols-outlined">
             edit
