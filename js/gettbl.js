@@ -45,11 +45,11 @@ export const tableDevice = `
         </div>
     </td>
     <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-        <a type="button" href="#" class="mr-4 edit-button" title="Edit">
+        <button class="mr-4 edit-button" title="Edit">
             <span class="material-symbols-outlined">
                 edit
             </span>
-        </a>
+        </button>
         <button type="button" id="del_button" onclick="" title="Delete">
             <span class="material-symbols-outlined">
                 delete
