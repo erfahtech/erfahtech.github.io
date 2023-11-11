@@ -1,3 +1,6 @@
+
+
+
 function deleteDevice(IDDelDevice) {
     Swal.fire({
       title: "Are you sure?",
@@ -10,7 +13,7 @@ function deleteDevice(IDDelDevice) {
     }).then((result) => {
       if (result.isConfirmed) {
         var _id = IDDelDevice;
-        var target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice" + _id;
+        var target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice/" + _id;
   
         var requestOptions = {
           method: "DELETE",
