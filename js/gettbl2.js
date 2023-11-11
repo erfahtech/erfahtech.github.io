@@ -2,6 +2,8 @@ import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
+
+
 export const tableDevice = `
 <tr data-index="0">
 <td>
@@ -40,18 +42,18 @@ export function isiTable(value) {
 
     const checkbox = document.querySelector('input[name="check_a"]');
 
-        // Dapatkan elemen hidden-action
-        const hiddenAction = document.getElementById('hidden-act');
+    // Dapatkan elemen hidden-action
+    const hiddenAction = document.getElementById('hidden-act');
 
-        // Tambahkan event listener untuk perubahan pada kotak centang
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                // Jika kotak centang aktif, tampilkan hidden action
-                hiddenAction.classList.add('show');
-            } else {
-                // Jika kotak centang tidak aktif, sembunyikan hidden action
-                hiddenAction.classList.remove('show');
-            }
-        });
+    // Tambahkan event listener untuk perubahan pada kotak centang
+    checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            // Jika kotak centang aktif, tampilkan hidden action
+            hiddenAction.classList.add('show');
+        } else {
+            // Jika kotak centang tidak aktif, sembunyikan hidden action
+            hiddenAction.classList.remove('show');
+        }
+    });
 
 }
