@@ -38,7 +38,7 @@ export function responseData(results) {
 
 export function isiTable(value) {
     const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
-    addInner("device", content);
+    addInner("devices", content);
 
     const editButtons = document.querySelectorAll('.edit-button');
     editButtons.forEach((button, index) => {
