@@ -26,3 +26,5 @@ function updateClock() {
 
 // Initial call to update the clock
 updateClock();
+
+window.updateClock = updateClock;
