@@ -25,9 +25,19 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<td><a href="#"
-        class="hover:text-primary-600 dark:hover:text-primary-200">edit</a>
+<td>
+<button class="edit-button">
+        <span class="material-symbols-outlined">
+        edit
+        </span>
+    </button>
+    <button onclick="deleteDevice('#IDHAPUS#') class="delete-button">
+        <span class="material-symbols-outlined">
+        delete
+        </span>
+    </button>
 </td>
+
 </tr>
 `;
 
@@ -37,7 +47,10 @@ export function responseData(results) {
 }
 
 export function isiTable(value) {
-    const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
+    const content = 
+    tableDevice.replace("#TOPIC#", value.topic)
+                .replace("#NAME#", value.name)
+                .replace("#IDHAPUS#", value.id);
     addInner("device", content);
 
     const checkbox = document.querySelector('input[name="check_a"]');
