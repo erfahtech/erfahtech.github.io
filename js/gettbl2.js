@@ -25,10 +25,17 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<td><a href="#"
-        class="hover:text-primary-600 dark:hover:text-primary-200">Edit</a>
-        a href="#"
-        <a href="#" onclick="deleteDataProyek('#IDHAPUS#') class="hover:text-primary-600 dark:hover:text-primary-200">Delete</a>
+<td>
+<button class="edit-button">
+        <span class="material-symbols-outlined">
+        edit
+        </span>
+    </button>
+    <button onclick="deleteDataProyek('#IDHAPUS#') class="delete-button">
+        <span class="material-symbols-outlined">
+        delete
+        </span>
+    </button>
 </td>
 
 </tr>
