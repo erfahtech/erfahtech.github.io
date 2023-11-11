@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
             .then((result) => responseFunction(JSON.parse(result)))
             .catch((error) => console.log("error", error));
     };
+
+    get(URLGetDevice, responseData);
 });
 
 
-get(URLGetDevice, responseData);
+
