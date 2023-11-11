@@ -42,3 +42,7 @@ mqttClient.on("error", (error) => {
   updateTemperature(null);
   updateHumidity(null);
 });
+
+// window.mqttClient = mqttClient;
+// window.updateTemperature = updateTemperature;
+// window.updateHumidity = updateHumidity;
