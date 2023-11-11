@@ -1,6 +1,6 @@
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
-import { urlPUT, AmbilResponse } from "./urlPutProfileMhs.js";
+import { urlPUT, AmbilResponse } from "./urlputDevice.js";
 
 
 const putData = (target_url, datajson, responseFunction) => {
