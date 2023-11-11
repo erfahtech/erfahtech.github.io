@@ -47,26 +47,69 @@ export function responseData(results) {
 }
 
 export function isiTable(value) {
-    const content = 
-    tableDevice.replace("#TOPIC#", value.topic)
-                .replace("#NAME#", value.name)
-                .replace("#IDHAPUS#", value._id);
+    const content =
+        tableDevice.replace("#TOPIC#", value.topic)
+            .replace("#NAME#", value.name)
+            .replace("#IDHAPUS#", value._id);
     addInner("device", content);
 
-    const checkbox = document.querySelector('input[name="check_a"]');
+    const selectall = document.querySelector("#checkall");
+    const hidden_act = document.querySelector('#hidden-act');
 
-    // Dapatkan elemen hidden-action
-    const hiddenAction = document.getElementById('hidden-act');
+    if (selectall != null) {
+        selectall.addEventListener("click", function () {
+            let ele = document.querySelectorAll('.checked-item');
 
-    // Tambahkan event listener untuk perubahan pada kotak centang
-    checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            // Jika kotak centang aktif, tampilkan hidden action
-            hiddenAction.classList.add('show');
-        } else {
-            // Jika kotak centang tidak aktif, sembunyikan hidden action
-            hiddenAction.classList.remove('show');
+            if (selectall.checked == true) {
+                for (var i = 0; i < ele.length; i++) {
+                    if (ele[i].type == 'checkbox')
+                        ele[i].checked = true;
+                    hidden_act.classList.add("show");
+                    ele[i].parentNode.parentNode.parentNode.classList.add("selected");
+                }
+            } else {
+                for (var i = 0; i < ele.length; i++) {
+                    if (ele[i].type == 'checkbox')
+                        ele[i].checked = false;
+                    hidden_act.classList.remove("show");
+                    ele[i].parentNode.parentNode.parentNode.classList.remove("selected");
+                }
+            }
+        });
+
+        // if checked item
+        let elem = document.querySelectorAll('.checked-item');
+        // Process loop items
+        function processLoopItems(items) {
+            for (let i = 0; i < items.length; i++) {
+                items[i].addEventListener("click", function () {
+                    items[i].parentNode.parentNode.parentNode.classList.remove("selected");
+                    // uncheck all checkbox
+                    const empty = [].filter.call(items, function (el) {
+                        return !el.checked
+                    });
+                    if (items.length == empty.length) {
+                        hidden_act.classList.remove("show");
+                        return false;
+                    } else if (items.length > empty.length) {
+                        hidden_act.classList.add("show");
+                    }
+                    if (this.checked == true) {
+                        items[i].parentNode.parentNode.parentNode.classList.add("selected");
+                    }
+                });
+            }
         }
-    });
+        // Call
+        const initialLoopItems = document.querySelectorAll(".checked-item");
+        processLoopItems(initialLoopItems);
+        window.addEventListener("click", function () {
+            // Recalculate
+            const updatedLoopItems = document.querySelectorAll(".checked-item");
+
+            // updated loop items
+            processLoopItems(updatedLoopItems);
+        });
+    }
 
 }
