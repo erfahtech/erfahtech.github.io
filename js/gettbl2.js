@@ -25,7 +25,7 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<td>
+<td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
 <button class="edit-button">
         <span class="material-symbols-outlined">
         edit

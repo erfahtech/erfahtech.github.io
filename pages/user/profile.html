@@ -242,14 +242,20 @@
                         <div id="hidden-act"
                             class="opacity-0 [&amp;.show]:opacity-100 transition duration-400 ease-in-out flex flex-row gap-3 items-center">
                             <button
-                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400"><span
-                                    aria-label="Download" data-microtip-position="top" role="tooltip"
-                                    class="material-symbols-outlined">download</span></button>
+                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
+                                <span aria-label="Download" data-microtip-position="top" role="tooltip"
+                                    class="material-symbols-outlined">
+                                    download
+                                </span>
+                            </button>
 
-                            <button onclick="deleteDevice()" id="delete"
-                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400"><span
-                                    aria-label="Delete" data-microtip-position="top" role="tooltip"
-                                    class="material-symbols-outlined">delete</span></button>
+                            <button onclick="deleteDevice()" id="button_delete"
+                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
+                                <span aria-label="Delete" data-microtip-position="top" role="tooltip"
+                                    class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -367,7 +373,7 @@
     <script src="../../js/tailmater.js"></script>
     <script type="module" src="../../js/get-tbl.js"></script>
     <script type="module" src="../../js/get-tbl2.js"></script>
-    <script type="module" src="../../js/delete/deletaDevice.js"></script>
+    <script src="../../js/delete/deletaDevice.js"></script>
 
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/logout.js"></script>
 
