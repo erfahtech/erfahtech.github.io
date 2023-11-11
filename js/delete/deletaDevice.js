@@ -9,8 +9,8 @@ function deleteDevice(IDDelDevice) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        var user = IDDelDevice;
-        var target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice" + user;
+        var _id = IDDelDevice;
+        var target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice" + _id;
   
         var requestOptions = {
           method: "DELETE",
