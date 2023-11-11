@@ -5,7 +5,7 @@ import mqttClient from "./mqttConnection.js";
 function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature");
   if (temperatureElement) {
-    temperatureElement.textContent = temperature ? `Indoor Temperature: ${temperature}°C` : "Indoor Temperature: --";
+    temperatureElement.textContent = temperature ? ` ${temperature}°C` : "--°C";
   }
 }
 
@@ -13,7 +13,7 @@ function updateTemperature(temperature) {
 function updateHumidity(humidity) {
   const humidityElement = document.getElementById("humidity");
   if (humidityElement) {
-    humidityElement.textContent = humidity ? `Indoor Humidity: ${humidity}%` : "Indoor Humidity: --";
+    humidityElement.textContent = humidity ? ` ${humidity}%` : "--%";
   }
 }
 
