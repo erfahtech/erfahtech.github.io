@@ -50,7 +50,7 @@ export function isiTable(value) {
     const content =
         tableDevice.replace("#TOPIC#", value.topic)
             .replace("#NAME#", value.name)
-            .replace("#IDHAPUS#", value.user);
+            .replace("#IDHAPUS#", value.id);
     addInner("device", content);
 
     const selectall = document.querySelector("#checkall");
