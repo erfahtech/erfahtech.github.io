@@ -38,4 +38,20 @@ export function isiTable(value) {
     const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
     addInner("device", content);
 
+    const checkbox = document.querySelector('input[name="check_a"]');
+
+        // Dapatkan elemen hidden-action
+        const hiddenAction = document.getElementById('hidden-act');
+
+        // Tambahkan event listener untuk perubahan pada kotak centang
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                // Jika kotak centang aktif, tampilkan hidden action
+                hiddenAction.classList.add('show');
+            } else {
+                // Jika kotak centang tidak aktif, sembunyikan hidden action
+                hiddenAction.classList.remove('show');
+            }
+        });
+
 }
