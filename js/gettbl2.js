@@ -31,7 +31,7 @@ export const tableDevice = `
         edit
         </span>
     </button>
-    <button onclick="deleteDevice('#IDHAPUS#') class="delete-button">
+    <button type="button" id="del_button" onclick="deleteDevice('#IDHAPUS#')" title="Delete" class="delete-button">
         <span class="material-symbols-outlined">
         delete
         </span>
