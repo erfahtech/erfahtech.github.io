@@ -7,13 +7,6 @@ export const tableDevice = `
 <td>
     <div class="flex items-center gap-3">
         <div class="flex flex-col">
-            <h4 class="font-semibold">#IDHAPUS#.</h4>
-        </div>
-    </div>
-</td>
-<td>
-    <div class="flex items-center gap-3">
-        <div class="flex flex-col">
             <h4 class="font-semibold">#NAME#.</h4>
         </div>
     </div>
