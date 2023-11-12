@@ -77,18 +77,18 @@ export function isiCard(value) {
 
     const payload = input.checked ? "1" : "0";
 
-    if (mqttClient && mqttClient.connected) {
-      // Kirim payload ke topik - mqtt.publish
-      mqttClient.publish(topic, payload);
-      console.log(`Mengirim payload ${payload} ke topik ${topic}`);
+    // if (mqttClient && mqttClient.connected) {
+    // Kirim payload ke topik - mqtt.publish
+    mqttClient.publish(topic, payload);
+    console.log(`Mengirim payload ${payload} ke topik ${topic}`);
 
-      // Ubah teks status
-      statusSpan.textContent = input.checked ? "ON" : "OFF";
-      statusSpan.style.color = input.checked ? "green" : "red";
+    // Ubah teks status
+    statusSpan.textContent = input.checked ? "ON" : "OFF";
+    statusSpan.style.color = input.checked ? "green" : "red";
 
-      // insertHistory();
-    } else {
-      console.error("Koneksi MQTT tidak aktif");
-    }
+    // insertHistory();
+    // } else {
+    //   console.error("Koneksi MQTT tidak aktif");
+    // }
   });
 }
