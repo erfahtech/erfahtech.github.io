@@ -1,14 +1,14 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const editDevice = async (IDEDIT, Name, Topic) => {
+const editDevice = async (IDEDIT, name, topic) => {
     const deviceId = IDEDIT;
-    console.log("device id= " + deviceId);
+    // console.log("device id= " + deviceId);
 
     const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
         title: 'Edit Device',
         html:
-            `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${Name}">
-            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${Topic}">`,
+            `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${name}">
+            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${topic}">`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
