@@ -2,7 +2,6 @@ import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const deleteDevice = async (IDHAPUS) => {
   const deviceId = IDHAPUS;
-  const authorizationToken = getCookie("Authorization");
 
   const isConfirmed = await Swal.fire({
     title: "Apakah Anda yakin ingin menghapus device ini?",
@@ -16,7 +15,7 @@ const deleteDevice = async (IDHAPUS) => {
 
   if (isConfirmed.isConfirmed) {
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", authorizationToken);
+    myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
     const target_url =
       "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice?id/" +
