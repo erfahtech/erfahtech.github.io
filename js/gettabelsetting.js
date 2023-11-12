@@ -41,7 +41,7 @@ export function isiTable(value) {
     const content = tableDevice
         .replace("#TOPIC#", value.topic)
         .replace("#NAME#", value.name)
-        .replace(/#IDEDIT#/, value.id)
+        .replace(/#IDEDIT#/g, value.id)
         .replace(/#IDHAPUS#/g, value.id);
     addInner("devices", content);
 }
