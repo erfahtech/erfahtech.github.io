@@ -2,8 +2,6 @@ import { addInner } from "https://jscroot.github.io/element/croot.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
 
-
-
 export const tableDevice = `
 <tr>
 <td>
@@ -19,32 +17,33 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-<button class="edit-button">
-        <span class="material-symbols-outlined">
-        edit
-        </span>
-    </button>
-    <a id="delete_b" onclick="deleteDevice('#IDHAPUS#')" title="Delete">
-        <span class="material-symbols-outlined">
-        delete
-        </span>
+<div class="flex justify-between px-6 py-1.5">
+  <div>
+    <a
+      href="editMagang?magangId=#IDEDIT#"
+      class="inline-flex items-center px-2 cursor-pointer text-sm text-green-600 decoration-2 hover:underline font-medium"
+    >
+      Edit
     </a>
-</td>
-
+  </div>
+  <div>
+    <a
+      class="inline-flex items-center cursor-pointer text-sm text-red-600 decoration-2 hover:underline font-medium"
+      onclick="deleteDevice('#IDHAPUS#')"
+    >
+      Delete
+    </a>
+  </div>
+</div>
 </tr>
 `;
 
 export function responseData(results) {
-    console.log(results);
-    results.data.forEach(isiTable);
+  console.log(results);
+  results.data.forEach(isiTable);
 }
 
 export function isiTable(value) {
-    const content =
-        tableDevice.replace("#TOPIC#", value.topic)
-            .replace("#NAME#", value.name)
-            .replace("#IDHAPUS#", value._id);
-    addInner("devices", content);
-
+  const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name).replace("#IDHAPUS#", value._id);
+  addInner("devices", content);
 }
