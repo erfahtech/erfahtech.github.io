@@ -18,9 +18,13 @@ function updateHumidity(humidity) {
 }
 
 // Subscribe to topics
-mqttClient.subscribe("urse/suhu");
-mqttClient.subscribe("urse/humidity");
-console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
+if (mqttClient.connected) {
+  mqttClient.subscribe("urse/suhu");
+  mqttClient.subscribe("urse/humidity");
+  console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
+} else {
+  console.log("Klien MQTT belum terhubung");
+}
 
 // Listen for incoming messages on the subscribed topics
 mqttClient.on("message", (topic, message) => {
