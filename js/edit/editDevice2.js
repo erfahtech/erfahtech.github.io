@@ -20,15 +20,15 @@ export function updatetWithBearer(target_url, token, datajson, responseFunction)
     .catch((error) => console.log("error", error));
 }
 
-const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
+const editDevice = async (IDEDIT, NAME, TOPIC) => {
   const deviceId = IDEDIT;
-  const deviceName = DeviceName; // Nama perangkat
-  const deviceTopic = DeviceTopic;
+  const deviceName = NAME;
+  const deviceTopic = TOPIC;
 
   const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
     title: "Edit Device",
-    html: `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${DeviceName}">
-                <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${DeviceTopic}">`,
+    html: `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${deviceName}">
+                <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${deviceTopic}">`,
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
