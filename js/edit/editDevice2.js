@@ -48,7 +48,7 @@ const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
       const myHeaders = new Headers();
       myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
-      const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-editdevice?id=${deviceId}`;
+      const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatedevice?id=${deviceId}`;
 
       const requestBody = {
         name: newName,
