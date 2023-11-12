@@ -24,6 +24,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
   const deviceId = IDEDIT;
   const deviceName = NAME;
   const deviceTopic = TOPIC;
+  console.log("Edit device called:", IDEDIT, NAME, TOPIC);
 
   const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
     title: "Edit Device",
