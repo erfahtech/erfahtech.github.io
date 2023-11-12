@@ -18,7 +18,7 @@ export const tableDevice = `
     </span>
 </td>
 <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-<button onclick="editDevice('#IDEDIT#')" title="Edit">
+<button onclick="editDevice('#IDEDIT#', '#NAME#', '#TOPIC#')" title="Edit">
         <span class="material-symbols-outlined">
         edit
         </span>
@@ -33,15 +33,15 @@ export const tableDevice = `
 `;
 
 export function responseData(results) {
-    console.log(results);
-    results.data.forEach(isiTable);
+  console.log(results);
+  results.data.forEach(isiTable);
 }
 
 export function isiTable(value) {
-    const content = tableDevice
-        .replace("#TOPIC#", value.topic)
-        .replace("#NAME#", value.name)
-        .replace(/#IDEDIT#/g, value.id)
-        .replace(/#IDHAPUS#/g, value.id);
-    addInner("devices", content);
+  const content = tableDevice
+    .replace("#TOPIC#", value.topic)
+    .replace("#NAME#", value.name)
+    .replace(/#IDEDIT#/g, value.id)
+    .replace(/#IDHAPUS#/g, value.id);
+  addInner("devices", content);
 }
