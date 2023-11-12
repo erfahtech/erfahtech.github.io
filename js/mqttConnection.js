@@ -32,5 +32,8 @@ const getMqttClient = () => {
   return mqttClient;
 };
 
+// Immediately establish the MQTT connection when the script is loaded
+getMqttClient();
+
 // Export the getMqttClient function
 export default getMqttClient;
