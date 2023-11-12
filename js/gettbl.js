@@ -37,6 +37,8 @@ export function responseData(results) {
 }
 
 export function isiTable(value) {
-    const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name).replace("#IDHAPUS#", value._id);
+    const content = tableDevice.replace("#TOPIC#", value.topic)
+        .replace("#NAME#", value.name)
+        .replace("#IDHAPUS#", value._id);
     addInner("devices", content);
 }

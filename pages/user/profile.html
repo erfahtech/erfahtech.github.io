@@ -174,9 +174,9 @@
                                                 Action</th>
                                         </tr> -->
 
-                                        <!-- isi table -->
-                                        <!-- end isi table -->
-                                    <!-- </table>
+            <!-- isi table -->
+            <!-- end isi table -->
+            <!-- </table>
                                     <div id="editDialog"
                                         class="edit-dialog [&.show_.backDialog]:opacity-60 [&.show]:opacity-100 [&.show]:h-full [&.show_.backDialog]:block [&.show_.backDialog]:inset-0 [&.show]:inset-0 duration-[400ms] ease-[cubic-bezier(0, 0, 0, 1)] opacity-0 w-full h-0 z-50 overflow-auto fixed left-0 top-0 flex items-center justify-center"
                                         style="display: none;">
@@ -233,8 +233,32 @@
 
             <div class="main-content flex-grow min-h-[100%] py-20 relative px-4 lg:pr-8 lg:pl-3">
                 <!-- heading -->
+
                 <div class="flex flex-row justify-between items-center pt-2 pb-6">
-                    <h2 class="text-title-lg">Selamat Datang User</h2>
+                    <h2 class="text-title-lg">Selamat Darang User</h2>
+
+                    <!-- action -->
+                    <div class="flex flex-row gap-3 items-center">
+                        <!-- hidden action -->
+                        <div id="hidden-act"
+                            class="opacity-0 [&amp;.show]:opacity-100 transition duration-400 ease-in-out flex flex-row gap-3 items-center">
+                            <button
+                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400"><span
+                                    aria-label="Export CSV" data-microtip-position="top" role="tooltip"
+                                    class="material-symbols-outlined">download</span></button>
+
+                            <button
+                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400"><span
+                                    aria-label="Delete" data-microtip-position="top" role="tooltip"
+                                    class="material-symbols-outlined">delete</span></button>
+                        </div>
+                        <!-- add new -->
+                        <button data-type="dialogs" data-target="#dialog_a"
+                            class="btn relative flex flex-row items-center justify-center gap-x-2 py-2 px-4 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
+                            <span class="material-symbols-outlined">add</span>
+                            Add New
+                        </button>
+                    </div>
                 </div>
 
                 <!-- content 1 -->
@@ -250,12 +274,6 @@
                                         <input class="datatable-input" placeholder="Search..." type="search"
                                             title="Search within table">
                                     </div>
-                                    <!-- add new -->
-                                    <button data-type="dialogs" data-target="#dialog_a"
-                                        class="btn relative flex flex-row items-center justify-center gap-x-2 py-2 px-4 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
-                                        <span class="material-symbols-outlined">add</span>
-                                        Add New
-                                    </button>
                                 </div>
                                 <div class="datatable-container">
                                     <table class="table-sorter table-bordered-bottom table-hover datatable-table">
@@ -266,7 +284,7 @@
                                                 <th style="width: auto">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="device">
+                                        <tbody id="devices">
                                             <!-- isi table -->
                                             <!-- end isi table -->
                                         </tbody>
@@ -306,7 +324,7 @@
     <script src="../../js/tailmater.js"></script>
     <script type="module" src="../../js/get-tbl.js"></script>
     <script type="module" src="../../js/get-tbl2.js"></script>
-    <script src="../../js/delete/deletaDevice.js"></script>
+    <script src="../../js/delete/deleteDevice.js"></script>
 
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/logout.js"></script>
 
@@ -314,69 +332,6 @@
     <script>
         localStorage.setItem("previousPageURL", window.location.href);
     </script>
-
-    <!-- check all -->
-    <script>
-        const selectall = document.querySelector("#checkall");
-        const hidden_act = document.querySelector('#hidden-act');
-
-        if (selectall != null) {
-            selectall.addEventListener("click", function () {
-                let ele = document.querySelectorAll('.checked-item');
-
-                if (selectall.checked == true) {
-                    for (var i = 0; i < ele.length; i++) {
-                        if (ele[i].type == 'checkbox')
-                            ele[i].checked = true;
-                        hidden_act.classList.add("show");
-                        ele[i].parentNode.parentNode.parentNode.classList.add("selected");
-                    }
-                } else {
-                    for (var i = 0; i < ele.length; i++) {
-                        if (ele[i].type == 'checkbox')
-                            ele[i].checked = false;
-                        hidden_act.classList.remove("show");
-                        ele[i].parentNode.parentNode.parentNode.classList.remove("selected");
-                    }
-                }
-            });
-
-            // if checked item
-            let elem = document.querySelectorAll('.checked-item');
-            // Process loop items
-            function processLoopItems(items) {
-                for (let i = 0; i < items.length; i++) {
-                    items[i].addEventListener("click", function () {
-                        items[i].parentNode.parentNode.parentNode.classList.remove("selected");
-                        // uncheck all checkbox
-                        const empty = [].filter.call(items, function (el) {
-                            return !el.checked
-                        });
-                        if (items.length == empty.length) {
-                            hidden_act.classList.remove("show");
-                            return false;
-                        } else if (items.length > empty.length) {
-                            hidden_act.classList.add("show");
-                        }
-                        if (this.checked == true) {
-                            items[i].parentNode.parentNode.parentNode.classList.add("selected");
-                        }
-                    });
-                }
-            }
-            // Call
-            const initialLoopItems = document.querySelectorAll(".checked-item");
-            processLoopItems(initialLoopItems);
-            window.addEventListener("click", function () {
-                // Recalculate
-                const updatedLoopItems = document.querySelectorAll(".checked-item");
-
-                // updated loop items
-                processLoopItems(updatedLoopItems);
-            });
-        }
-    </script>
-
 </body>
 
 </html>
