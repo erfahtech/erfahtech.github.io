@@ -1,15 +1,34 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
+export function requestWithBearer(target_url, token, datajson, responseFunction) {
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Bearer " + token);
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify(datajson);
+
+  var requestOptions = {
+    method: "PUT", // Metode PUT
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  return fetch(target_url, requestOptions)
+    .then((response) => response.text())
+    .then((result) => responseFunction(JSON.parse(result)))
+    .catch((error) => console.log("error", error));
+}
+
 const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
   const deviceId = IDEDIT;
   const deviceName = DeviceName; // Nama perangkat
   const deviceTopic = DeviceTopic;
-  // console.log("device id= " + deviceId);
 
   const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
     title: "Edit Device",
     html: `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${DeviceName}">
-            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${DeviceTopic}">`,
+                <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${DeviceTopic}">`,
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
@@ -45,38 +64,28 @@ const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
     });
 
     if (isConfirmed.isConfirmed) {
-      const myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer " + getCookie("token"));
-
+      const token = getCookie("token");
       const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatedevice?id=${deviceId}`;
-
       const requestBody = {
         name: newName,
         topic: newTopic,
       };
 
       try {
-        const response = await fetch(target_url, {
-          method: "PUT",
-          headers: {
-            myHeaders,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestBody),
-          redirect: "follow",
+        await requestWithBearer(target_url, token, requestBody, (result) => {
+          if (result.ok) {
+            Swal.fire({
+              icon: "success",
+              title: "Perangkat berhasil diubah",
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              location.reload();
+            });
+          } else {
+            throw new Error("Request failed with status: " + result.status);
+          }
         });
-
-        if (response.ok) {
-          await Swal.fire({
-            icon: "success",
-            title: "Perangkat berhasil diubah",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          location.reload();
-        } else {
-          throw new Error("Request failed with status: " + response.status);
-        }
       } catch (error) {
         console.error("Error:", error);
       }
