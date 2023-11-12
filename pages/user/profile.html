@@ -140,7 +140,7 @@
 
         <!-- content -->
         <div class="flex flex-col w-full gap-12 md:gap-2 overflow-hidden">
-            <div
+            <!-- <div
                 class="flex flex-wrap w-full flex-col gap-8 md:p-10 bg-surface-100 dark:bg-surfacedark-100 rounded-2xl">
                 <div class="flex flex-col gap-2">
                     <h2 class="text-xl leading-tight">Selamat Datang User</h2>
@@ -172,11 +172,11 @@
                                             <th
                                                 class="whitespace-nowrap px-6 font-semibold text-xs text-coolGray-500 uppercase text-center">
                                                 Action</th>
-                                        </tr>
+                                        </tr> -->
 
                                         <!-- isi table -->
                                         <!-- end isi table -->
-                                    </table>
+                                    <!-- </table>
                                     <div id="editDialog"
                                         class="edit-dialog [&.show_.backDialog]:opacity-60 [&.show]:opacity-100 [&.show]:h-full [&.show_.backDialog]:block [&.show_.backDialog]:inset-0 [&.show]:inset-0 duration-[400ms] ease-[cubic-bezier(0, 0, 0, 1)] opacity-0 w-full h-0 z-50 overflow-auto fixed left-0 top-0 flex items-center justify-center"
                                         style="display: none;">
@@ -217,7 +217,7 @@
                                             </div>
                                             <div id="loading" style="display: none">
                                                 <div class="flex flex-row justify-center gap-2 px-8 py-8">
-                                                    <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+                                                    Add your loading animation here, e.g., a spinner or progress bar
                                                     Loading...
                                                 </div>
                                             </div>
@@ -229,35 +229,12 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
             <div class="main-content flex-grow min-h-[100%] py-20 relative px-4 lg:pr-8 lg:pl-3">
                 <!-- heading -->
                 <div class="flex flex-row justify-between items-center pt-2 pb-6">
-                    <h2 class="text-title-lg">Customers</h2>
-
-                    <!-- action -->
-                    <div class="flex flex-row gap-3 items-center">
-                        <!-- hidden action -->
-                        <div id="hidden-act"
-                            class="opacity-0 [&amp;.show]:opacity-100 transition duration-400 ease-in-out flex flex-row gap-3 items-center">
-                            <button
-                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
-                                <span aria-label="Download" data-microtip-position="top" role="tooltip"
-                                    class="material-symbols-outlined">
-                                    download
-                                </span>
-                            </button>
-
-                            <button onclick="deleteDevice()" id="button_delete"
-                                class="relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium bg-surface-100 dark:bg-surfacedark-100 hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
-                                <span aria-label="Delete" data-microtip-position="top" role="tooltip"
-                                    class="material-symbols-outlined">
-                                    delete
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+                    <h2 class="text-title-lg">Selamat Datang User</h2>
                 </div>
 
                 <!-- content 1 -->
@@ -269,12 +246,10 @@
                             <div
                                 class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                                 <div class="datatable-top">
-
                                     <div class="datatable-search">
                                         <input class="datatable-input" placeholder="Search..." type="search"
                                             title="Search within table">
                                     </div>
-
                                     <!-- add new -->
                                     <button data-type="dialogs" data-target="#dialog_a"
                                         class="btn relative flex flex-row items-center justify-center gap-x-2 py-2 px-4 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
@@ -286,61 +261,19 @@
                                     <table class="table-sorter table-bordered-bottom table-hover datatable-table">
                                         <thead>
                                             <tr>
-                                                <th style="width: 8.208955223880597%;">
-                                                    <div class="flex items-center justify-center">
-                                                        <input id="checkall" type="checkbox" name="checked-a"
-                                                            class="w-[18px] h-[18px] accent-primary-600 hover:accent-primary-600 dark:accent-primary-200 rounded-[2px] cursor-pointer">
-                                                    </div>
-                                                </th>
                                                 <th style="width: auto">Nama Device</th>
                                                 <th style="width: auto">Topic Device</th>
                                                 <th style="width: auto">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody id="device">
-                                            <tr data-index="0">
-                                                <td>
-                                                    <div class="flex items-center justify-center">
-                                                        <input type="checkbox" name="check_a"
-                                                            class="checked-item w-[18px] h-[18px] accent-primary-600 hover:accent-primary-600 dark:accent-primary-200 rounded-[2px] cursor-pointer">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="flex items-center gap-3">
-                                                        <div class="flex flex-col">
-                                                            <h4 class="font-semibold">#NAMA#.</h4>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="inline-flex items-center h-6 px-3 text-label-md text-pink-700 dark:text-pink-200 bg-pink-100 dark:bg-opacity-20 rounded-full">
-                                                        #TOPIC#
-                                                    </span>
-                                                </td>
-                                                <td><a href="#"
-                                                        class="hover:text-primary-600 dark:hover:text-primary-200">edit</a>
-                                                </td>
-                                            </tr>
+                                            <!-- isi table -->
+                                            <!-- end isi table -->
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="datatable-bottom">
-                                    <div class="datatable-info">Showing 1 to 10 of 17 entries</div>
-                                    <nav class="datatable-pagination">
-                                        <ul class="datatable-pagination-list">
-                                            <li
-                                                class="datatable-pagination-list-item datatable-hidden datatable-disabled">
-                                                <a data-page="1" class="datatable-pagination-list-item-link">‹</a>
-                                            </li>
-                                            <li class="datatable-pagination-list-item datatable-active"><a data-page="1"
-                                                    class="datatable-pagination-list-item-link">1</a></li>
-                                            <li class="datatable-pagination-list-item"><a data-page="2"
-                                                    class="datatable-pagination-list-item-link">2</a></li>
-                                            <li class="datatable-pagination-list-item"><a data-page="2"
-                                                    class="datatable-pagination-list-item-link">›</a></li>
-                                        </ul>
-                                    </nav>
+                                    <!-- // -->
                                 </div>
                             </div>
                         </div>
