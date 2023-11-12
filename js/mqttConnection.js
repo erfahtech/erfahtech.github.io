@@ -3,6 +3,7 @@ const email = localStorage.getItem("userEmail");
 // Define MQTT broker URL and client ID
 const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
 const clientId = "user-${email}";
+console.log(clientId);
 
 // Create MQTT client
 const mqttClient = mqtt.connect(brokerUrl, {
