@@ -78,7 +78,7 @@ export function isiCard(value) {
 
     const mqttClient = getMqttClient();
 
-    if (mqttClient && mqttClient.connected) {
+    if (mqttClient.connected) {
       // Kirim payload ke topik - mqtt.publish
       mqttClient.publish(topic, payload);
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
