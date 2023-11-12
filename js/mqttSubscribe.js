@@ -18,13 +18,15 @@ function updateHumidity(humidity) {
 }
 
 // Subscribe to topics
-if (mqttClient.connected) {
-  mqttClient.subscribe("urse/suhu");
-  mqttClient.subscribe("urse/humidity");
-  console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
-} else {
-  console.log("Subscribing...");
-}
+mqttClient.on("connect", () => {
+  const email = localStorage.getItem("userEmail");
+  console.log("Subcribing...");
+
+  // Subscribe to topics when connected
+  mqttClient.subscribe("urse/" + email + "/suhu");
+  mqttClient.subscribe("urse" + email + "/humidity");
+  console.log("Berlangganan ke topik urse/" + email + "/suhu dan urse/" + email + "/humidity");
+});
 
 // Listen for incoming messages on the subscribed topics
 mqttClient.on("message", (topic, message) => {
