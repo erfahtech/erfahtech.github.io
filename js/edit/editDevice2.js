@@ -1,42 +1,41 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const editDevice = async (IDEDIT) => {
+const editDevice = async (IDEDIT, Name, Topic) => {
     const deviceId = IDEDIT;
     console.log("device id= " + deviceId);
 
-    const { value: newName } = await Swal.fire({
-        title: 'Edit Device Name',
-        input: 'text',
-        inputValue: deviceId, // Pre-fill the input with the current device name
+    const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
+        title: 'Edit Device',
+        html:
+            `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${Name}">
+            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${Topic}">`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Simpan',
         cancelButtonText: 'Batal',
+        preConfirm: () => {
+            return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value
+            ];
+        },
+        didOpen: () => {
+            const inputs = Swal.getPopup().querySelectorAll('input');
+            inputs[0].focus();
+        },
         inputValidator: (value) => {
-            if (!value) {
+            if (!value[0]) {
                 return 'Nama perangkat tidak boleh kosong!';
             }
-        }
-    });
-
-    const { value: newTopic } = await Swal.fire({
-        title: 'Edit Device Topic',
-        input: 'text',
-        inputValue: 'Current Topic', // Pre-fill the input with the current device topic
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Simpan',
-        cancelButtonText: 'Batal',
-        inputValidator: (value) => {
-            if (!value) {
+            if (!value[1]) {
                 return 'Tema perangkat tidak boleh kosong!';
             }
         }
     });
 
-    if (newName && newTopic) {
+    if (isInputConfirmed) {
+        const [newName, newTopic] = combinedInput;
         const isConfirmed = await Swal.fire({
             title: `Apakah Anda yakin ingin mengedit perangkat ini menjadi:\nNama: '${newName}'\nTema: '${newTopic}'?`,
             icon: 'warning',
