@@ -30,6 +30,7 @@ mqttClient.on("connect", () => {
 
 // Listen for incoming messages on the subscribed topics
 mqttClient.on("message", (topic, message) => {
+  const email = localStorage.getItem("userEmail");
   const receivedMessage = message.toString();
   console.log(`Received message on topic ${topic}: ${receivedMessage}`);
 
