@@ -1,14 +1,16 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const editDevice = async (IDEDIT, name, topic) => {
+const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
     const deviceId = IDEDIT;
+    const deviceName = DeviceName; // Nama perangkat
+    const deviceTopic = DeviceTopic;
     // console.log("device id= " + deviceId);
 
     const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
         title: 'Edit Device',
         html:
-            `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${name}">
-            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${topic}">`,
+            `<input id="swal-input1" class="swal2-input" placeholder="New Name" value="${DeviceName}">
+            <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${DeviceTopic}">`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -29,7 +31,7 @@ const editDevice = async (IDEDIT, name, topic) => {
                 return 'Nama perangkat tidak boleh kosong!';
             }
             if (!value[1]) {
-                return 'Tema perangkat tidak boleh kosong!';
+                return 'Topic perangkat tidak boleh kosong!';
             }
         }
     });
@@ -37,7 +39,7 @@ const editDevice = async (IDEDIT, name, topic) => {
     if (isInputConfirmed) {
         const [newName, newTopic] = combinedInput;
         const isConfirmed = await Swal.fire({
-            title: `Apakah Anda yakin ingin mengedit perangkat ini menjadi:\nNama: '${newName}'\nTema: '${newTopic}'?`,
+            title: `Apakah Anda yakin ingin mengedit perangkat ini menjadi:\nNama: '${newName}'\nTopic: '${newTopic}'?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
