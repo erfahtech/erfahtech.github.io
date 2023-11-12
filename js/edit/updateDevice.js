@@ -24,7 +24,7 @@ const putData = (target_url, datajson, responseFunction) => {
 
 const pushData = () => {
   const namaDeviceValue = getValue("name");
-  const topicDeviceValue = getValue("topik");
+  const topicDeviceValue = getValue("topic");
 
   // Create the updated data object
   const data = {
