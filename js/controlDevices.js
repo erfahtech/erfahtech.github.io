@@ -90,7 +90,7 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
-  cardDiv.appendChild(buttonContainer);
+  cardDiv.querySelector(".flex-shrink").appendChild(buttonContainer);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
