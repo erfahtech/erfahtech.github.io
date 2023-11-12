@@ -1,28 +1,36 @@
-// Mendefinisikan URL broker MQTT yang akan dihubungi
+// Define MQTT broker URL and client ID
 const brokerUrl = "wss://broker.emqx.io:8084/mqtt";
 const clientId = "urse-user";
-// const password = "urse-secret";
 
-// Membuat koneksi MQTT menggunakan URL broker dan informasi klien
-const mqttClient = mqtt.connect(brokerUrl, {
-  clientId: clientId,
-  // username: clientId,
-  // password: password,
-});
+let mqttClient = null;
 
-// Menetapkan event handler ketika koneksi berhasil terhubung
-mqttClient.on("connect", () => {
-  console.log("Terhubung ke broker MQTT");
-  // mqttClient.subscribe("urse/#");
-  // mqttClient.subscribe("urse/suhu");
-  // mqttClient.subscribe("urse/humidity");
-  // console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
-});
+// Function to create or return the existing MQTT client
+const getMqttClient = () => {
+  if (!mqttClient || !mqttClient.connected) {
+    // Create MQTT client if it doesn't exist or if it's not connected
+    mqttClient = mqtt.connect(brokerUrl, {
+      clientId: clientId,
+      // username: clientId, // Uncomment if your broker requires authentication
+      // password: password, // Uncomment and provide the password if required
+    });
 
-// Menetapkan event handler untuk menangani kesalahan koneksi MQTT
-mqttClient.on("error", (error) => {
-  console.error("Kesalahan koneksi MQTT:", error);
-});
+    // Set up event handler for successful connection
+    mqttClient.on("connect", () => {
+      console.log("Connected to MQTT broker");
+      // Uncomment and adjust if you need to subscribe to specific topics
+      // mqttClient.subscribe("urse/#");
+      // mqttClient.subscribe("urse/suhu");
+      // mqttClient.subscribe("urse/humidity");
+    });
 
-// Mengekspor objek klien MQTT untuk digunakan di file lain
-export default mqttClient;
+    // Set up event handler for connection errors
+    mqttClient.on("error", (error) => {
+      console.error("MQTT connection error:", error);
+    });
+  }
+
+  return mqttClient;
+};
+
+// Export the getMqttClient function
+export default getMqttClient;
