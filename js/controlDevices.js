@@ -60,7 +60,6 @@ export function isiCard(value) {
 
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
-  cardDiv.appendChild(buttonContainer);
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
@@ -90,6 +89,7 @@ export function isiCard(value) {
   </div>
   `;
 
+  cardDiv.appendChild(buttonContainer);
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
 
