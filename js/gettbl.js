@@ -21,7 +21,7 @@ export const tableDevice = `
         edit
         </span>
      </button>
-     <button class="delete-button">
+     <button class="delete-button" onclick="deleteDevice('#IDHAPUS#')>
         <span class="material-symbols-outlined">
         delete
         </span>
@@ -37,38 +37,6 @@ export function responseData(results) {
 }
 
 export function isiTable(value) {
-    const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name);
+    const content = tableDevice.replace("#TOPIC#", value.topic).replace("#NAME#", value.name).replace("#IDHAPUS#", value._id);
     addInner("devices", content);
-
-    // const editButtons = document.querySelectorAll('.edit-button');
-    // editButtons.forEach((button, index) => {
-    //     button.addEventListener('click', () => openEditDialog(value.name, value.topic, index));
-    // });
 }
-
-// function openEditDialog(name, topic, index) {
-//     // Mengisi nilai input dengan nilai saat ini
-//     document.getElementById('editName').value = name;
-//     document.getElementById('editTopic').value = topic;
-
-//     // Menyimpan index untuk referensi saat menyimpan perubahan
-//     document.getElementById('saveChanges').setAttribute('data-index', index);
-
-//     // Menampilkan dialog
-//     document.getElementById('editDialog').style.display = 'block';
-// }
-
-// document.getElementById('saveChanges').addEventListener('click', () => {
-//     const editedName = document.getElementById('editName').value;
-//     const editedTopic = document.getElementById('editTopic').value;
-//     const index = document.getElementById('saveChanges').getAttribute('data-index');
-
-//     // Lakukan apa pun yang diperlukan untuk menyimpan perubahan (misalnya, update data di server)
-//     // Misalnya: 
-//     // Update data di array:
-//     // results.data[index].name = editedName;
-//     // results.data[index].topic = editedTopic;
-
-//     // Kemudian, tutup dialog
-//     document.getElementById('editDialog').style.display = 'none';
-// });
