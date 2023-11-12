@@ -7,6 +7,13 @@ export const tableDevice = `
 <td>
     <div class="flex items-center gap-3">
         <div class="flex flex-col">
+            <h4 class="font-semibold">#IDHAPUS#.</h4>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="flex items-center gap-3">
+        <div class="flex flex-col">
             <h4 class="font-semibold">#NAME#.</h4>
         </div>
     </div>
@@ -17,24 +24,18 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<div class="flex justify-between px-6 py-1.5">
-  <div>
-    <a
-      href="editMagang?magangId=#IDEDIT#"
-      class="inline-flex items-center px-2 cursor-pointer text-sm text-green-600 decoration-2 hover:underline font-medium"
-    >
-      Edit
+<td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
+<button class="edit-button">
+        <span class="material-symbols-outlined">
+        edit
+        </span>
+    </button>
+    <a id="delete_b" onclick="deleteDevice('#IDHAPUS#')" title="Delete">
+        <span class="material-symbols-outlined">
+        delete
+        </span>
     </a>
-  </div>
-  <div>
-    <a
-      class="inline-flex items-center cursor-pointer text-sm text-red-600 decoration-2 hover:underline font-medium"
-      onclick="deleteDevice('#IDHAPUS#')"
-    >
-      Delete
-    </a>
-  </div>
-</div>
+</td>
 </tr>
 `;
 
