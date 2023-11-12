@@ -46,9 +46,7 @@ export function isiCard(value) {
     deleteDevice(IDHAPUS); // Gantilah dengan fungsi deletedevice.js yang sesuai
   });
 
-  // Tambahkan tombol edit dan delete ke dalam cardDiv
-  cardDiv.appendChild(editButton);
-  cardDiv.appendChild(deleteButton);
+
 
   const label = document.createElement("label");
   label.className = "toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out";
@@ -89,6 +87,9 @@ export function isiCard(value) {
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
+  // Tambahkan tombol edit dan delete ke dalam cardDiv
+  cardDiv.appendChild(editButton);
+  cardDiv.appendChild(deleteButton);
 
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
