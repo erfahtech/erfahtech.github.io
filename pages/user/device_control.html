@@ -22,6 +22,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
 
   <style>
+    /* CSS untuk cardDiv */
+    .cardDiv {
+      /* Atur display flex untuk tata letak yang fleksibel */
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      /* membuat posisi relatif untuk tombol edit dan delete */
+
+      /* style lain yang dibutuhkan */
+    }
+
+    /* CSS untuk tombol edit dan delete */
+    .button-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    
     .edit-button,
     .delete-button {
       position: absolute;
