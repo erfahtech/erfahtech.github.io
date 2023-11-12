@@ -25,7 +25,7 @@ export const tableDevice = `
         edit
         </span>
     </button>
-    <a type="submit" id="del_button" onclick="deleteDevice('#IDHAPUS#')" title="Delete" class="delete-button">
+    <a id="delete_b" onclick="deleteDevice('#IDHAPUS#')" title="Delete">
         <span class="material-symbols-outlined">
         delete
         </span>
