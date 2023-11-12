@@ -28,7 +28,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
 
     const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
         title: "Edit Device",
-        html: `<div class="responsive-inputs">
+        html: `<div>
                 <input id="swal-input1" class="swal2-input" placeholder="New Name" value="${deviceName}">
                 <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${deviceTopic}">
                 </div>`,
