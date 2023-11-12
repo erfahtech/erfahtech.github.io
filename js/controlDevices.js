@@ -1,5 +1,5 @@
 // import mqqtt connection
-import getMqttClient from "./mqttConnection.js";
+import mqttClient from "./mqttConnection.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -75,8 +75,6 @@ export function isiCard(value) {
 
     input.checked = !input.checked;
     const payload = input.checked ? "1" : "0";
-
-    const mqttClient = getMqttClient();
 
     if (mqttClient.connected) {
       // Kirim payload ke topik - mqtt.publish
