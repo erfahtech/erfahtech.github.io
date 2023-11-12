@@ -23,7 +23,7 @@ if (mqttClient.connected) {
   mqttClient.subscribe("urse/humidity");
   console.log("Berlangganan ke topik urse/suhu dan urse/humidity");
 } else {
-  console.log("Klien MQTT belum terhubung");
+  console.log("Subscribing...");
 }
 
 // Listen for incoming messages on the subscribed topics
