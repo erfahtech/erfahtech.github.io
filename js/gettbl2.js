@@ -30,7 +30,7 @@ export const tableDevice = `
         edit
         </span>
     </button>
-    <a id="delete_b" onclick="deleteDevice('#IDHAPUS#')" title="Delete">
+    <a id="delete_b" onclick="deleteDevice(#IDHAPUS#)" title="Delete">
         <span class="material-symbols-outlined">
         delete
         </span>
