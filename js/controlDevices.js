@@ -13,6 +13,7 @@ export function responseData(results) {
 }
 
 export function isiCard(value) {
+  const _id = value.id;
   const topic = value.topic;
   const name = value.name;
 
@@ -41,6 +42,10 @@ export function isiCard(value) {
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full">
+            <div class="flex justify-end mb-2">
+              <button class="mr-2 bg-blue-500 text-white px-3 py-1 rounded" onclick="editDevice('${_id}')">Edit</button>
+              <button class="bg-red-500 text-white px-3 py-1 rounded" onclick="deleteDevice('${_id}')">Delete</button>
+            </div>
             <h5 class="text-gray-500 mb-1">${topic}</h5>
             <h3 class="text-lg font-bold mb-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
