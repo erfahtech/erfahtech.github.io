@@ -37,7 +37,7 @@ mqttClient.on("message", (topic, message) => {
   // Update card based on the received topic and message
   if (topic === "urse/" + email + "/suhu") {
     updateTemperature(receivedMessage);
-  } else if (topic === "urse" + email + "/humidity") {
+  } else if (topic === "urse/" + email + "/humidity") {
     updateHumidity(receivedMessage);
   }
 });
