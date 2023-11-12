@@ -16,16 +16,16 @@ export const tableDevice = `
     </div>
     </td>
     <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-     <button class="edit-button">
-        <span class="material-symbols-outlined">
-        edit
-        </span>
-     </button>
-     <button class="delete-button" onclick="deleteDevice('#IDHAPUS#')>
-        <span class="material-symbols-outlined">
-        delete
-        </span>
-     </button>
+    <button class="edit-button">
+    <span class="material-symbols-outlined">
+    edit
+    </span>
+    </button>
+    <button type="button" id="del_button" onclick="deleteDevice('#IDHAPUS#')" title="Delete" class="delete-button">
+    <span class="material-symbols-outlined">
+    delete
+    </span>
+    </button>
      </td>
     </td>
 </tr>
