@@ -72,20 +72,20 @@ const editDevice = async (IDEDIT, DeviceName, DeviceTopic) => {
       };
 
       try {
-        await requestWithBearer(target_url, token, requestBody, (result) => {
-          if (result.ok) {
-            Swal.fire({
-              icon: "success",
-              title: "Perangkat berhasil diubah",
-              showConfirmButton: false,
-              timer: 1500,
-            }).then(() => {
-              location.reload();
-            });
-          } else {
-            throw new Error("Request failed with status: " + result.status);
-          }
-        });
+        const response = await requestWithBearer(target_url, token, requestBody, (result) => result);
+
+        if (response.status) {
+          await Swal.fire({
+            icon: "success",
+            title: response.message || "Perangkat berhasil diubah",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          location.reload();
+        } else {
+          console.error("Request failed with status:", response.status);
+          throw new Error("Request failed with status: " + response.status);
+        }
       } catch (error) {
         console.error("Error:", error);
       }
