@@ -18,7 +18,7 @@ export const tableDevice = `
     </span>
 </td>
 <td class="whitespace-nowrap px-6 bg-white text-sm font-medium text-coolGray-800 text-center">
-<button class="edit-button">
+<button onclick="editDevice('#IDEDIT#')" title="Edit">
         <span class="material-symbols-outlined">
         edit
         </span>
@@ -41,6 +41,7 @@ export function isiTable(value) {
   const content = tableDevice
     .replace("#TOPIC#", value.topic)
     .replace("#NAME#", value.name)
+    .replace(/#IDEDIT#/, value.id)
     .replace(/#IDHAPUS#/g, value.id);
   addInner("devices", content);
 }
