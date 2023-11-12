@@ -45,6 +45,6 @@ export function isiTable(value) {
         tableDevice.replace("#TOPIC#", value.topic)
             .replace("#NAME#", value.name)
             .replace("#IDHAPUS#", value._id);
-    addInner("device", content);
+    addInner("devices", content);
 
 }
