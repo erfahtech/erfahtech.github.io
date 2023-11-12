@@ -56,6 +56,9 @@ export function isiCard(value) {
 
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
+  // Tambahkan tombol edit dan delete ke dalam cardDiv
+  cardDiv.appendChild(editButton);
+  cardDiv.appendChild(deleteButton);
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
@@ -87,9 +90,6 @@ export function isiCard(value) {
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
-  // Tambahkan tombol edit dan delete ke dalam cardDiv
-  cardDiv.appendChild(editButton);
-  cardDiv.appendChild(deleteButton);
 
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
