@@ -2,7 +2,7 @@ import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const deleteDevice = async (IDHAPUS) => {
   const deviceId = IDHAPUS;
-  console.log(deviceId);
+  console.log("ini id device= " + deviceId);
 
   const isConfirmed = await Swal.fire({
     title: "Apakah Anda yakin ingin menghapus device ini?",
