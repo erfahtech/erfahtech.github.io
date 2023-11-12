@@ -28,25 +28,29 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(input);
 
-  // Tombol Edit
+  // Buat elemen untuk tombol edit
   const editButton = document.createElement("button");
   editButton.innerHTML = "Edit";
   editButton.className = "edit-button";
   editButton.addEventListener("click", () => {
     // Panggil fungsi editdevice.js dengan ID sebagai parameter
-    editDevice(IDEDIT, NAME, TOPIC); // Gantilah dengan fungsi editdevice.js yang sesuai
+    editDeviceFunction(value.id); // Gantilah dengan fungsi editdevice.js yang sesuai
   });
 
-  // Tombol Delete
+  // Buat elemen untuk tombol delete
   const deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Delete";
   deleteButton.className = "delete-button";
   deleteButton.addEventListener("click", () => {
     // Panggil fungsi deletedevice.js dengan ID sebagai parameter
-    deleteDevice(IDHAPUS); // Gantilah dengan fungsi deletedevice.js yang sesuai
+    deleteDeviceFunction(value.id); // Gantilah dengan fungsi deletedevice.js yang sesuai
   });
 
-
+  // Buat wadah untuk tombol edit dan delete
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "button-container";
+  buttonContainer.appendChild(editButton);
+  buttonContainer.appendChild(deleteButton);
 
   const label = document.createElement("label");
   label.className = "toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out";
@@ -56,9 +60,6 @@ export function isiCard(value) {
 
   // Tambahkan elemen toggle switch ke container
   const cardDiv = document.createElement("div");
-  // Tambahkan tombol edit dan delete ke dalam cardDiv
-  cardDiv.appendChild(editButton);
-  cardDiv.appendChild(deleteButton);
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
   <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
@@ -89,6 +90,7 @@ export function isiCard(value) {
   `;
 
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
+  cardDiv.appendChild(buttonContainer);
   devicesContainer.appendChild(cardDiv);
 
   toggleSwitch.addEventListener("click", (event) => {
