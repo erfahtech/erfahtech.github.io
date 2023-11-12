@@ -18,7 +18,7 @@ const deleteDevice = async (IDHAPUS) => {
     myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
     const target_url =
-      "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice?id/" +
+      "https://asia-southeast2-urse-project.cloudfunctions.net/urse-deletedevice?id=" +
       deviceId;
 
     try {
