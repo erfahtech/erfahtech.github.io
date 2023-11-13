@@ -7,7 +7,7 @@ function searchDevice() {
 
     for (i = 0; i < tr.length; i++) {
         let found = false;
-        for (j = 0; j < 2; j++) { // Melakukan pencarian untuk kolom 0 (Nama Device) dan 1 (Topic)
+        for (j = 0; j < 2; j++) { // Pencarian pada kolom 0 (Nama Device) dan 1 (Topic)
             td = tr[i].getElementsByTagName("td")[j];
             if (td) {
                 txtValue = td.textContent || td.innerText;
@@ -18,9 +18,13 @@ function searchDevice() {
             }
         }
         if (found) {
-            tr[i].style.display = "";
+            if (i !== 0) {
+                // Jika data ditemukan selain pada baris pertama, geser baris ke atas
+                tableDevice.insertBefore(tr[i], tr[0]);
+            }
+            tr[i].style.display = ""; // Menampilkan baris yang cocok
         } else {
-            tr[i].style.display = "none";
+            tr[i].style.display = "none"; // Menyembunyikan baris yang tidak cocok
         }
     }
 }
