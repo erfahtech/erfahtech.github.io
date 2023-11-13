@@ -1,20 +1,26 @@
 function searchDevice() {
-    var input, filter,tableDevice,tr1, td, i, txtValue;
+    var input, filter, tableDevice, tr, td, i, j, txtValue;
     input = document.getElementById("search");
     filter = input.value.toUpperCase();
     tableDevice = document.getElementById("devices");
-    tr1 = tableDevice.getElementsByTagName("tr");
-    let p1 = 0;
-    for (i = 0; i < tr1.length; i++) {
-      td = tr1[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr1[i].style.display = "";
-          p1 += 1;
-        } else {
-          tr1[i].style.display = "none";
+    tr = tableDevice.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        let found = false;
+        for (j = 0; j < 2; j++) { // Melakukan pencarian untuk kolom 0 (Nama Device) dan 1 (Topic)
+            td = tr[i].getElementsByTagName("td")[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    found = true;
+                    break; // Jika ditemukan, keluar dari loop pencarian kolom
+                }
+            }
         }
-      }
+        if (found) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
     }
 }
