@@ -217,7 +217,7 @@
                                 class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                                 <div class="datatable-top">
                                     <div class="datatable-search">
-                                        <input class="datatable-input" placeholder="Search..." type="search"
+                                        <input class="datatable-input" placeholder="Search..." type="search" onkeyup="searchDevice()" id="search"
                                             title="Search within table" />
                                     </div>
                                 </div>
@@ -270,6 +270,7 @@
     <script type="module" src="../../js/get-setting.js"></script>
     <script type="module" src="../../js/delete/deleteDevice.js"></script>
     <script type="module" src="../../js/edit/editDevice2.js"></script>
+    <script type="module" src="../../js/search/searchDevice.js"></script>
 
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/logout.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.6/post_device.js"></script>
