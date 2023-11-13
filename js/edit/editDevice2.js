@@ -57,7 +57,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
     if (isInputConfirmed) {
         const [newName, newTopic] = combinedInput;
         const isConfirmed = await Swal.fire({
-            title: `Apakah Anda yakin ingin mengedit perangkat ini menjadi:\nNama: '${newName}'\nTopic: '${newTopic}'?`,
+            title: `Apakah Anda yakin? \nNama: '${newName}'\nTopic: '${newTopic}'?`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
