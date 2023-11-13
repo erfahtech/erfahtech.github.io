@@ -23,13 +23,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
 
     <style>
+        /* Ukuran teks default */
         .swal2-title {
-            align-items: center;
-            max-width: 100%;
-            font-size: 5vw;
+            font-size: 16px;
         }
+
+        /* Untuk perangkat dengan lebar layar kurang dari 600px */
+        @media screen and (max-width: 600px) {
+            .swal2-title {
+                font-size: 3vw;
+                /* Atur ukuran teks menjadi 3% dari lebar viewport */
+            }
+        }
+
+        /* Untuk perangkat dengan lebar layar kurang dari 400px */
+        @media screen and (max-width: 400px) {
+            .swal2-title {
+                font-size: 4vw;
+                /* Atur ukuran teks menjadi 4% dari lebar viewport */
+            }
+        }
+
+
         .swal2-input {
-            width: 80%;
+            width: 100%;
             max-width: 200px;
             margin-left: 35px;
             margin-bottom: 10px;
