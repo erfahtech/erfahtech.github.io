@@ -1,30 +1,29 @@
 function searchDevice() {
     var input, filter, tableDevice, tr, td, i, j, txtValue;
     input = document.getElementById("searchDevice");
-    filter = input.value;
+    filter = input.value.toUpperCase();
     tableDevice = document.getElementById("devices");
     tr = tableDevice.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
         let found = false;
-        for (j = 0; j < 2; j++) { // Pencarian pada kolom 0 (Nama Device) dan 1 (Topic)
+        for (j = 0; j < 2; j++) {
             td = tr[i].getElementsByTagName("td")[j];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     found = true;
-                    break; // Jika ditemukan, keluar dari loop pencarian kolom
+                    break;
                 }
             }
         }
         if (found) {
             if (i !== 0) {
-                // Jika data ditemukan selain pada baris pertama, geser baris ke atas
                 tableDevice.insertBefore(tr[i], tr[0]);
             }
-            tr[i].style.display = ""; // Menampilkan baris yang cocok
+            tr[i].style.display = ""; // Show matching rows
         } else {
-            tr[i].style.display = "none"; // Menyembunyikan baris yang tidak cocok
+            tr[i].style.display = "none"; // Hide non-matching rows
         }
     }
 }
