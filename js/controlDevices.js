@@ -62,7 +62,7 @@ export function isiCard(value) {
   const cardDiv = document.createElement("div");
   cardDiv.className = "flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6";
   cardDiv.innerHTML = `
-  <div class="bg-white dark-bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
+  <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full">
             <h5 class="text-gray-500 mb-1">${topic}</h5>
