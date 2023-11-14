@@ -38,7 +38,7 @@ mqttClient.on("message", (topic, message) => {
   console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
 
   // Update card based on the received topic and message
-  if (topic === "urse/" + email + "/suhu") {
+  if (topic === "urse/" + email + "/monitoring") {
     let data = receivedMessage.split("-");
     updateTemperature(data[0]);
     updateHumidity(data[1]);
