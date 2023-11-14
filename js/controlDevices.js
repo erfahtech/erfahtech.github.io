@@ -28,30 +28,6 @@ export function isiCard(value) {
 
   toggleSwitch.appendChild(input);
 
-  // Buat elemen untuk tombol edit
-  const editButton = document.createElement("button");
-  editButton.innerHTML = "Edit";
-  editButton.className = "edit-button";
-  editButton.addEventListener("click", () => {
-    // Panggil fungsi editdevice.js dengan ID sebagai parameter
-    editDeviceFunction(value.id); // Gantilah dengan fungsi editdevice.js yang sesuai
-  });
-
-  // Buat elemen untuk tombol delete
-  const deleteButton = document.createElement("button");
-  deleteButton.innerHTML = "Delete";
-  deleteButton.className = "delete-button";
-  deleteButton.addEventListener("click", () => {
-    // Panggil fungsi deletedevice.js dengan ID sebagai parameter
-    deleteDeviceFunction(value.id); // Gantilah dengan fungsi deletedevice.js yang sesuai
-  });
-
-  // Buat wadah untuk tombol edit dan delete
-  const buttonContainer = document.createElement("div");
-  buttonContainer.className = "button-container";
-  buttonContainer.appendChild(editButton);
-  buttonContainer.appendChild(deleteButton);
-
   const label = document.createElement("label");
   label.className = "toggle-icon relative block w-12 h-8 rounded-full transition-color duration-150 ease-out";
   label.setAttribute("for", `toggle-${topic}`);
@@ -89,7 +65,6 @@ export function isiCard(value) {
   </div>
   `;
 
-  cardDiv.appendChild(buttonContainer);
   cardDiv.querySelector(".flex-shrink").appendChild(toggleSwitch);
   devicesContainer.appendChild(cardDiv);
 
