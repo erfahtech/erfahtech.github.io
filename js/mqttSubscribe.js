@@ -31,24 +31,6 @@ mqttClient.on("connect", () => {
 
 // Listen for incoming messages on the subscribed topics
 
-let isFunctionActive = true;
-
-function runFunction(topic, suhu, humidity) {
-  if (isFunctionActive) {
-    // Lakukan sesuatu di sini
-    insertHistory(topic, suhu, humidity);
-
-    // Menonaktifkan fungsi selama 4 menit
-    isFunctionActive = false;
-    setTimeout(() => {
-      isFunctionActive = true;
-      console.log("Fungsi dapat dijalankan kembali setelah 4 menit.");
-    }, 30 * 1000); // Waktu dalam milidetik (4 menit)
-  } else {
-    console.log("Fungsi sedang dinonaktifkan.");
-  }
-}
-
 // Panggil fungsi untuk dijalankan
 mqttClient.on("message", (topic, message) => {
   const email = localStorage.getItem("userEmail");
@@ -72,6 +54,24 @@ mqttClient.on("error", (error) => {
   updateTemperature(null);
   updateHumidity(null);
 });
+
+// let isFunctionActive = true;
+
+// function runFunction(topic, suhu, humidity) {
+//   if (isFunctionActive) {
+//     // Lakukan sesuatu di sini
+//     insertHistory(topic, suhu, humidity);
+
+//     // Menonaktifkan fungsi selama 4 menit
+//     isFunctionActive = false;
+//     setTimeout(() => {
+//       isFunctionActive = true;
+//       console.log("Fungsi dapat dijalankan kembali setelah 4 menit.");
+//     }, 30 * 1000); // Waktu dalam milidetik (4 menit)
+//   } else {
+//     console.log("Fungsi sedang dinonaktifkan.");
+//   }
+// }
 
 // window.mqttClient = mqttClient;
 // window.updateTemperature = updateTemperature;
