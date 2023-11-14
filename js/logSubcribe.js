@@ -2,7 +2,7 @@ import { postWithBearer } from "https://jscroot.github.io/api/croot.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const insertHistory = (topic, suhu, humidity) => {
-  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertdevices";
+  const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-inserthistory";
   const datainjson = {
     name: "monitoring",
     topic: topic,
@@ -16,21 +16,11 @@ const insertHistory = (topic, suhu, humidity) => {
 
 const responseData = (result) => {
   if (result) {
-    Swal.fire({
-      icon: "success",
-      title: "Tambah Device Berhasil",
-      text: result.message,
-    }).then((result) => {
-      if (result.isConfirmed || result.isDismissed) {
-        window.location.href = "device_control.html";
-      }
-    });
+    console.log("Tambah Device Berhasil:", result.message);
+    // Redirect to device_control.html if needed
+    // window.location.href = "device_control.html";
   } else {
-    Swal.fire({
-      icon: "error",
-      title: "Tambah Device Gagal",
-      text: result.message,
-    });
+    console.error("Tambah Device Gagal:", result.message);
   }
 };
 
