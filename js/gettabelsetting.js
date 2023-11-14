@@ -17,7 +17,7 @@ export const tableDevice = `
         #TOPIC#
     </span>
 </td>
-<td class="whitespace-nowrap px-6 bg-white dark:bg-opacity-20 text-sm font-medium text-coolGray-800 text-center">
+<td class="whitespace-nowrap px-6 bg-white dark:bg-surfacedark-200 text-sm font-medium text-coolGray-800 text-center">
     <button onclick="editDevice('#IDEDIT#', '#NAME#', '#TOPIC#')" title="Edit">
         <span class="material-symbols-outlined">
             edit
