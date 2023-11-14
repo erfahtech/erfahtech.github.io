@@ -24,9 +24,10 @@ mqttClient.on("connect", () => {
   console.log("Subcribing...");
 
   // Subscribe to topics when connected
-  mqttClient.subscribe("urse/" + email + "/suhu");
-  mqttClient.subscribe("urse/" + email + "/humidity");
-  console.log("Berlangganan ke topik urse/" + email + "/suhu dan urse/" + email + "/humidity");
+  // mqttClient.subscribe("urse/" + email + "/suhu");
+  // mqttClient.subscribe("urse/" + email + "/humidity");
+  mqttClient.subscribe("urse/" + email + "/monitoring");
+  console.log("Berlangganan ke topik urse/" + email + "/monitoring");
 });
 
 // Listen for incoming messages on the subscribed topics
