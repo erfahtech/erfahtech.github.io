@@ -2,7 +2,7 @@ import { URLGetDevice, responseData } from "./gettabelsetting.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const get = (target_url, responseFunction) => {
+  const getTable = (target_url, responseFunction) => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
@@ -18,5 +18,5 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.log("error", error));
   };
 
-  get(URLGetDevice, responseData);
+  getTable(URLGetDevice, responseData);
 });
