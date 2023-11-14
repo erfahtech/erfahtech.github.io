@@ -206,28 +206,43 @@
                                 class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                                 <div class="datatable-top">
                                     <div class="datatable-search">
-                                        <input class="datatable-input" type="text" id="search"
-                                            onkeyup="searchDevice()" placeholder="Search for devices""
+                                        <input class="datatable-input" type="text" id="search" onkeyup="searchDevice()"
+                                            placeholder="Search for devices""
                                             title=" Search within table">
                                     </div>
                                 </div>
                                 <div class="datatable-container">
-                                    <table id="devices" class="table-sorter table-bordered-bottom table-hover datatable-table">
+                                    <table id="devices"
+                                        class="table-sorter table-bordered-bottom table-hover datatable-table">
                                         <thead>
-                                            <tr class="text-center">
-                                                <th style="width: auto">Nama Device</th>
-                                                <th style="width: auto">Topic Device</th>
-                                                <th style="width: auto">Action</th>
+                                            <tr>
+                                                <th style="text-align: center;">Nama Device</th>
+                                                <th style="text-align: center;">Topic Device</th>
+                                                <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody >
+                                        <tbody>
                                             <!-- isi table -->
                                             <!-- end isi table -->
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="datatable-bottom">
-                                    <!-- // -->
+                                    <nav class="datatable-pagination">
+                                        <ul class="datatable-pagination-list">
+                                            <li
+                                                class="datatable-pagination-list-item datatable-hidden datatable-disabled">
+                                                <a data-page="1" class="datatable-pagination-list-item-link">‹</a>
+                                            </li>
+                                            <li class="datatable-pagination-list-item datatable-active"><a data-page="1"
+                                                    class="datatable-pagination-list-item-link">1</a>
+                                            </li>
+                                            <li class="datatable-pagination-list-item"><a data-page="2"
+                                                    class="datatable-pagination-list-item-link">2</a></li>
+                                            <li class="datatable-pagination-list-item"><a data-page="2"
+                                                    class="datatable-pagination-list-item-link">›</a></li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>

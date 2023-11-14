@@ -1,7 +1,7 @@
 function searchDevice() {
     var input, table, tr, td, i, txtValue;
     input = document.getElementById("search");
-    table = document.getElementById("devices");
+    table = document.getElementsByTagName("tbody");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0];
