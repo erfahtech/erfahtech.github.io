@@ -7,7 +7,7 @@ function searchDevice() {
 
     for (i = 0; i < tr.length; i++) {
         let found = false;
-        for (j = 0; j < 2; j++) {
+        for (j = 0; j < tr[i].getElementsByTagName("td").length; j++) {
             td = tr[i].getElementsByTagName("td")[j];
             if (td) {
                 txtValue = td.textContent || td.innerText;
