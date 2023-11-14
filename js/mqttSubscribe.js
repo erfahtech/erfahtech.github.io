@@ -50,23 +50,20 @@ function runFunction(topic, suhu, humidity) {
 }
 
 // Panggil fungsi untuk dijalankan
+mqttClient.on("message", (topic, message) => {
+  const email = localStorage.getItem("userEmail");
+  const receivedMessage = message.toString();
+  console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
 
-setInterval(() => {
-  mqttClient.on("message", (topic, message) => {
-    const email = localStorage.getItem("userEmail");
-    const receivedMessage = message.toString();
-    console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
-
-    // Update card based on the received topic and message
-    if (topic === "urse/" + email + "/all") {
-      let data = receivedMessage.split("-");
-      updateTemperature(data[0]);
-      updateHumidity(data[1]);
-      // insertHistory(topic, data[0], data[1]);
-      runFunction(topic, data[0], data[1]);
-    }
-  });
-}, 1000 * 20);
+  // Update card based on the received topic and message
+  if (topic === "urse/" + email + "/all") {
+    let data = receivedMessage.split("-");
+    updateTemperature(data[0]);
+    updateHumidity(data[1]);
+    // insertHistory(topic, data[0], data[1]);
+    runFunction(topic, data[0], data[1]);
+  }
+});
 
 // Handle errors in MQTT connection
 mqttClient.on("error", (error) => {
