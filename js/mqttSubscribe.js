@@ -1,5 +1,6 @@
 // mqttconnection.js
 import mqttClient from "./mqttConnection.js";
+import { insertHistory } from "./logSubcribe.js";
 
 // Function to update the temperature on the card
 function updateTemperature(temperature) {
@@ -37,8 +38,10 @@ mqttClient.on("message", (topic, message) => {
   // Update card based on the received topic and message
   if (topic === "urse/" + email + "/suhu") {
     updateTemperature(receivedMessage);
+    insertHistory(topic, receivedMessage, null);
   } else if (topic === "urse/" + email + "/humidity") {
     updateHumidity(receivedMessage);
+    insertHistory(topic, null, receivedMessage);
   }
 });
 
