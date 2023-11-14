@@ -2,7 +2,7 @@ function searchDevice() {
     var input, filter, tableDevice, tr, td, i, j, txtValue;
     input = document.getElementById("searchDevice");
     filter = input.value.toUpperCase();
-    tableDevice = document.getElementById("device");
+    tableDevice = document.getElementById("devices");
     tr = tableDevice.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
