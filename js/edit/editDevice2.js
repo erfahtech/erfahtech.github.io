@@ -33,8 +33,8 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 <input id="swal-input2" class="swal2-input" placeholder="New Topic" value="${deviceTopic}">
                 </div>`,
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
+        confirmButtonColor: "#6750A4",
+        cancelButtonColor: "#999999",
         confirmButtonText: "Simpan",
         cancelButtonText: "Batal",
         preConfirm: () => {
@@ -63,8 +63,8 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                     <div>Topic: ${newTopic}</div>`,
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#6750A4",
+            cancelButtonColor: "#999999",
             confirmButtonText: "Ya, Edit!",
             cancelButtonText: "Batal",
         });

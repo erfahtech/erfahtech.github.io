@@ -8,8 +8,8 @@ const deleteDevice = async (IDHAPUS) => {
     title: "Apakah Anda yakin ingin menghapus device ini?",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
+    confirmButtonColor: "#6750A4",
+    cancelButtonColor: "#999999",
     confirmButtonText: "Ya, Hapus!",
     cancelButtonText: "Batal",
   });
