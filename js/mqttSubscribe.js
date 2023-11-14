@@ -1,7 +1,7 @@
 // mqttconnection.js
 import mqttClient from "./mqttConnection.js";
 import { insertHistory } from "./logSubcribe.js";
-
+let i = 1;
 // Function to update the temperature on the card
 function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature");
@@ -34,7 +34,7 @@ setInterval(() => {
   mqttClient.on("message", (topic, message) => {
     const email = localStorage.getItem("userEmail");
     const receivedMessage = message.toString();
-    console.log(`Received message on topic ${topic}: ${receivedMessage}`);
+    console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
 
     // Update card based on the received topic and message
     if (topic === "urse/" + email + "/all") {
@@ -44,7 +44,7 @@ setInterval(() => {
       insertHistory(topic, data[0], data[1]);
     }
   });
-}, 1000 * 60 * 4);
+}, 1000 * 20);
 
 // Handle errors in MQTT connection
 mqttClient.on("error", (error) => {
