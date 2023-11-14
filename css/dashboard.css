@@ -4832,3 +4832,11 @@ th {
 .datatables-empty {
     text-align: center;
 }
+
+.swal2-input {
+    width: 100%;
+    max-width: 200px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    /* Berikan ruang antara elemen */
+}
