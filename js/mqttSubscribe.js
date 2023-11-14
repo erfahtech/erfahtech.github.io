@@ -2,6 +2,9 @@
 import mqttClient from "./mqttConnection.js";
 import { insertHistory } from "./logSubcribe.js";
 
+let suhu = false;
+let humidity = false;
+
 // Function to update the temperature on the card
 function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature");
@@ -37,12 +40,28 @@ mqttClient.on("message", (topic, message) => {
 
   // Update card based on the received topic and message
   if (topic === "urse/" + email + "/suhu") {
+    suhu = receivedMessage;
     updateTemperature(receivedMessage);
-    insertHistory(topic, receivedMessage, null);
   } else if (topic === "urse/" + email + "/humidity") {
+    humidity = receivedMessage;
     updateHumidity(receivedMessage);
-    insertHistory(topic, null, receivedMessage);
   }
+
+  if (humidity && suhu) {
+    // suhuBefore = suhu;
+    // humidityBefore = humidity;
+    insertHistory(topic, suhu, humidity);
+    suhu = false;
+    humidity = false;
+  }
+
+  // if (topic === "urse/" + email + "/suhu") {
+  //   updateTemperature(receivedMessage);
+  //   insertHistory(topic, receivedMessage, null);
+  // } else if (topic === "urse/" + email + "/humidity") {
+  //   updateHumidity(receivedMessage);
+  //   insertHistory(topic, null, receivedMessage);
+  // }
 });
 
 // Handle errors in MQTT connection
