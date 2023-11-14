@@ -1,6 +1,6 @@
 function searchDevice() {
     var input, filter, tableDevice, tr, td, i, j, txtValue;
-    input = document.getElementById("searchDevice");
+    input = document.getElementById("search");
     filter = input.value.toUpperCase();
     tableDevice = document.getElementById("devices");
     tr = tableDevice.getElementsByTagName("tr");
