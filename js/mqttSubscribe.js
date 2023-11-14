@@ -30,42 +30,21 @@ mqttClient.on("connect", () => {
 });
 
 // Listen for incoming messages on the subscribed topics
-mqttClient.on("message", (topic, message) => {
-  const email = localStorage.getItem("userEmail");
-  const receivedMessage = message.toString();
-  console.log(`Received message on topic ${topic}: ${receivedMessage}`);
+setInterval(() => {
+  mqttClient.on("message", (topic, message) => {
+    const email = localStorage.getItem("userEmail");
+    const receivedMessage = message.toString();
+    console.log(`Received message on topic ${topic}: ${receivedMessage}`);
 
-  // Update card based on the received topic and message
-  if (topic === "urse/" + email + "/all") {
-    let data = receivedMessage.split("-");
-    updateTemperature(data[0]);
-    updateHumidity(data[1]);
-    insertHistory(topic, data[0], data[1]);
-  }
-  // if (topic === "urse/" + email + "/suhu") {
-  //   suhu = receivedMessage;
-  //   updateTemperature(receivedMessage);
-  // } else if (topic === "urse/" + email + "/humidity") {
-  //   humidity = receivedMessage;
-  //   updateHumidity(receivedMessage);
-  // }
-
-  // if (humidity && suhu) {
-  //   // suhuBefore = suhu;
-  //   // humidityBefore = humidity;
-  //   insertHistory(topic, suhu, humidity);
-  //   suhu = false;
-  //   humidity = false;
-  // }
-
-  // if (topic === "urse/" + email + "/suhu") {
-  //   updateTemperature(receivedMessage);
-  //   insertHistory(topic, receivedMessage, null);
-  // } else if (topic === "urse/" + email + "/humidity") {
-  //   updateHumidity(receivedMessage);
-  //   insertHistory(topic, null, receivedMessage);
-  // }
-});
+    // Update card based on the received topic and message
+    if (topic === "urse/" + email + "/all") {
+      let data = receivedMessage.split("-");
+      updateTemperature(data[0]);
+      updateHumidity(data[1]);
+      insertHistory(topic, data[0], data[1]);
+    }
+  });
+}, 1000 * 60 * 4);
 
 // Handle errors in MQTT connection
 mqttClient.on("error", (error) => {
