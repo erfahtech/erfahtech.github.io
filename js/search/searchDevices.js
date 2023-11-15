@@ -19,3 +19,4 @@ const searchDevice = () => {
         }
     }
 }
+window.searchDevice = searchDevice;
