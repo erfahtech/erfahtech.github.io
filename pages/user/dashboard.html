@@ -19,6 +19,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
+    <!-- Other head elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 </head>
 
 <body class="font-sans text-base font-normal text-gray-700 dark:text-gray-200 bg-surface-100 dark:bg-surfacedark-100">
@@ -150,15 +152,15 @@
                         <div
                             class="p-6 w-full bg-white dark:bg-surfacedark-200 rounded-xl flex flex-col gap-2 relative">
                             <div class="relative w-full flex flex-col gap-2">
-                                <h3 class="text-title-sm">New York</h3>
+                                <h3 class="text-title-sm" id="location">Loading...</h3>
                                 <div class="flex flex-row items-center">
-                                    <h4 class="text-display-sm">16°C</h4>
+                                    <h4 class="text-display-sm" id="temperature">Loading...</h4>
                                 </div>
-                                <h4 class="text-title-md mb-2">Partly Cloudy</h4>
+                                <h4 class="text-title-md mb-2" id="weather-description">Loading...</h4>
                                 <div class="absolute right-0 top-0">
                                     <div
-                                        class="material-symbols-outlined !text-6xl text-primary-600 dark:text-primary-200">
-                                        partly_cloudy_day</div>
+                                        class="weather-icon material-symbols-outlined !text-6xl text-primary-600 dark:text-primary-200">
+                                    </div>
                                 </div>
                             </div>
 
@@ -166,12 +168,8 @@
 
                             <!-- more -->
                             <div class="flex flex-row gap-2 pt-2">
-                                <span class="flex items-center"><span
-                                        class="material-symbols-outlined mr-2">humidity_mid</span><span
-                                        class="lg:hidden xl:inline-block">Hum:</span> 75%</span>
-                                <span class="flex items-center"><span
-                                        class="material-symbols-outlined mr-2">air</span><span
-                                        class="lg:hidden xl:inline-block">Wind:</span> 11 km/h</span>
+                                <span class="flex items-center" id="humidity">Loading...</span>
+                                <span class="flex items-center" id="wind-speed">Loading...</span>
                             </div>
                         </div>
 
@@ -275,7 +273,72 @@
             userGreetingElement.textContent = 'Selamat Datang, ' + userEmail + '!';
         }
     </script>
+    <script>
+        const apiKey = 'c96a2bfbf2f7991983dbe8a1bc0df62d';
+        function updateWeather(latitude, longitude) {
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the HTML elements with real-time data
+                    document.getElementById('location').textContent = data.name;
+                    document.getElementById('temperature').textContent = `${Math.round(data.main.temp - 273.15)}°C`;
+                    document.getElementById('weather-description').textContent = data.weather[0].description;
+
+                    // Update the weather icon based on the weather condition code
+                    const iconElement = document.querySelector('.weather-icon');
+                    const weatherCode = data.weather[0].icon;
+                    const weatherIconClass = getWeatherIconClass(weatherCode);
+                    iconElement.className = `weather-icon material-symbols-outlined !text-6xl text-primary-600 dark:text-primary-200 ${weatherIconClass}`;
+
+                    // Update other weather information accordingly
+                    document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
+                    document.getElementById('wind-speed').textContent = `Wind: ${data.wind.speed} km/h`;
+
+                    // Call the function again after a certain interval (e.g., 5 minutes)
+                    setTimeout(() => getLocationAndWeather(), 300000); // 300,000 milliseconds = 5 minutes
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+        }
+
+        function getWeatherIconClass(weatherCode) {
+            // Map OpenWeatherMap icon codes to Weather Icons classes
+            switch (weatherCode) {
+                case '01d':
+                    return 'wi-day-sunny';
+                case '01n':
+                    return 'wi-night-clear';
+                case '02d':
+                    return 'wi-day-cloudy';
+                case '02n':
+                    return 'wi-night-alt-cloudy';
+                // Add more cases for other weather conditions
+                default:
+                    return 'wi-day-sunny'; // Default to a sunny icon if code not found
+            }
+        }
+
+        function getLocationAndWeather() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const { latitude, longitude } = position.coords;
+                        updateWeather(latitude, longitude);
+                    },
+                    error => {
+                        console.error('Error getting location:', error);
+                    }
+                );
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Initial call to start the process
+        getLocationAndWeather();
     </script>
+
 </body>
 
 </html>
