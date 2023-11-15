@@ -1,24 +1,27 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const updatetWithBearer = (target_url, token, datajson, responseFunction) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
+const updatetWithBearer = async (target_url, token, datajson, responseFunction) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify(datajson);
+    const raw = JSON.stringify(datajson);
 
-    var requestOptions = {
+    const requestOptions = {
         method: "PUT", // Metode PUT
         headers: myHeaders,
         body: raw,
         redirect: "follow",
     };
 
-    return fetch(target_url, requestOptions)
-        .then((response) => response.text())
-        .then((result) => responseFunction(JSON.parse(result)))
-        .catch((error) => console.log("error", error));
-}
+    try {
+        const response = await fetch(target_url, requestOptions);
+        const result = await response.text();
+        responseFunction(JSON.parse(result));
+    } catch (error) {
+        console.log("error", error);
+    }
+};
 
 const editDevice = async (IDEDIT, NAME, TOPIC) => {
     const deviceId = IDEDIT;
@@ -90,7 +93,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                     location.reload();
                 } else {
                     console.error("Request failed with status:", response.status);
-                    throw new Error("Request failed with status: " + response.status);
+                    throw new Error(`Request failed with status: ${response.status}`);
                 }
             } catch (error) {
                 console.error("Error:", error);
