@@ -138,7 +138,7 @@
       <div class="flex flex-wrap w-full flex-col gap-8 md:p-10 bg-surface-100 dark:bg-surfacedark-100 rounded-2xl">
         <div class="flex flex-col gap-2">
           <div class="flex flex-row justify-between items-center pt-2 pb-6">
-            <h2 class="text-xl leading-tight">Selamat Datang User</h2>
+            <h2 id="userGreeting" class="text-xl leading-tight">Device milik User</h2>
               <a href="profile.html"
                 class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
                 Settings
@@ -277,6 +277,19 @@
   <script>
     localStorage.setItem("previousPageURL", window.location.href);
   </script>
+
+<script>
+  //Mengambil nilai dari local storage dengan kunci userEmail
+  var userEmail = localStorage.getItem('userEmail');
+
+  // Mengganti teks dalam elemen dengan ID userGreeting
+  var userGreetingElement = document.getElementById('userGreeting');
+
+  // Memastikan userEmail tidak kosong sebelum mengganti teks
+  if (userEmail) {
+      userGreetingElement.textContent = 'Device milik ' + userEmail ;
+  }
+</script>
 </body>
 
 </html>
