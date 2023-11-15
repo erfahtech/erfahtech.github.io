@@ -1,4 +1,4 @@
-export function searchDevice() {
+const searchDevice = () => {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("search");
