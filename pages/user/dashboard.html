@@ -167,15 +167,15 @@
                             <hr class="w-full border-gray-100 dark:border-gray-800">
 
                             <!-- more -->
-                            <div class="flex flex-row gap-2 pt-2">
-
-                                <span class="flex items-center">
+                            <div class="flex flex-row gap-2 pt-2 justify-between">
+                                <div class="flex items-center">
                                     <span class="material-symbols-outlined mr-2">humidity_mid</span>
                                     <span class="flex items-center" id="humidity">Hum:</span>
-                                <span class="flex items-center">
+                                </div>
+                                <div class="flex items-center">
                                     <span class="material-symbols-outlined mr-2">air</span>
                                     <span class="flex items-center" id="wind-speed"> Wind:</span>
-
+                                </div>
                             </div>
                         </div>
 
@@ -279,7 +279,7 @@
             userGreetingElement.textContent = 'Selamat Datang, ' + userEmail + '!';
         }
     </script>
-    
+
     <script>
         const apiKey = 'c96a2bfbf2f7991983dbe8a1bc0df62d';
         function updateWeather(latitude, longitude) {
