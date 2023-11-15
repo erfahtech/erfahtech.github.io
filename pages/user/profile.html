@@ -271,40 +271,16 @@
     <!-- tailmater javascript -->
     <script src="../../js/tailmater.js"></script>
     <script type="module" src="../../js/get-setting.js"></script>
-    <script type="module" src="../../js/delete/deleteDevice.js"></script>
-    <script type="module" src="../../js/edit/editDevice2.js"></script>
-    <script type="module" src="../../js/search/searchDevices.js"></script>
 
-    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/logout.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/updateDevice.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/searchDevice.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/deleteDevice.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/logout.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.6/post_device.js"></script>
     <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authHalaman.js"></script> -->
     <script>
         localStorage.setItem("previousPageURL", window.location.href);
     </script>
-
-    <!-- <script>
-        function searchDevice() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("devices");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script> -->
 </body>
 
 </html>
