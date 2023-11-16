@@ -30,31 +30,39 @@
 
 
 const updateClock = () => {
-  const currentTime = new Date();
-  let { hours, minutes, seconds } = currentTime;
+  const updateTime = () => {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
 
-  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const day = dayNames[currentTime.getDay()];
+    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const day = dayNames[currentTime.getDay()];
 
-  const date = currentTime.getDate();
-  const month = currentTime.getMonth() + 1; // January is 0!
-  const year = currentTime.getFullYear();
+    const date = currentTime.getDate();
+    const month = currentTime.getMonth() + 1; // January is 0!
+    const year = currentTime.getFullYear();
 
-  // Pad single digit minutes and seconds with a leading zero
-  minutes = (minutes < 10 ? "0" : "") + minutes;
-  seconds = (seconds < 10 ? "0" : "") + seconds;
+    // Pad single digit minutes and seconds with a leading zero
+    const formattedMinutes = (minutes < 10 ? "0" : "") + minutes;
+    const formattedSeconds = (seconds < 10 ? "0" : "") + seconds;
 
-  // Set the content of the elements with the current time and date
-  document.getElementById("current-time").innerText = `${hours}:${minutes} ${hours >= 12 ? "PM" : "AM"}`;
-  document.getElementById("current-day").innerText = day;
-  document.getElementById("current-date").innerText = `${month}/${date}/${year}`;
+    // Set the content of the elements with the current time and date
+    document.getElementById("current-time").innerText = `${hours}:${formattedMinutes} ${hours >= 12 ? "PM" : "AM"}`;
+    document.getElementById("current-day").innerText = day;
+    document.getElementById("current-date").innerText = `${month}/${date}/${year}`;
+  };
+
+  // Initial call to update the clock
+  updateTime();
 
   // Update the clock every second
-  setTimeout(updateClock, 1000);
+  setInterval(updateTime, 1000);
 };
 
 // Initial call to update the clock
 updateClock();
+
 
 
 const apiKey = 'c96a2bfbf2f7991983dbe8a1bc0df62d';
