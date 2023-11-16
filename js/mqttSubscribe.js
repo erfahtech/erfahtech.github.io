@@ -22,15 +22,9 @@ function updateHumidity(humidity) {
 mqttClient.on("connect", () => {
   const email = localStorage.getItem("userEmail");
   console.log("Subcribing...");
-
-  // Subscribe to topics when connected
-  // mqttClient.subscribe("urse/" + email + "/suhu");
-  // mqttClient.subscribe("urse/" + email + "/humidity");
   mqttClient.subscribe("urse/" + email + "/monitoring");
   console.log("Berlangganan ke topik urse/" + email + "/monitoring");
 });
-
-// Listen for incoming messages on the subscribed topics
 
 // Panggil fungsi untuk dijalankan
 mqttClient.on("message", (topic, message) => {
