@@ -37,7 +37,6 @@ mqttClient.on("message", (topic, message) => {
     let data = receivedMessage.split("-");
     updateTemperature(data[0]);
     updateHumidity(data[1]);
-    // insertHistory(topic, data[0], data[1]);
     runFunction(topic, data[0], data[1]);
   }
 });
