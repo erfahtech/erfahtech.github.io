@@ -127,15 +127,24 @@
               Login
             </button>
 
+            <div id="loading"
+              style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; text-align: center; z-index: 1000;">
+              <!-- Ganti animasi loading di bawah sesuai kebutuhan -->
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p style="margin-top: 10px;">Loading...</p>
+            </div>
+
             <!-- Buat elemen tempatkan animasi loading -->
-            <div id="loading" style="display: none">
-              <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+            <!-- <div id="loading" style="display: none">
+              //Add your loading animation here, e.g., a spinner or progress bar
               <svg class="circular-loader relative w-[100px] h-[100px]">
                 <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
                   stroke-width="5" stroke-miterlimit="10"></circle>
               </svg>
               Loading...
-            </div>
+            </div> -->
           </div>
 
           <!-- End Form -->
