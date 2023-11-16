@@ -17,8 +17,6 @@ const insertHistory = (topic, suhu, humidity) => {
 const responseData = (result) => {
   if (result) {
     console.log("Tambah Device Berhasil:", result.message);
-    // Redirect to device_control.html if needed
-    // window.location.href = "device_control.html";
   } else {
     console.error("Tambah Device Gagal:", result.message);
   }
