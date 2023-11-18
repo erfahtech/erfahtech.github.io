@@ -88,7 +88,7 @@ export function isiCard(value) {
       statusSpan.style.color = input.checked ? "green" : "red";
 
       // simpan log
-      logPublish(name, topic, payload);
+      logPublish(name, topic, parseInt(payload));
     } else {
       console.error("Koneksi MQTT tidak aktif");
     }
