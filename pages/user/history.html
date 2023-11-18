@@ -140,10 +140,58 @@
 
         <!-- content -->
         <div class="flex flex-col w-full gap-12 md:gap-2 overflow-hidden">
-            <div
-                class="flex flex-wrap w-full flex-col gap-8 md:p-10 bg-surface-100 dark:bg-surfacedark-100 rounded-2xl">
-                <div class="flex flex-col gap-2">
-                    <h2 class="text-xl leading-tight">Selamat Datang User</h2>
+            <div class="main-content flex-grow min-h-[100%] py-20 relative px-4 lg:pr-8 lg:pl-3">
+                <!-- heading -->
+                <h2 id="userGreeting" class="text-xl leading-tight">Device milik User</h2>
+
+                <br>
+                <!-- content 1 -->
+                <div class="grid grid-cols-1 sm:gap-4 md:gap-6">
+                    <!-- card -->
+                    <div class="px-6 py-8 flex flex-col rounded-xl bg-white dark:bg-surfacedark-200">
+                        <div class="relative overflow-auto scrollbars">
+                            <!-- Device table -->
+                            <div
+                                class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
+                                <div class="datatable-top">
+                                    <!-- // -->
+                                </div>
+                                <div class="datatable-container">
+                                    <table id="history"
+                                        class="table-sorter table-bordered-bottom table-hover datatable-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center;">Nama Device</th>
+                                                <th style="text-align: center;">Payload</th>
+                                                <th style="text-align: center;">Created</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- isi table -->
+                                            <!-- end isi table -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="datatable-bottom">
+                                    <nav class="datatable-pagination">
+                                        <ul class="datatable-pagination-list">
+                                            <li
+                                                class="datatable-pagination-list-item datatable-hidden datatable-disabled">
+                                                <a data-page="1" class="datatable-pagination-list-item-link">‹</a>
+                                            </li>
+                                            <li class="datatable-pagination-list-item datatable-active"><a data-page="1"
+                                                    class="datatable-pagination-list-item-link">1</a>
+                                            </li>
+                                            <li class="datatable-pagination-list-item"><a data-page="2"
+                                                    class="datatable-pagination-list-item-link">2</a></li>
+                                            <li class="datatable-pagination-list-item"><a data-page="2"
+                                                    class="datatable-pagination-list-item-link">›</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <class class="relative overflow-hidden">
                         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
                             <div class="text-center">
@@ -170,8 +218,8 @@
     <!-- tailmater javascript -->
     <script src="../../js/tailmater.js"></script>
 
-    <script type="module" src="../../js/get-devices.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.6/post_device.js"></script>
+    <script type="module" src="../../js/get-history.js"></script>
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.6/post_device.js"></script> -->
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/logout.js"></script>
     <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authHalaman.js"></script> -->
     <script>
