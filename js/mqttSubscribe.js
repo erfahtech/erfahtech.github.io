@@ -7,6 +7,7 @@ function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature");
   if (temperatureElement) {
     temperatureElement.textContent = temperature ? ` ${temperature}°C` : "--°C";
+    console.log("Update Suhu:", temperature);
   }
 }
 
@@ -15,6 +16,7 @@ function updateHumidity(humidity) {
   const humidityElement = document.getElementById("humidity");
   if (humidityElement) {
     humidityElement.textContent = humidity ? ` ${humidity}%` : "--%";
+    console.log("Update Humidity:", humidity);
   }
 }
 
@@ -61,7 +63,7 @@ function runFunction(topic, suhu, humidity) {
     setTimeout(() => {
       isFunctionActive = true;
       console.log("Fungsi dapat dijalankan kembali setelah 4 menit.");
-    }, 4 * 60 * 1000); // Waktu dalam milidetik (4 menit)
+    }, 10 * 1000); // Waktu dalam milidetik (4 menit)
   } else {
     console.log("Fungsi sedang dinonaktifkan.");
   }
