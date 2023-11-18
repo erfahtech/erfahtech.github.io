@@ -4,19 +4,19 @@ import { insertHistory } from "./logSubcribe.js";
 let i = 1;
 // Function to update the temperature on the card
 function updateTemperature(temperature) {
-  const temperatureElement = document.getElementById("temperature");
+  const temperatureElement = document.getElementById("temperature-sensor");
   if (temperatureElement) {
     temperatureElement.textContent = temperature ? ` ${temperature}°C` : "--°C";
-    console.log("Update Suhu:", temperature);
+    // console.log("Update Suhu:", temperature);
   }
 }
 
 // Function to update the humidity on the card
 function updateHumidity(humidity) {
-  const humidityElement = document.getElementById("humidity");
+  const humidityElement = document.getElementById("humidity-sensor");
   if (humidityElement) {
     humidityElement.textContent = humidity ? ` ${humidity}%` : "--%";
-    console.log("Update Humidity:", humidity);
+    // console.log("Update Humidity:", humidity);
   }
 }
 
