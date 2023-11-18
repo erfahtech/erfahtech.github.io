@@ -1,6 +1,6 @@
 import { addInner } from "https://jscroot.github.io/element/croot.js";
 
-export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
+export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-gethistory";
 
 export const tableDevice = `
 <tr>
@@ -27,14 +27,14 @@ export const tableDevice = `
 `;
 
 export function responseData(results) {
-    console.log(results);
-    results.data.forEach(isiTable);
+  console.log(results);
+  results.data.forEach(isiTable);
 }
 
 export function isiTable(value) {
-    const content = tableDevice
-        .replace(/#PAYLOAD#/g, value.payload)
-        .replace(/#NAME#/g, value.name)
-        .replace(/#CREATED#/g, value.created_at);
-    addInner("history", content);
+  const content = tableDevice
+    .replace(/#PAYLOAD#/g, value.payload)
+    .replace(/#NAME#/g, value.name)
+    .replace(/#CREATED#/g, value.created_at);
+  addInner("history", content);
 }

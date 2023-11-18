@@ -18,9 +18,9 @@ const logPublish = (name, topic, payload) => {
 
 const responseData = (result) => {
   if (result) {
-    console.log("History Device Berhasil Disimpan", result.message);
+    console.log(result.message);
   } else {
-    console.error("History Device Gagal Disimpan", result.message);
+    console.error(result.message);
   }
 };
 
