@@ -1,5 +1,7 @@
 // import mqqtt connection
 import mqttClient from "./mqttConnection.js";
+// import logPublish
+import { logPublish } from "./logPublish.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -85,7 +87,8 @@ export function isiCard(value) {
       statusSpan.textContent = input.checked ? "ON" : "OFF";
       statusSpan.style.color = input.checked ? "green" : "red";
 
-      // insertHistory();
+      // simpan log
+      logPublish(name, topic, payload);
     } else {
       console.error("Koneksi MQTT tidak aktif");
     }
