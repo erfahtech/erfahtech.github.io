@@ -412,6 +412,34 @@
     }
     themes_func();
 
+    const layouts_func = function () {
+        var ele = document.getElementsByName('layouts');
+        const layouts = localStorage.getItem('layouts');
+        var body = document.body;
+        var prev = null;
+
+        const setLayouts = (layouts) => {
+            body.classList.add(layouts);
+        }
+        layouts && setLayouts(layouts);
+
+        if (ele != null) {
+            for (let i = 0; i < ele.length; i++) {
+                ele[i].addEventListener('change', function () {
+                    (prev) ? body.classList.remove(prev.value) : body.classList.remove(layouts);
+                    if (this !== prev) {
+                        prev = this;
+                    }
+                    body.classList.add(this.value);
+
+                    localStorage.setItem('layouts', this.value);
+                    console.log(this.value)
+                })
+            }
+        }
+    }
+    layouts_func();
+
     // ########## 14. Preloader ##########
     const preloader_func = function () {
         var xpre = document.querySelector(".preloader");
@@ -423,7 +451,95 @@
     }
     preloader_func();
 
-    // ########## 15. Custom JS ##########
+    // ########## 15. Toggle Active ##########
+    const toggle_active_func = function () {
+        const set_toggle = document.querySelectorAll('[data-type="toggle-active"]');
+
+        if (set_toggle != null) {
+            // show
+            function ToggleClicks(ToggleClickEvent) {
+                const clickTarget = ToggleClickEvent.currentTarget;
+                const ToggleId = clickTarget.getAttribute("data-target");
+                const activeToggle = document.querySelector(ToggleId);
+                activeToggle.classList.toggle("active");
+                clickTarget.classList.toggle("active");
+            }
+            for (let i = 0; i < set_toggle.length; i++) {
+                set_toggle[i].addEventListener("click", ToggleClicks);
+
+                if (set_toggle[i].checked == true) {
+                    const ToggleIds = set_toggle[i].getAttribute("data-target");
+                    const activeToggles = document.querySelector(ToggleIds);
+                    activeToggles.classList.add("active");
+                }
+            }
+        }
+    }
+    toggle_active_func();
+
+    // ########## 16. Incriase Decrease ##########
+    const incriase_func = function () {
+        const set_incriase = document.querySelectorAll('[data-type="incriase_ac"]');
+        const set_decrease = document.querySelectorAll('[data-type="decrease_ac"]');
+
+        if (set_incriase != null) {
+            function InClicks(InClickEvent) {
+                const clickTarget = InClickEvent.currentTarget;
+                const idds = clickTarget.getAttribute("data-target");
+
+                let number_el = document.getElementById(idds);
+
+                if (number_el.innerText == 30) return
+                let val = parseInt(number_el.innerText);
+                number_el.innerText = ++val;
+            }
+
+            for (let i = 0; i < set_incriase.length; i++) {
+                set_incriase[i].addEventListener("click", InClicks);
+            }
+        }
+        if (set_decrease != null) {
+            function OutClicks(OutClickEvent) {
+                const clickTarget = OutClickEvent.currentTarget;
+                const idds = clickTarget.getAttribute("data-target");
+
+                let number_el = document.getElementById(idds);
+
+                if (number_el.innerText == 16) return
+                let val = parseInt(number_el.innerText);
+                number_el.innerText = --val;
+            }
+
+            for (let i = 0; i < set_decrease.length; i++) {
+                set_decrease[i].addEventListener("click", OutClicks);
+            }
+        }
+    }
+    incriase_func();
+
+    // ########## 17. Lamp ##########
+    const range_target_func = function () {
+        var range = document.querySelectorAll('[data-type="slider-lamp"]');
+
+        if (range != null) {
+            var lamp = document.querySelectorAll('[data-type="lamp"]');
+
+            for (let i = 0; i < range.length; i++) {
+                range[i].nextElementSibling.style.width = range[i].value + "%";
+                range[i].previousElementSibling.innerText = range[i].value + "%";
+                lamp[i].style.opacity = range[i].value + "%";
+
+                range[i].oninput = function () {
+                    range[i].nextElementSibling.style.width = range[i].value + "%";
+                    range[i].previousElementSibling.innerText = range[i].value + "%";
+                    lamp[i].style.opacity = range[i].value + "%";
+                }
+            }
+        }
+    }
+    range_target_func();
+
+    // ########## 18. Custom JS ##########
     const myCustom = function () {
 
         // insert your javascript in here
