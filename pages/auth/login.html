@@ -7,177 +7,140 @@
   <title>Login Form</title>
   <link rel="shortcut icon" href="../../images/fav-logo.png" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Icons  -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
 
-  <link rel="stylesheet" id="loading" href="../../css/loading.css" />
-  <!-- Style Css -->
-  <link rel="stylesheet" id="stylesheet" href="../../css/landingPage.css">
+  <link rel="stylesheet" id="stylesheet" href="../../css/loading.css" />
 </head>
 
-<body id="body-layout"
-  class="text-body-md relative font-sans font-normal text-gray-700 dark:text-gray-300 bg-surface-200 dark:bg-surfacedark-200 ">
-  <!-- preloader -->
-  <div class="preloader fixed inset-0 z-50 bg-surface-500 dark:bg-surfacedark-500">
-    <div class="w-full h-screen flex justify-center items-center">
-  <!-- loader -->
-  <svg class="circular-loader relative w-[100px] h-[100px]">
-        <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
-          stroke-width="5" stroke-miterlimit="10"></circle>
-      </svg>
-    </div>
-  </div>
-
-  <header class="max-w-[90rem] md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
-    <!-- navbar -->
-    <nav class="relative flex flex-col md:flex-row justify-between items-center w-full">
-      <div class="min-h-[80px] md:min-h-[60px] px-4 flex flex-row w-full md:w-auto justify-between items-center">
-        <!-- logo -->
-        <a href="../../index.html" class="sidebar-logo pt-4 pb-2 flex items-center w-full">
-          <img class="w-12 high-quality" src="../../images/logo-horizontal.svg" alt="logo">
-          <h4 class="text-2xl font-medium tracking-wide text-gray-900 dark:text-gray-100 compact-hide ml-2">
-            USE</h4>
-        </a>
-
-        <button data-type="toggle" data-target="#navbar-id"
-          class="group relative !inline-flex md:!hidden !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400 !text-4xl">
-          <span class="material-symbols-outlined group-[.show]:!hidden">menu</span>
-          <span class="material-symbols-outlined !hidden group-[.show]:!block">close</span>
-        </button>
-      </div>
-
-      <!-- menu -->
-      <div id="navbar-id"
-        class="nav [&.show]:!opacity-100 [&.show]:!visible [&.show]:!h-auto max-md:[&.show]:bg-surface-100 max-md:dark:[&.show]:bg-surfacedark-100 opacity-0 invisible md:visible flex opacity-1 h-0 md:h-auto md:opacity-100 absolute top-full left-0 right-0 md:relative z-40 flex-col md:flex-row items-center pb-6 md:pb-0 duration-[400ms] ease-[cubic-bezier(0.2, 0, 0, 1)]">
-        <a href="../../index.html"
-          class="relative flex flex-col justify-center items-center w-11/12 md:w-auto p-6 hover:bg-white dark:hover:bg-surfacedark-100 hover:bg-opacity-80 dark:hover:bg-opacity-80 gap-6">
-          <p class="text-sm tracking-[.00714em]">Home</p>
-          <span class="indicator w-12 md:w-full absolute bottom-0 h-0.5 rounded-t-full"></span>
-        </a>
-        <a href="signup.html"
-          class="relative flex flex-col justify-center items-center w-11/12 md:w-auto p-6 hover:bg-surface-100 dark:hover:bg-surfacedark-100 hover:bg-opacity-80 dark:hover:bg-opacity-80 gap-6">
-          <p class="text-sm tracking-[.00714em]">Sign Up</p>
-          <span class="indicator w-12 md:w-full absolute bottom-0 h-0.5 rounded-t-full"></span>
-        </a>
-
-        <hr
-          class="opacity-0 lg:opacity-100 self-stretch h-8 my-auto mr-6 border-r border-solid border-gray-200 dark:border-gray-700">
-
-        <!-- btn action -->
-        <div class="flex flex-row gap-4 items-center">
-          <div class="relative" aria-label="Light & Dark mode" data-microtip-position="bottom" role="tooltip">
-            <!-- light & dark -->
-            <button data-type="theme" id="lightdark"
-              class="btn-outline relative flex flex-row items-center justify-center w-8 h-8 gap-x-2 py-2 px-4 rounded-full text-sm tracking-[.00714em] font-medium border border-gray-500 text-primary-600 dark:border-gray-400 dark:text-primary-200">
-              <span class="material-symbols-outlined !text-base dark-hidden">light_mode</span>
-              <span class="material-symbols-outlined !text-base dark-block">dark_mode</span>
+<body>
+  <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0 bg-gray-700">
+    <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
+      <div class="relative md:flex md:items-center md:justify-between">
+        <div class="flex items-center justify-between">
+          <a class="flex-none" href="../../index.html">
+            <img class="w-full h-10" src="../../images/logo-horizontal.svg" alt="Company name" />
+          </a>
+          <div class="md:hidden">
+            <button type="button"
+              class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-900 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+              data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation"
+              aria-label="Toggle navigation">
+              <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+              </svg>
+              <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor"
+                viewBox="0 0 16 16">
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+              </svg>
             </button>
           </div>
+        </div>
 
-          <div class="relative" aria-label="Login" data-microtip-position="bottom" role="tooltip">
-            <a href="login.html"
-              class="btn-outline relative flex flex-row items-center justify-center w-8 h-8 gap-x-2 py-2 px-4 rounded-full text-sm tracking-[.00714em] font-medium border border-gray-500 text-primary-600 dark:border-gray-400 dark:text-primary-200">
-              <span class="material-symbols-outlined !text-base">Login</span>
-            </a>
+        <div id="navbar-collapse-with-animation"
+          class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
+          <div class="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
+            <div
+              class="text-center flex flex-col gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
+              <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-white dark:hover:text-white"
+                href="../../index.html" aria-current="page"> Home </a>
+              <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
+                href="signup.html"> Sign Up </a>
+              <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
+                href="login.html"> Login </a>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
+  <!-- End Header -->
 
-  <main class="relative overflow-hidden flex items-center justify-center min-h-screen bg-surface-200 dark:bg-gray-900">
-    <div class="flex justify-center items-center">
-      <div class="w-full max-w-2xl">
-        <div
-          class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 p-8 md:p-12">
+  <main class="w-full max-w-md mx-auto p-6">
+    <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-4 sm:p-7">
+        <div class="text-center">
+          <div style="display: flex; flex-direction: column; align-items: center">
+            <!-- Logo -->
+            <img src="../../images/Logo-Use.png" alt="Your Logo" width="200" height="100" />
+            <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Login</h1>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              Don't have an account yet?
+              <a class="text-blue-600 decoration-2 hover:underline font-medium" href="signup.html"> Sign up here </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-5">
           <!-- Form -->
-          <div class="flex flex-col gap-6 text-gray-600 dark:text-gray-400 items-center">
-            <div class="text-center">
-              <div style="display: flex; flex-direction: column; align-items: center">
-                <!-- Logo -->
-                <img src="../../images/Logo-Use.png" alt="Your Logo" width="150px" height="75px"
-                  class="max-w-full h-auto mb-4 md:mb-8" />
-                <h1 class="block text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">
-                  Login</h1>
-                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  Don't have an account yet? <a class="text-blue-600 decoration-2 hover:underline font-medium"
-                    href="signup.html"> Sign up here</a>
-                </p>
-              </div>
-            </div>
-            <form class="relative flex flex-col gap-6">
-              <!-- Email input -->
-              <div class="relative z-0">
-                <input type="email" aria-label="emaillogin" name="emaillogin" id="emaillogin"
-                  class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-neutral-10 dark:bg-neutral-900 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
-                  placeholder=" " value="">
-                <label for="emaillogin"
-                  class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-neutral-10 dark:bg-neutral-900 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Email</label>
-              </div>
-
-              <!-- Password input -->
-              <div class="relative z-0">
-                <input type="password" aria-label="passwordlogin" name="passwordlogin" id="passwordlogin"
-                  class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-neutral-10 dark:bg-neutral-900 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
-                  placeholder=" " value="">
-                <label for="passwordlogin"
-                  class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-neutral-10 dark:bg-neutral-900 duration-300 transform px-1 -translate-y-6 scale-75 top-2.5 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Password</label>
-
-                <!-- Show/hide password toggle -->
-                <div title="Show or hide password" onclick="passwordFunc()"
-                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 cursor-pointer">
-                  <span class="material-symbols-outlined on">visibility</span>
-                  <span class="material-symbols-outlined off hidden">visibility_off</span>
+          <div class="grid gap-y-4">
+            <!-- Form Group -->
+            <div>
+              <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
+              <div class="relative">
+                <input type="email" id="emaillogin" name="email"
+                  class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                  required aria-describedby="email-error" />
+                <div class="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
+                  <svg class="h-5 w-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                    aria-hidden="true">
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                  </svg>
                 </div>
               </div>
+              <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we
+                can get back to you</p>
+            </div>
+            <!-- End Form Group -->
 
-              <!-- Remember me and Forgot password -->
-              <div class="flex flex-row items-center justify-between gap-8">
-                <label class="flex items-center gap-3">
-                  <input id="remember-me" type="checkbox" name="remember-me"
-                    class="w-5 h-5 accent-primary-600 hover:accent-primary-600 dark:accent-primary-200 rounded-[2px]">
-                  <span>Remember me</span>
-                </label>
-
-                <a href="#" class="underline hover:text-primary-600 dark:hover:text-primary-200">Forgot password</a>
+            <!-- Form Group -->
+            <div>
+              <div class="flex justify-between items-center">
+                <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
+                <a class="text-sm text-blue-600 decoration-2 hover:underline font-medium" href="#">Forgot password?</a>
               </div>
-
-              <!-- Submit button -->
-              <button type="submit" id="buttonlogin" name="buttonlogin" onclick="postLogin()"
-                class="btn relative inline-flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm md:text-base lg:text-lg tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
-                Login
-              </button>
-
-              <!-- Loading animation -->
-              <div id="loading" style="display: none">
-                <!-- Add your loading animation here, e.g., a spinner or progress bar -->
-                Loading...
+              <div class="relative">
+                <input type="password" id="passwordlogin" name="password"
+                  class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                  required aria-describedby="password-error" />
               </div>
-            </form>
+            </div>
+            <!-- End Form Group -->
 
+            <!-- Checkbox -->
+            <div class="flex items-center">
+              <div class="flex">
+                <input id="remember-me" name="remember-me" type="checkbox"
+                  class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800 checked" />
+              </div>
+              <div class="ml-3">
+                <label for="remember-me" class="text-sm dark:text-white">Remember me</label>
+              </div>
+            </div>
+            <!-- End Checkbox -->
+
+            <button type="submit" id="buttonlogin" name="buttonlogin" onclick="postLogin()"
+              class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+              Login
+            </button>
+
+
+            <!-- Buat elemen tempatkan animasi loading -->
+            <div id="loading" style="display: none">
+              <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+              Loading...
+            </div>
           </div>
+
+          <!-- End Form -->
         </div>
       </div>
     </div>
   </main>
-
-
-  <!-- footer start -->
-  <footer
-    class="max-w-[90rem] px-4 sm:px-6 lg:px-12 mx-auto bg-surface-200 dark:bg-gray-900 text-gray-300 text-body-lg flex flex-col">
-    <!-- copyright  -->
-    <div class="py-9 w-full text-center border-t border-blue-200 border-opacity-10">
-      <p>UI Design by <a class="text-primary-600 dark:text-primary-200 hover:underline md:mr-3"
-          href="https://m3.material.io/" target="_blank">Google Material Design</a></p>
-      <p>Development by <a class="text-primary-600 dark:text-primary-200 hover:underline" href="#"
-          target="_blank">USE</a></p>
-    </div>
-  </footer>
-
-  <!-- <script>
+  <script>
     // Memeriksa apakah "Remember Me" dicentang
     const rememberMeCheckbox = document.getElementById("remember-me");
     const emailInput = document.getElementById("emaillogin");
@@ -209,29 +172,12 @@
         localStorage.setItem("rememberMeChecked", "false");
       }
     });
-  </script> -->
-
-  <script>
-    function passwordFunc() {
-      const x = document.getElementById("passwordlogin");
-      const parent = x.parentNode;
-
-      if (x.type === "password") {
-        x.type = "text";
-        parent.classList.add("show");
-      } else {
-        x.type = "password";
-        parent.classList.remove("show");
-      }
-    }
   </script>
-
-  <script type="module" src="../../js/login.js"></script>
-  <!-- Tailmater javascript -->
-  <script type="module" src="../../js/tailmate.js"></script>
-  <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/login.js"></script> -->
-  <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authLogin.js"></script> -->
 </body>
+<script src="../../node_modules/preline/dist/preline.js"></script>
+<script type="module" src="../../js/login.js"></script>
 
+<!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/login.js"></script> -->
+<!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authLogin.js"></script> -->
 
 </html>
