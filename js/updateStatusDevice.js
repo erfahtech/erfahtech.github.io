@@ -28,7 +28,7 @@ const updatetWithBearer = async (target_url, token, datajson, responseFunction) 
 
 const updateStatusDevice = async (DEVICEID, STATUS) => {
   const token = getCookie("token");
-  const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatedevice?id=${DEVICEID}`;
+  const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatestatusdevice?id=${DEVICEID}`;
 
   const datajson = {
     status: STATUS,
