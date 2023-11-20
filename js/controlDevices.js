@@ -78,7 +78,8 @@ export function isiCard(value) {
     const input = event.currentTarget.querySelector("input");
     const cardId = idDevice; // ID elemen status yang sesuai dengan card
     console.log("Toggle switch clicked:", cardId);
-    const statusSpan = document.getElementById(`status-${topic}`); // Dapatkan elemen status yang sesuai
+    const statusSpan = document.getElementById(`status-${cardId}`); // Dapatkan elemen status yang sesuai
+    console.log("Toggle switch clicked:", statusSpan);
 
     input.checked = !input.checked;
     const payload = input.checked ? "1" : "0";
@@ -89,8 +90,13 @@ export function isiCard(value) {
       console.log(`Mengirim payload ${payload} ke topik ${topic}`);
 
       // Ubah teks status
-      statusSpan.textContent = input.checked ? "ON" : "OFF";
-      statusSpan.style.color = input.checked ? "green" : "red";
+      if (statusSpan) {
+        // Check if statusSpan is not null
+        statusSpan.textContent = input.checked ? "ON" : "OFF";
+        statusSpan.style.color = input.checked ? "green" : "red";
+      } else {
+        console.error(`Elemen status dengan ID 'status-${cardId}' tidak ditemukan.`);
+      }
 
       // Ubah status di database
       if (input.checked) {
