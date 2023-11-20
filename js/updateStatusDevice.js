@@ -1,7 +1,7 @@
 // apiService.js
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-export async function updateStatusDevice(idDevice, status, token) {
+export async function updateStatusDevice(idDevice, status) {
   const token = getCookie("token");
   const updateStatusUrl = `https://example.com/api/updateStatus?id=${idDevice}`;
 
