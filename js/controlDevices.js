@@ -17,6 +17,7 @@ export function responseData(results) {
 export function isiCard(value) {
   const topic = value.topic;
   const name = value.name;
+  const status = value.status;
 
   // Buat elemen toggle switch
   const toggleSwitch = document.createElement("div");
@@ -25,7 +26,7 @@ export function isiCard(value) {
   const input = document.createElement("input");
   input.className = "toggle-checkbox";
   input.type = "checkbox";
-  input.checked = false;
+  input.checked = status;
   input.style.display = "none"; // Sembunyikan checkbox
 
   toggleSwitch.appendChild(input);
