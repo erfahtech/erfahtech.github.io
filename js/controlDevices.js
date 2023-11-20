@@ -78,8 +78,8 @@ export function isiCard(value) {
     const input = event.currentTarget.querySelector("input");
     const cardId = idDevice; // ID elemen status yang sesuai dengan card
     console.log("Toggle switch clicked:", cardId);
-    const statusSpan = document.getElementById(`status-${cardId}`); // Dapatkan elemen status yang sesuai
-    console.log("Toggle switch clicked:", statusSpan);
+    const statusSpan = document.getElementById(`status-${topic}`); // Dapatkan elemen status yang sesuai
+    console.log("Status span:", statusSpan);
 
     input.checked = !input.checked;
     const payload = input.checked ? "1" : "0";
