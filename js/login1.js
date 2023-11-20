@@ -1,4 +1,8 @@
-const postLogin = async () => {
+import { postWithToken } from "https://jscroot.github.io/api/croot.js";
+import { getValue } from "https://jscroot.github.io/element/croot.js";
+import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
+
+const postLogin = () => {
     const email = getValue("emaillogin");
     const password = getValue("passwordlogin");
     const loadingElement = document.getElementById("loading");
@@ -6,7 +10,6 @@ const postLogin = async () => {
 
     loginButton.style.display = "none";
     loadingElement.style.display = "block";
-
     if (!email || !password) {
         Swal.fire({
             icon: "error",
@@ -26,20 +29,9 @@ const postLogin = async () => {
         password,
     };
 
-    try {
-        const result = await postWithToken(target_url, tokenkey, tokenvalue, datainjson);
-        responseData(result);
-    } catch (error) {
-        console.error("Error during login:", error);
-        Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: "An unexpected error occurred during login.",
-        });
-        loginButton.style.display = "block";
-    } finally {
+    postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData, () => {
         loadingElement.style.display = "none";
-    }
+    });
 };
 
 function responseData(result) {
@@ -63,13 +55,16 @@ function responseData(result) {
             }
         });
     } else {
+        const loadingElement = document.getElementById("loading");
         const loginButton = document.getElementById("buttonlogin");
         Swal.fire({
             icon: "error",
             title: "Login Failed",
-            text: result.message || "An unexpected error occurred.",
+            text: result.message,
         });
         loginButton.style.display = "block";
+        loadingElement.style.display = "none";
     }
 }
+
 window.postLogin = postLogin;
