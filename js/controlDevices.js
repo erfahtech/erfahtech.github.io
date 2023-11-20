@@ -2,6 +2,8 @@
 import mqttClient from "./mqttConnection.js";
 // import logPublish
 import { logPublish } from "./logPublish.js";
+// import UpdateStatus
+import { updateStatusDevice } from "./updateStatusDevice.js";
 
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
@@ -15,6 +17,7 @@ export function responseData(results) {
 }
 
 export function isiCard(value) {
+  const idDevice = value.id;
   const topic = value.topic;
   const name = value.name;
   const status = value.status;
@@ -73,7 +76,7 @@ export function isiCard(value) {
 
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
-    const cardId = `status-${topic}`; // ID elemen status yang sesuai dengan card
+    const cardId = idDevice; // ID elemen status yang sesuai dengan card
     const statusSpan = document.getElementById(cardId); // Dapatkan elemen status yang sesuai
 
     input.checked = !input.checked;
@@ -87,6 +90,13 @@ export function isiCard(value) {
       // Ubah teks status
       statusSpan.textContent = input.checked ? "ON" : "OFF";
       statusSpan.style.color = input.checked ? "green" : "red";
+
+      // Ubah status di database
+      if (input.checked) {
+        updateStatusDevice(cardId, true); // Panggil dengan nilai true jika toggle aktif
+      } else {
+        updateStatusDevice(cardId, false); // Panggil dengan nilai false jika toggle nonaktif
+      }
 
       // simpan log
       logPublish(name, topic, parseInt(payload));
