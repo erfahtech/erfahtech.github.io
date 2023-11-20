@@ -565,26 +565,26 @@
     incriase_func();
 
     // ########## 17. Lamp ##########
-    const range_target_func = function () {
-        var range = document.querySelectorAll('[data-type="slider-lamp"]');
+    // const range_target_func = function () {
+    //     var range = document.querySelectorAll('[data-type="slider-lamp"]');
 
-        if (range != null) {
-            var lamp = document.querySelectorAll('[data-type="lamp"]');
+    //     if (range != null) {
+    //         var lamp = document.querySelectorAll('[data-type="lamp"]');
 
-            for (let i = 0; i < range.length; i++) {
-                range[i].nextElementSibling.style.width = range[i].value + "%";
-                range[i].previousElementSibling.innerText = range[i].value + "%";
-                lamp[i].style.opacity = range[i].value + "%";
+    //         for (let i = 0; i < range.length; i++) {
+    //             range[i].nextElementSibling.style.width = range[i].value + "%";
+    //             range[i].previousElementSibling.innerText = range[i].value + "%";
+    //             lamp[i].style.opacity = range[i].value + "%";
 
-                range[i].oninput = function () {
-                    range[i].nextElementSibling.style.width = range[i].value + "%";
-                    range[i].previousElementSibling.innerText = range[i].value + "%";
-                    lamp[i].style.opacity = range[i].value + "%";
-                }
-            }
-        }
-    }
-    range_target_func();
+    //             range[i].oninput = function () {
+    //                 range[i].nextElementSibling.style.width = range[i].value + "%";
+    //                 range[i].previousElementSibling.innerText = range[i].value + "%";
+    //                 lamp[i].style.opacity = range[i].value + "%";
+    //             }
+    //         }
+    //     }
+    // }
+    // range_target_func();
 
     // ########## 18. Custom JS ##########
     const myCustom = function () {
