@@ -77,7 +77,8 @@ export function isiCard(value) {
   toggleSwitch.addEventListener("click", (event) => {
     const input = event.currentTarget.querySelector("input");
     const cardId = idDevice; // ID elemen status yang sesuai dengan card
-    const statusSpan = document.getElementById(cardId); // Dapatkan elemen status yang sesuai
+    console.log("Toggle switch clicked:", cardId);
+    const statusSpan = document.getElementById(`status-${topic}`); // Dapatkan elemen status yang sesuai
 
     input.checked = !input.checked;
     const payload = input.checked ? "1" : "0";
