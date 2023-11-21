@@ -33,6 +33,7 @@ export function responseData(results) {
 
 export function isiTable(value) {
   const wibCreated = convertToWIB(value.created_at);
+  console.log("Waktu Convert: ", wibCreated);
   const content = tableDevice
     .replace(/#PAYLOAD#/g, value.payload)
     .replace(/#NAME#/g, value.name)
