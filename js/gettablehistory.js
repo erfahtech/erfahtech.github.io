@@ -1,4 +1,5 @@
 import { addInner } from "https://jscroot.github.io/element/croot.js";
+import { convertToWIB } from "./convertToWIB.js";
 
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-gethistory";
 
@@ -31,9 +32,10 @@ export function responseData(results) {
 }
 
 export function isiTable(value) {
+  const wibCreated = convertToWIB(value.created_at);
   const content = tableDevice
     .replace(/#PAYLOAD#/g, value.payload)
     .replace(/#NAME#/g, value.name)
-    .replace(/#CREATED#/g, value.created_at);
+    .replace(/#CREATED#/g, wibCreated);
   addInner("history", content);
 }
