@@ -2,5 +2,5 @@
 export function convertToWIB(utcTimeString) {
   const utcDate = new Date(utcTimeString);
   const wibDate = new Date(utcDate.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
-  return wibDate.toISOString();
+  return wibDate;
 }
