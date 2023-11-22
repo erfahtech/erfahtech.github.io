@@ -99,7 +99,7 @@ const validatePassword = (password) => {
 };
 
 const passwordFunc = () => {
-    const x = document.getElementById("passwordlogin");
+    const x = document.getElementById("passwordsignup");
     const parent = x.parentNode;
   
     x.type = x.type === "password" ? "text" : "password";
