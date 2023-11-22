@@ -13,7 +13,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
-    <link rel="stylesheet" id="loading" href="../../css/loading.css" />
     <!-- Style Css -->
     <link rel="stylesheet" id="stylesheet" href="../../css/landingPage.css">
 </head>
@@ -30,13 +29,15 @@
             </svg>
         </div>
     </div>
+
     <!-- Loading animation -->
-    <div id="loading" class="w-full h-screen flex justify-center items-center">
-        <!-- loader -->
-        <svg class="circular-loader relative w-[100px] h-[100px]">
-            <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
-                stroke-width="5" stroke-miterlimit="10"></circle>
-        </svg>
+    <div id="loading" style="display: none" class="fixed inset-0 z-50 bg-surface-500 dark:bg-surfacedark-500">
+        <div class="w-full h-screen flex justify-center items-center">
+            <svg class="circular-loader relative w-[100px] h-[100px]">
+                <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
+                    stroke-width="5" stroke-miterlimit="10"></circle>
+            </svg>
+        </div>
     </div>
 
     <header class="max-w-[90rem] md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
@@ -163,6 +164,8 @@
                                 class="btn relative inline-flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm md:text-base lg:text-lg tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
                                 Login
                             </button>
+
+
                         </div>
 
                     </div>
