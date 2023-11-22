@@ -21,15 +21,15 @@
 <body id="body-layout"
     class="text-body-md relative font-sans font-normal text-gray-700 dark:text-gray-300 bg-surface-200 dark:bg-surfacedark-200 ">
     <!-- preloader -->
-    <!-- <div class="preloader fixed inset-0 z-50 bg-surface-500 dark:bg-surfacedark-500">
-        <div class="w-full h-screen flex justify-center items-center"> -->
-    <!-- loader -->
-    <!-- <svg class="circular-loader relative w-[100px] h-[100px]">
+    <div class="preloader fixed inset-0 z-50 bg-surface-500 dark:bg-surfacedark-500">
+        <div class="w-full h-screen flex justify-center items-center">
+            <!-- loader -->
+            <svg class="circular-loader relative w-[100px] h-[100px]">
                 <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
                     stroke-width="5" stroke-miterlimit="10"></circle>
             </svg>
         </div>
-    </div> -->
+    </div>
 
     <header class="max-w-[90rem] md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
         <!-- navbar -->
@@ -157,9 +157,12 @@
                             </button>
 
                             <!-- Loading animation -->
-                            <div id="loading" style="display: none">
-                                <!-- Add your loading animation here, e.g., a spinner or progress bar -->
-                                Loading...
+                            <div id="loading" class="w-full h-screen flex justify-center items-center">
+                                <!-- loader -->
+                                <svg class="circular-loader relative w-[100px] h-[100px]">
+                                    <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50"
+                                        r="20" fill="none" stroke-width="5" stroke-miterlimit="10"></circle>
+                                </svg>
                             </div>
                         </div>
 
@@ -215,17 +218,6 @@
       }
     });
   </script> -->
-
-    <script>
-        const passwordFunc = () => {
-            const x = document.getElementById("passwordlogin");
-            const parent = x.parentNode;
-
-            x.type = x.type === "password" ? "text" : "password";
-            parent.classList.toggle("show", x.type === "text");
-        };
-
-    </script>
 
     <script type="module" src="../../js/login.js"></script>
     <!-- Tailmater javascript -->

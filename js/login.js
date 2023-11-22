@@ -67,26 +67,13 @@ function responseData(result) {
   }
 }
 
-// const passwordFunc = () => {
-//   const x = document.getElementById("passwordlogin");
-//   const parent = x.parentNode;
+const passwordFunc = () => {
+  const x = document.getElementById("passwordlogin");
+  const parent = x.parentNode;
 
-//   if (x.type === "password") {
-//     x.type = "text";
-//     parent.classList.add("show");
-//   } else {
-//     x.type = "password";
-//     parent.classList.remove("show");
-//   }
-// }
-
-// const passwordFunc = () => {
-//   const x = document.getElementById("passwordlogin");
-//   const parent = x.parentNode;
-
-//   x.type = x.type === "password" ? "text" : "password";
-//   parent.classList.toggle("show", x.type === "text");
-// };
+  x.type = x.type === "password" ? "text" : "password";
+  parent.classList.toggle("show", x.type === "text");
+};
 
 window.postLogin = postLogin;
-// window.passwordFunc = passwordFunc;
+window.passwordFunc = passwordFunc;
