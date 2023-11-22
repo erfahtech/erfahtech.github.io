@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup form</title>
+    <link rel="shortcut icon" href="../../images/fav-logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" id="stylesheet" href="../../css/loading.css" />
+  </head>
+
+  <body>
+    <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0 bg-gray-700">
+      <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
+        <div class="relative md:flex md:items-center md:justify-between">
+          <div class="flex items-center justify-between">
+            <a href="../../index.html">
+              <img class="w-full h-10" src="../../images/logo-horizontal.svg" alt="Company name" />
+            </a>
+            <div class="md:hidden">
+              <button
+                type="button"
+                class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-900 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                data-hs-collapse="#navbar-collapse-with-animation"
+                aria-controls="navbar-collapse-with-animation"
+                aria-label="Toggle navigation"
+              >
+                <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
+            <div class="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
+              <div class="text-center flex flex-col gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
+                <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-white dark:hover:text-white" href="../../index.html" aria-current="page"> Home </a>
+                <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="signup.html"> Sign Up </a>
+                <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="login.html"> Login </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    <main class="w-full max-w-md mx-auto p-6">
+      <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <div class="p-4 sm:p-7">
+          <div class="text-center">
+            <div style="display: flex; flex-direction: column; align-items: center">
+              <img src="../../images/Logo-Use.png" alt="Your Logo" width="200" height="100" />
+              <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign up</h1>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                Already have an account?
+                <a class="text-blue-600 decoration-2 hover:underline font-medium" href="login.html"> Login here </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <!-- Form -->
+            <div class="grid gap-y-4">
+              <!-- Form Group -->
+              <div>
+                <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
+                <div class="relative">
+                  <input
+                    type="email"
+                    id="emailsignup"
+                    name="email"
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="Username" class="block text-sm mb-2 dark:text-white">Username</label>
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="usernamesignup"
+                    name="username"
+                    required
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                  />
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div>
+                <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
+                <div class="relative">
+                  <input
+                    type="password"
+                    id="passwordsignup"
+                    name="password"
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                id="buttonsignup"
+                name="buttonsignup"
+                onclick="postSignUp()"
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+              >
+                Sign up
+              </button>
+
+              <div id="loading" style="display: none">
+                <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+                Loading...
+              </div>
+            </div>
+            <!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="../../node_modules/preline/dist/preline.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.6/signup.js"></script>
+</html>
