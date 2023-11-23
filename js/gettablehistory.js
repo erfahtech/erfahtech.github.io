@@ -28,7 +28,10 @@ export const tableDevice = `
 
 export function responseData(results) {
   console.log(results);
-  results.data.forEach(isiTable);
+//   results.data.forEach(isiTable);
+
+  const sortedData = results.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  sortedData.forEach(isiTable);
 }
 
 export function isiTable(value) {
