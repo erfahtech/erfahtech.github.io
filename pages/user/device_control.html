@@ -34,6 +34,16 @@
     </div>
   </div>
 
+  <!-- loading -->
+  <div id="loading" style="display: none" class="fixed inset-0 z-50 bg-neutral-10 dark:bg-neutral-900">
+    <div class="w-full h-screen flex justify-center items-center">
+      <svg class="circular-loader relative w-[100px] h-[100px]">
+        <circle class="path stroke-primary-600 dark:stroke-primary-200" cx="50" cy="50" r="20" fill="none"
+          stroke-width="5" stroke-miterlimit="10"></circle>
+      </svg>
+    </div>
+  </div>
+
   <header>
     <div
       class="w-full h-16 fixed md:relative top-0 left-0 right-0 bg-surface-200 dark:bg-surfacedark-200 md:bg-transparent md:dark:bg-transparent flex flex-row items-center justify-between md:justify-center gap-1.5 z-50">
@@ -139,10 +149,10 @@
         <div class="flex flex-col gap-2">
           <div class="flex flex-row justify-between items-center pt-2 pb-6">
             <h2 id="userGreeting" class="text-xl leading-tight">Device milik User</h2>
-              <a href="profile.html"
-                class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
-                Settings
-              </a>
+            <a href="profile.html"
+              class="material-symbols-outlined !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover-bg-surfacedark-300 dark:focus-bg-surfacedark-400">
+              Settings
+            </a>
           </div>
           <div class="flex-shrink max-w-full w-full order-2 md:order-1 xl:w-2/3">
             <div id="devices" class="flex flex-wrap flex-row dark:bg-surfacedark-100"></div>
@@ -236,12 +246,6 @@
                     Save
                   </button>
                 </div>
-                <div id="loading" style="display: none">
-                  <div class="flex flex-row justify-center gap-2 px-8 py-8">
-                    <!-- Add your loading animation here, e.g., a spinner or progress bar -->
-                    Loading...
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -279,18 +283,18 @@
     localStorage.setItem("previousPageURL", window.location.href);
   </script>
 
-<script>
-  //Mengambil nilai dari local storage dengan kunci userEmail
-  var userEmail = localStorage.getItem('userEmail');
+  <script>
+    //Mengambil nilai dari local storage dengan kunci userEmail
+    var userEmail = localStorage.getItem('userEmail');
 
-  // Mengganti teks dalam elemen dengan ID userGreeting
-  var userGreetingElement = document.getElementById('userGreeting');
+    // Mengganti teks dalam elemen dengan ID userGreeting
+    var userGreetingElement = document.getElementById('userGreeting');
 
-  // Memastikan userEmail tidak kosong sebelum mengganti teks
-  if (userEmail) {
-      userGreetingElement.textContent = 'Device milik ' + userEmail ;
-  }
-</script>
+    // Memastikan userEmail tidak kosong sebelum mengganti teks
+    if (userEmail) {
+      userGreetingElement.textContent = 'Device milik ' + userEmail;
+    }
+  </script>
 </body>
 
 </html>
