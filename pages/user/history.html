@@ -154,7 +154,12 @@
                             <div
                                 class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                                 <div class="datatable-top">
-                                    <!-- // -->
+                                    <!-- add new -->
+                                    <button onclick="clearHistory()"
+                                        class="btn relative flex flex-row items-center justify-center gap-x-2 py-2 px-4 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
+                                        <span class="material-symbols-outlined">Delete</span>
+                                        Clear History
+                                    </button>
                                 </div>
                                 <div class="datatable-container">
                                     <table id="history"
@@ -219,6 +224,7 @@
     <script src="../../js/tailmater.js"></script>
 
     <script type="module" src="../../js/get-history.js"></script>
+    <script type="module" src="../../js/delete/clearHistory.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.12/logout.js"></script>
     <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.5/authHalaman.js"></script> -->
     <script>
