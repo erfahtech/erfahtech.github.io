@@ -1,56 +1,40 @@
 const postDevices = async () => {
-    const nama = document.getElementById("isiName").value;
-    const topic = document.getElementById("isiTopic").value.toLowerCase();
-    const loadingElement = document.getElementById("loading");
-    const diabuttonElement = document.getElementById("diabutton");
-    const email = localStorage.getItem("userEmail");
-
-    diabuttonElement.style.display = "none";
-    loadingElement.style.display = "block";
-
-    if (nama === "" || topic === "") {
-        Swal.fire({
-            icon: "error",
-            title: "Gagal Menambahkan Device",
-            text: "Please fill in all fields.",
-        });
-
-        loadingElement.style.display = "none";
-        diabuttonElement.style.display = "flex";
-        return;
-    }
-
-    // Validate topic
-    const topicRegex = /^[a-z]+$/; // Only lowercase letters
-    if (!topicRegex.test(topic)) {
-        Swal.fire({
-            icon: "error",
-            title: "Invalid Topic",
-            text: "Topic harus menggunakan huruf kecil dan tidak menggunakan angka.",
-        });
-
-        loadingElement.style.display = "none";
-        diabuttonElement.style.display = "flex";
-        return;
-    }
-
-    const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertdevices";
-    const datainjson = {
-        name: nama,
-        topic: `urse/${email}/${topic}`,
-    };
-
     try {
+        const nama = document.getElementById("isiName").value;
+        const topic = document.getElementById("isiTopic").value.toLowerCase();
+        const loadingElement = document.getElementById("loading");
+        const diabuttonElement = document.getElementById("diabutton");
+        const email = localStorage.getItem("userEmail");
+
+        diabuttonElement.style.display = "none";
+        loadingElement.style.display = "block";
+
+        if (nama === "" || topic === "") {
+            throw new Error("Please fill in all fields.");
+        }
+
+        // Validate topic
+        const topicRegex = /^[a-z]+$/; // Only lowercase letters
+        if (!topicRegex.test(topic)) {
+            throw new Error("Topic harus menggunakan huruf kecil dan tidak menggunakan angka.");
+        }
+
+        const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertdevices";
+        const datainjson = {
+            name: nama,
+            topic: `urse/${email}/${topic}`,
+        };
+
         const result = await postWithBearer(target_url, getCookie("token"), datainjson);
         responseData(result);
         loadingElement.style.display = "none";
         diabuttonElement.style.display = "flex";
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error:", error.message);
         Swal.fire({
             icon: "error",
             title: "Something went wrong",
-            text: "An error occurred while processing your request.",
+            text: error.message,
         });
         loadingElement.style.display = "none";
         diabuttonElement.style.display = "flex";
@@ -72,7 +56,7 @@ const responseData = (result) => {
         Swal.fire({
             icon: "error",
             title: "Tambah Device Gagal",
-            text: result.message,
+            text: "An error occurred while processing your request.",
         });
     }
 };
