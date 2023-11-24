@@ -144,8 +144,12 @@ const validateEmail = (email) => {
 
 // Validasi nomor telepon
 const validatePhoneNumber = (phonenumber) => {
+    // Remove non-digit characters from the phone number
+    const cleanedPhoneNumber = phonenumber.replace(/\D/g, '');
+
+    // Validate the cleaned phone number
     const regex = /^\d+$/;
-    return regex.test(phonenumber) && phonenumber.length >= 8 && phonenumber.length <= 13;
+    return regex.test(cleanedPhoneNumber) && cleanedPhoneNumber.length >= 8 && cleanedPhoneNumber.length <= 13;
 };
 
 // Validasi username
@@ -167,6 +171,10 @@ const validatePassword = (password) => {
     return hasLetter && hasNumber;
 };
 
+window.postSignUp = postSignUp;
+
+
+//toggle password
 const passwordFunc = () => {
     const x = document.getElementById("passwordsignup");
     const parent = x.parentNode;
@@ -176,7 +184,7 @@ const passwordFunc = () => {
 };
 
 window.passwordFunc = passwordFunc;
-window.postSignUp = postSignUp;
+
 
 
 
