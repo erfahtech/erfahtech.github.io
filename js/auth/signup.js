@@ -2,7 +2,7 @@ import { getValue } from "https://jscroot.github.io/element/croot.js";
 
 const postSignUp = async () => {
     const email = getValue("emailsignup");
-    const phone = getValue("phonesignup");
+    const phonenumber = getValue("phonesignup");
     const username = getValue("usernamesignup");
     const password = getValue("passwordsignup");
     const loadingElement = document.getElementById("loading");
@@ -10,7 +10,7 @@ const postSignUp = async () => {
     loadingElement.style.display = "block";
 
     // Validasi input
-    if (!validateEmail(email) || !validatePhoneNumber(phone) || !validateUsername(username) || !validatePassword(password)) {
+    if (!validateEmail(email) || !validatePhoneNumber(phonenumber) || !validateUsername(username) || !validatePassword(password)) {
         Swal.fire({
             icon: "error",
             title: "Signup Failed",
@@ -24,7 +24,7 @@ const postSignUp = async () => {
     const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
     const datainjson = {
         email,
-        phone,
+        phonenumber,
         username,
         password,
     };
@@ -74,9 +74,9 @@ const validateEmail = (email) => {
 };
 
 // Validasi nomor telepon
-const validatePhoneNumber = (phone) => {
+const validatePhoneNumber = (phonenumber) => {
     const regex = /^\d+$/;
-    return regex.test(phone) && phone.length >= 8 && phone.length <= 13;
+    return regex.test(phonenumber) && phonenumber.length >= 8 && phonenumber.length <= 13;
 };
 
 // Validasi username
