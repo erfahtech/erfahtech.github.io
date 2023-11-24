@@ -1,5 +1,5 @@
-// import { postWithBearer } from "https://jscroot.github.io/api/croot.js";
-// import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+import { postWithBearer } from "https://jscroot.github.io/api/croot.js";
+import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const loadingElement = document.getElementById("loading");
