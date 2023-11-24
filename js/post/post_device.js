@@ -46,3 +46,5 @@ const postDevices = () => {
         diabuttonElement.style.display = "flex";
     });
 };
+
+window.postDevices = postDevices;
