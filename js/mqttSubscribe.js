@@ -45,29 +45,26 @@ mqttClient.on("message", (topic, message) => {
   // }
 
   if (topic === "urse/" + email + "/monitoring") {
-    let data = receivedMessage.split("-");
-    let temperature = parseFloat(data[0]);
-    let humidity = parseFloat(data[1]);
+    let data = receivedMessage.match(/(-?\d+(\.\d+)?)/g);
+    if (data && data.length === 2) {
+      let temperature = parseFloat(data[0]);
+      let humidity = parseFloat(data[1]);
 
-    // Check if temperature is a valid number
-    if (!isNaN(temperature) || temperature === 0) {
-      updateTemperature(temperature);
-      console.log("Suhu:", temperature);
+      // Check if temperature and humidity are valid numbers
+      if (!isNaN(temperature) && !isNaN(humidity)) {
+        updateTemperature(temperature);
+        console.log("Suhu:", temperature);
+        updateHumidity(humidity);
+        console.log("Humidity:", humidity);
+        runFunction(topic, temperature, humidity);
+      } else {
+        console.log("Invalid temperature or humidity value received:", receivedMessage);
+        // Handle the case of an invalid temperature or humidity value, e.g., display an error message
+      }
     } else {
-      console.log("Invalid temperature value received:", data[0]);
-      // Handle the case of an invalid temperature value, e.g., display an error message
+      console.log("Invalid message format:", receivedMessage);
+      // Handle the case of an invalid message format, e.g., display an error message
     }
-
-    // Check if humidity is a valid number
-    if (!isNaN(humidity)) {
-      updateHumidity(humidity);
-      console.log("Humidity:", humidity);
-    } else {
-      console.log("Invalid humidity value received:", data[1]);
-      // Handle the case of an invalid humidity value, e.g., display an error message
-    }
-
-    runFunction(topic, temperature, humidity);
   }
 });
 
