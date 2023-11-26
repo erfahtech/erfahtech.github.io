@@ -79,14 +79,16 @@
 
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
-const validateInput = (inputId, validationFunction, validationMessageId) => {
+const validateInput = (inputId, validationFunction, validationMessageId, errorMessage) => {
   const inputElement = document.getElementById(inputId);
   const validationMessageElement = document.getElementById(validationMessageId);
 
   inputElement.addEventListener('input', () => {
     const inputValue = inputElement.value;
-    if (!validationFunction(inputValue)) {
-      validationMessageElement.innerText = `Format ${inputId} tidak valid`;
+    const isValid = validationFunction(inputValue);
+
+    if (!isValid) {
+      validationMessageElement.innerText = errorMessage;
     } else {
       validationMessageElement.innerText = '';
     }
@@ -94,11 +96,10 @@ const validateInput = (inputId, validationFunction, validationMessageId) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Menambahkan event listener untuk setiap input field
-  validateInput('emailsignup', validateEmail, 'emailValidationMessage');
-  validateInput('phonesignup', validatePhone, 'phoneValidationMessage');
-  validateInput('usernamesignup', validateUsername, 'usernameValidationMessage');
-  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage');
+  validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Format email tidak valid');
+  validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Format nomor telepon tidak valid');
+  validateInput('usernamesignup', validateUsername, 'usernameValidationMessage', 'Format username tidak valid');
+  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password harus setidaknya 8 karakter dan mengandung setidaknya satu huruf dan satu angka');
 });
 
 const postSignUp = () => {
