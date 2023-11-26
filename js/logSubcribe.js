@@ -16,9 +16,9 @@ const insertHistory = (topic, suhu, humidity) => {
 
 const responseData = (result) => {
   if (result) {
-    console.log("Tambah Device Berhasil:", result.message);
+    console.log(result.message);
   } else {
-    console.error("Tambah Device Gagal:", result.message);
+    console.error(result.message);
   }
 };
 

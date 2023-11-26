@@ -35,13 +35,39 @@ mqttClient.on("message", (topic, message) => {
   console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
 
   // Update card based on the received topic and message
+  // if (topic === "urse/" + email + "/monitoring") {
+  //   let data = receivedMessage.split("-");
+  //   updateTemperature(data[0]);
+  //   console.log("Suhu:", data[0]);
+  //   updateHumidity(data[1]);
+  //   console.log("Humidity:", data[1]);
+  //   runFunction(topic, data[0], data[1]);
+  // }
+
   if (topic === "urse/" + email + "/monitoring") {
     let data = receivedMessage.split("-");
-    updateTemperature(data[0]);
-    console.log("Suhu:", data[0]);
-    updateHumidity(data[1]);
-    console.log("Humidity:", data[1]);
-    runFunction(topic, data[0], data[1]);
+    let temperature = parseFloat(data[0]);
+    let humidity = parseFloat(data[1]);
+
+    // Check if temperature is a valid number
+    if (!isNaN(temperature)) {
+      updateTemperature(temperature);
+      console.log("Suhu:", temperature);
+    } else {
+      console.log("Invalid temperature value received:", data[0]);
+      // Handle the case of an invalid temperature value, e.g., display an error message
+    }
+
+    // Check if humidity is a valid number
+    if (!isNaN(humidity)) {
+      updateHumidity(humidity);
+      console.log("Humidity:", humidity);
+    } else {
+      console.log("Invalid humidity value received:", data[1]);
+      // Handle the case of an invalid humidity value, e.g., display an error message
+    }
+
+    runFunction(topic, temperature, humidity);
   }
 });
 
