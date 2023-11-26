@@ -45,9 +45,9 @@ function handleMqttMessage(topic, message) {
 
       if (!isNaN(temperature) && !isNaN(humidity)) {
         updateTemperature(temperature);
-        console.log("Suhu:", temperature);
+        // console.log("Suhu:", temperature);
         updateHumidity(Math.abs(humidity));
-        console.log("Humidity:", Math.abs(humidity));
+        // console.log("Humidity:", Math.abs(humidity));
         runFunction(topic, temperature, humidity);
       } else {
         console.log("Invalid temperature or humidity value received:", receivedMessage);
