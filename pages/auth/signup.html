@@ -109,7 +109,7 @@
 
   <main class="relative overflow-hidden flex items-center justify-center min-h-screen bg-surface-200 dark:bg-gray-900">
 
-    <div class="flex justify-center items-center">
+    <div id="cardContainer" class="flex justify-center items-center">
       <div class="w-full max-w-2xl">
         <div
           class="card-container relative bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 p-8 md:p-12 aspect-w-2 aspect-h-1">
@@ -218,7 +218,34 @@
   <!-- Tailmater javascript -->
   <script type="module" src="../../js/tailmate.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dapatkan elemen yang berisi kartu
+      const cardContainer = document.getElementById('cardContainer');
 
+      // Dapatkan lebar maksimum kartu berdasarkan panjang kontennya
+      const maxCardWidth = hitungLebarMaksimumKartu();
+
+      // Terapkan lebar maksimum yang dihitung ke wadah kartu
+      cardContainer.style.maxWidth = `${maxCardWidth}px`;
+
+      // Hitung ulang dan terapkan lebar maksimum saat jendela diubah ukurannya
+      window.addEventListener('resize', () => {
+        const lebarMaksimumYangDihitung = hitungLebarMaksimumKartu();
+        cardContainer.style.maxWidth = `${lebarMaksimumYangDihitung}px`;
+      });
+    });
+
+    function hitungLebarMaksimumKartu() {
+      // Anda dapat menyesuaikan logika ini berdasarkan kebutuhan Anda
+      const faktorLebarMaksimum = 40; // Sesuaikan faktor ini sesuai kebutuhan
+      const kontenKartu = document.querySelector('.card-container');
+      const lebarKontenKartu = kontenKartu.offsetWidth;
+      const lebarMaksimumKartu = lebarKontenKartu + faktorLebarMaksimum;
+
+      return lebarMaksimumKartu;
+    }
+  </script>
 
 
 </body>
