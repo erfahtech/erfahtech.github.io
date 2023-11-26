@@ -38,7 +38,9 @@ mqttClient.on("message", (topic, message) => {
   if (topic === "urse/" + email + "/monitoring") {
     let data = receivedMessage.split("-");
     updateTemperature(data[0]);
+    console.log("Suhu:", data[0]);
     updateHumidity(data[1]);
+    console.log("Humidity:", data[1]);
     runFunction(topic, data[0], data[1]);
   }
 });
