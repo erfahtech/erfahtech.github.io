@@ -180,7 +180,7 @@ const passwordFunc = () => {
 
 window.passwordFunc = passwordFunc;
 
-function postSignUpWithValidation() {
+const postSignUpWithValidation = () => {
   if (validateForm()) {
     postSignUp();
   }
@@ -188,22 +188,22 @@ function postSignUpWithValidation() {
 
 window.postSignUpWithValidation = postSignUpWithValidation;
 
-function validateEmail(email) {
+const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-function validatePhone(phone) {
+const validatePhone = (phone) => {
   const phoneRegex = /^62\d{5,11}$/;
   return phoneRegex.test(phone);
 }
 
-function validateUsername(username) {
+const validateUsername = (username) => {
   const usernameRegex = /^[A-Z][a-z]*\s[A-Z][a-z]*$/;
   return usernameRegex.test(username);
 }
 
-function validatePassword(password) {
+const validatePassword = (password) => {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
   return passwordRegex.test(password);
 }
