@@ -83,7 +83,7 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
   const inputElement = document.getElementById(inputId);
   const validationMessageElement = document.getElementById(validationMessageId);
 
-  inputElement.addEventListener('input', () => {
+  const validateAndDisplayMessage = () => {
     const inputValue = inputElement.value;
     const isValid = validationFunction(inputValue);
 
@@ -92,6 +92,17 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
     } else {
       validationMessageElement.innerText = '';
     }
+  };
+
+  inputElement.addEventListener('input', validateAndDisplayMessage);
+
+  // Menangani penghapusan nilai input
+  inputElement.addEventListener('change', () => {
+    if (inputElement.value === '') {
+      validationMessageElement.innerText = '';
+    } else {
+      validateAndDisplayMessage();
+    }
   });
 };
 
@@ -99,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Format email tidak valid');
   validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Format nomor telepon tidak valid');
   validateInput('usernamesignup', validateUsername, 'usernameValidationMessage', 'Format username tidak valid');
-  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password harus setidaknya 8 karakter dan mengandung setidaknya satu huruf dan satu angka');
+  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password minimal 8 karakter dengan setidaknya satu huruf dan angka');
 });
 
 const postSignUp = () => {
