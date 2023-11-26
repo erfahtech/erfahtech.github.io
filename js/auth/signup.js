@@ -66,3 +66,13 @@ const responseData = (result) => {
 };
 
 window.postSignUp = postSignUp;
+
+const passwordFunc = () => {
+  const x = document.getElementById("passwordsignup");
+  const parent = x.parentNode;
+
+  x.type = x.type === "password" ? "text" : "password";
+  parent.classList.toggle("show", x.type === "text");
+};
+
+window.passwordFunc = passwordFunc;
