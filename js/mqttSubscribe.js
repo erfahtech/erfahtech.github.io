@@ -50,7 +50,7 @@ mqttClient.on("message", (topic, message) => {
     let humidity = parseFloat(data[1]);
 
     // Check if temperature is a valid number
-    if (!isNaN(temperature)) {
+    if (!isNaN(temperature) || temperature === 0) {
       updateTemperature(temperature);
       console.log("Suhu:", temperature);
     } else {
