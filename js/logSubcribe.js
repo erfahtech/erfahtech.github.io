@@ -6,7 +6,7 @@ const insertHistory = (topic, suhu, humidity) => {
   const datainjson = {
     name: "monitoring",
     topic: topic,
-    payload: "humidity: " + humidity + "," + "suhu: " + suhu,
+    payload: "suhu: " + suhu + "," + "humidity: " + humidity,
   };
 
   postWithBearer(target_url, getCookie("token"), datainjson, (result) => {
