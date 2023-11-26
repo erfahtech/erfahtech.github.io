@@ -221,6 +221,7 @@
   <script type="module" src="../../js/tailmate.js"></script>
 
   <script>
+    // Pemanggilan langsung setelah dokumen dimuat
     document.addEventListener('DOMContentLoaded', () => {
       // Dapatkan elemen yang berisi kartu
       const cardContainer = document.getElementById('cardContainer');
@@ -237,10 +238,9 @@
         cardContainer.style.maxWidth = `${lebarMaksimumYangDihitung}px`;
       });
     });
-
     function hitungLebarMaksimumKartu() {
       // Anda dapat menyesuaikan logika ini berdasarkan kebutuhan Anda
-      const faktorLebarMaksimum = 60; // Sesuaikan faktor ini sesuai kebutuhan
+      const faktorLebarMaksimum = 40; // Sesuaikan faktor ini sesuai kebutuhan
       const kontenKartu = document.querySelector('.card-container');
       const lebarKontenKartu = kontenKartu.offsetWidth;
       const lebarMaksimumKartu = lebarKontenKartu + faktorLebarMaksimum;
