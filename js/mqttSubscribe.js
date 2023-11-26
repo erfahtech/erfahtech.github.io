@@ -1,89 +1,27 @@
 // mqttconnection.js
 import mqttClient from "./mqttConnection.js";
 import { insertHistory } from "./logSubcribe.js";
+
 let i = 1;
-// Function to update the temperature on the card
+let isFunctionActive = true;
+
 function updateTemperature(temperature) {
   const temperatureElement = document.getElementById("temperature-sensor");
   if (temperatureElement) {
     temperatureElement.textContent = temperature ? ` ${temperature}°C` : "--°C";
-    // console.log("Update Suhu:", temperature);
   }
 }
 
-// Function to update the humidity on the card
 function updateHumidity(humidity) {
   const humidityElement = document.getElementById("humidity-sensor");
   if (humidityElement) {
     humidityElement.textContent = humidity ? ` ${humidity}%` : "--%";
-    // console.log("Update Humidity:", humidity);
   }
 }
 
-// Subscribe to topics
-mqttClient.on("connect", () => {
-  const email = localStorage.getItem("userEmail");
-  console.log("Subcribing...");
-  mqttClient.subscribe("urse/" + email + "/monitoring");
-  console.log("Berlangganan ke topik urse/" + email + "/monitoring");
-});
-
-// Panggil fungsi untuk dijalankan
-mqttClient.on("message", (topic, message) => {
-  const email = localStorage.getItem("userEmail");
-  const receivedMessage = message.toString();
-  console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
-
-  // Update card based on the received topic and message
-  // if (topic === "urse/" + email + "/monitoring") {
-  //   let data = receivedMessage.split("-");
-  //   updateTemperature(data[0]);
-  //   console.log("Suhu:", data[0]);
-  //   updateHumidity(data[1]);
-  //   console.log("Humidity:", data[1]);
-  //   runFunction(topic, data[0], data[1]);
-  // }
-
-  if (topic === "urse/" + email + "/monitoring") {
-    let data = receivedMessage.match(/(-?\d+(\.\d+)?)/g);
-    if (data && data.length === 2) {
-      let temperature = parseFloat(data[0]);
-      let humidity = parseFloat(data[1]);
-
-      // Check if temperature and humidity are valid numbers
-      if (!isNaN(temperature) && !isNaN(humidity)) {
-        updateTemperature(temperature);
-        console.log("Suhu:", temperature);
-        updateHumidity(Math.abs(humidity));
-        console.log("Humidity:", Math.abs(humidity));
-        runFunction(topic, temperature, humidity);
-      } else {
-        console.log("Invalid temperature or humidity value received:", receivedMessage);
-        // Handle the case of an invalid temperature or humidity value, e.g., display an error message
-      }
-    } else {
-      console.log("Invalid message format:", receivedMessage);
-      // Handle the case of an invalid message format, e.g., display an error message
-    }
-  }
-});
-
-// Handle errors in MQTT connection
-mqttClient.on("error", (error) => {
-  console.error("Kesalahan koneksi MQTT:", error);
-  // Update card with placeholders when there is an error
-  updateTemperature(null);
-  updateHumidity(null);
-});
-
-let isFunctionActive = true;
-
 function runFunction(topic, suhu, humidity) {
   if (isFunctionActive) {
-    // Lakukan sesuatu di sini
     insertHistory(topic, suhu, humidity);
-
-    // Menonaktifkan fungsi selama 4 menit
     isFunctionActive = false;
     setTimeout(() => {
       isFunctionActive = true;
@@ -94,6 +32,48 @@ function runFunction(topic, suhu, humidity) {
   }
 }
 
-// window.mqttClient = mqttClient;
-// window.updateTemperature = updateTemperature;
-// window.updateHumidity = updateHumidity;
+function handleMqttMessage(topic, message) {
+  const email = localStorage.getItem("userEmail");
+  const receivedMessage = message.toString();
+  console.log(`Received message on topic ${topic}: ${receivedMessage} ke ${i++}`);
+
+  if (topic === "urse/" + email + "/monitoring") {
+    let data = receivedMessage.match(/(-?\d+(\.\d+)?)/g);
+    if (data && data.length === 2) {
+      let temperature = parseFloat(data[0]);
+      let humidity = parseFloat(data[1]);
+
+      if (!isNaN(temperature) && !isNaN(humidity)) {
+        updateTemperature(temperature);
+        console.log("Suhu:", temperature);
+        updateHumidity(Math.abs(humidity));
+        console.log("Humidity:", Math.abs(humidity));
+        runFunction(topic, temperature, humidity);
+      } else {
+        console.log("Invalid temperature or humidity value received:", receivedMessage);
+      }
+    } else {
+      console.log("Invalid message format:", receivedMessage);
+    }
+  }
+}
+
+function initializeMqttConnection() {
+  mqttClient.on("connect", () => {
+    const email = localStorage.getItem("userEmail");
+    console.log("Subcribing...");
+    mqttClient.subscribe("urse/" + email + "/monitoring");
+    console.log("Berlangganan ke topik urse/" + email + "/monitoring");
+  });
+
+  mqttClient.on("message", handleMqttMessage);
+
+  mqttClient.on("error", (error) => {
+    console.error("Kesalahan koneksi MQTT:", error);
+    updateTemperature(null);
+    updateHumidity(null);
+  });
+}
+
+// Initialize MQTT connection when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initializeMqttConnection);
