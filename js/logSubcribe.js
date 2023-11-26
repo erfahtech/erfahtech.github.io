@@ -1,7 +1,7 @@
 import { postWithBearer } from "https://jscroot.github.io/api/croot.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const insertHistory = (topic, suhu, humidity) => {
+const logSubcribe = (topic, suhu, humidity) => {
   const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-inserthistory";
   const datainjson = {
     name: "monitoring",
@@ -22,4 +22,4 @@ const responseData = (result) => {
   }
 };
 
-export { insertHistory };
+export { logSubcribe };
