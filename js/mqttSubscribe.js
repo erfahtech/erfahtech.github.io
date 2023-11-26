@@ -54,7 +54,7 @@ mqttClient.on("message", (topic, message) => {
       if (!isNaN(temperature) && !isNaN(humidity)) {
         updateTemperature(temperature);
         console.log("Suhu:", temperature);
-        updateHumidity(humidity);
+        updateHumidity(Math.abs(humidity));
         console.log("Humidity:", humidity);
         runFunction(topic, temperature, humidity);
       } else {
