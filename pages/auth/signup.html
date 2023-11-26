@@ -173,12 +173,11 @@
                 </div>
               </div>
 
-              <button type="submit" id="buttonsignup" name="buttonsignup" onclick="postSignUp()"
+              <button type="submit" id="buttonsignup" name="buttonsignup" onclick="postSignUpWithValidation()"
                 class="btn relative inline-flex flex-row items-center justify-center py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm md:text-base lg:text-lg tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
                 Signup
               </button>
             </div>
-
 
           </div>
         </div>
@@ -209,78 +208,7 @@
   <script type="module" src="../../js/tailmate.js"></script>
 
 
-  <!-- <script>
-    function validateForm() {
-      var email = document.getElementById('emailsignup').value;
-      var phone = document.getElementById('phonesignup').value;
-      var username = document.getElementById('usernamesignup').value;
-      var password = document.getElementById('passwordsignup').value;
-
-      // Email validation
-      var emailValidationMessage = document.getElementById('emailValidationMessage');
-      if (!validateEmail(email)) {
-        emailValidationMessage.innerText = 'Format email tidak valid';
-        return false;
-      } else {
-        emailValidationMessage.innerText = '';
-      }
-
-      // Phone validation
-      var phoneValidationMessage = document.getElementById('phoneValidationMessage');
-      if (!validatePhone(phone)) {
-        phoneValidationMessage.innerText = 'Nomor telepon tidak valid';
-        return false;
-      } else {
-        phoneValidationMessage.innerText = '';
-      }
-
-      // Username validation
-      var usernameValidationMessage = document.getElementById('usernameValidationMessage');
-      if (!validateUsername(username)) {
-        usernameValidationMessage.innerText = 'Format username tidak valid';
-        return false;
-      } else {
-        usernameValidationMessage.innerText = '';
-      }
-
-      // Password validation
-      var passwordValidationMessage = document.getElementById('passwordValidationMessage');
-      if (!validatePassword(password)) {
-        passwordValidationMessage.innerText = 'Format password tidak valid';
-        return false;
-      } else {
-        passwordValidationMessage.innerText = '';
-      }
-
-      return true;
-    }
-
-    function postSignUp() {
-      if (validateForm()) {
-        // Logika signup yang sudah ada
-      }
-    }
-
-    function validateEmail(email) {
-      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    function validatePhone(phone) {
-      var phoneRegex = /^62\d{5,11}$/;
-      return phoneRegex.test(phone);
-    }
-
-    function validateUsername(username) {
-      var usernameRegex = /^[A-Z][a-z]*\s[A-Z][a-z]*$/;
-      return usernameRegex.test(username);
-    }
-
-    function validatePassword(password) {
-      var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
-      return passwordRegex.test(password);
-    }
-  </script> -->
+  
 
 </body>
 

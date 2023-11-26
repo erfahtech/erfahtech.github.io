@@ -77,8 +77,29 @@
 
 // window.passwordFunc = passwordFunc;
 
-
 import { getValue } from "https://jscroot.github.io/element/croot.js";
+
+const validateInput = (inputId, validationFunction, validationMessageId) => {
+  const inputElement = document.getElementById(inputId);
+  const validationMessageElement = document.getElementById(validationMessageId);
+
+  inputElement.addEventListener('input', () => {
+    const inputValue = inputElement.value;
+    if (!validationFunction(inputValue)) {
+      validationMessageElement.innerText = `Format ${inputId} tidak valid`;
+    } else {
+      validationMessageElement.innerText = '';
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Menambahkan event listener untuk setiap input field
+  validateInput('emailsignup', validateEmail, 'emailValidationMessage');
+  validateInput('phonesignup', validatePhone, 'phoneValidationMessage');
+  validateInput('usernamesignup', validateUsername, 'usernameValidationMessage');
+  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage');
+});
 
 const postSignUp = () => {
   const email = getValue("emailsignup");
@@ -158,53 +179,6 @@ const passwordFunc = () => {
 };
 
 window.passwordFunc = passwordFunc;
-
-function validateForm() {
-  const email = document.getElementById('emailsignup').value;
-  const phone = document.getElementById('phonesignup').value;
-  const username = document.getElementById('usernamesignup').value;
-  const password = document.getElementById('passwordsignup').value;
-
-  // Email validation
-  const emailValidationMessage = document.getElementById('emailValidationMessage');
-  if (!validateEmail(email)) {
-    emailValidationMessage.innerText = 'Format email tidak valid';
-    return false;
-  } else {
-    emailValidationMessage.innerText = '';
-  }
-
-  // Phone validation
-  const phoneValidationMessage = document.getElementById('phoneValidationMessage');
-  if (!validatePhone(phone)) {
-    phoneValidationMessage.innerText = 'Nomor telepon tidak valid';
-    return false;
-  } else {
-    phoneValidationMessage.innerText = '';
-  }
-
-  // Username validation
-  const usernameValidationMessage = document.getElementById('usernameValidationMessage');
-  if (!validateUsername(username)) {
-    usernameValidationMessage.innerText = 'Format username tidak valid';
-    return false;
-  } else {
-    usernameValidationMessage.innerText = '';
-  }
-
-  // Password validation
-  const passwordValidationMessage = document.getElementById('passwordValidationMessage');
-  if (!validatePassword(password)) {
-    passwordValidationMessage.innerText = 'Format password tidak valid';
-    return false;
-  } else {
-    passwordValidationMessage.innerText = '';
-  }
-
-  return true;
-}
-
-window.validateForm = validateForm;
 
 function postSignUpWithValidation() {
   if (validateForm()) {
