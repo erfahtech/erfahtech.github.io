@@ -1,6 +1,6 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-const updatetWithBearer = async (target_url, token, datajson, responseFunction) => {
+const updateWithBearer = async (target_url, token, datajson, responseFunction) => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
     myHeaders.append("Content-Type", "application/json");
@@ -89,7 +89,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             };
 
             try {
-                const response = await updatetWithBearer(target_url, token, requestBody, (result) => result);
+                const response = await updateWithBearer(target_url, token, requestBody, (result) => result);
 
                 if (response && response.status) {
                     await Swal.fire({
@@ -111,4 +111,3 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
 };
 
 window.editDevice = editDevice;
-
