@@ -31,6 +31,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
     const deviceTopic = TOPIC;
     console.log("Edit device called:", IDEDIT, NAME, TOPIC);
 
+    const data = {
+        name: NAME,
+        topic: TOPIC,
+    };
     const { value: combinedInput, isConfirmed: isInputConfirmed } = await Swal.fire({
         title: "Edit Device",
         html: `<div>
@@ -45,27 +49,25 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
         preConfirm: (input) => {
             const newName = input[0];
             const newTopic = input[1];
-        
+
             if (!newName || !newTopic) {
                 Swal.showValidationMessage("Nama dan Topic perangkat tidak boleh kosong!");
                 return false;
             }
-        
+
             // Validate that the Topic allows only lowercase letters, numbers, and symbols
             const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/;
             if (!topicRegex.test(newTopic)) {
                 Swal.showValidationMessage("Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!");
                 return false;
             }
-        
-            data = {
-                name: newName,
-                topic: newTopic
-            };
-        
+
+            // Update data object with new values
+            data.name = newName;
+            data.topic = newTopic;
+
             return true;
-        }
-        ,
+        },
         didOpen: () => {
             const inputs = Swal.getPopup().querySelectorAll("input");
             inputs[0].focus();
