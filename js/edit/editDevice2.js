@@ -1,30 +1,5 @@
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-// const updateWithBearer = async (target_url, token, datajson, responseFunction) => {
-//     const myHeaders = new Headers();
-//     myHeaders.append("Authorization", `Bearer ${token}`);
-//     myHeaders.append("Content-Type", "application/json");
-
-//     const raw = JSON.stringify(datajson);
-
-//     const requestOptions = {
-//         method: "PUT",
-//         headers: myHeaders,
-//         body: raw,
-//         redirect: "follow",
-//     };
-
-//     try {
-//         const response = await fetch(target_url, requestOptions);
-//         const result = await response.text();
-//         responseFunction(JSON.parse(result));
-//         return response; // Return the entire response object
-//     } catch (error) {
-//         console.log("error", error);
-//         throw error; // Rethrow the error to be caught in the calling function
-//     }
-// }
-
 const updateWithBearer = async (target_url, token, datajson, responseFunction) => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -72,6 +47,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
         confirmButtonText: "Simpan",
         cancelButtonText: "Batal",
         preConfirm: (input) => {
+            // Update data object with new values
+            data.name = newName;
+            data.topic = newTopic;
+
             const newName = input[0];
             const newTopic = input[1];
 
@@ -86,10 +65,6 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 Swal.showValidationMessage("Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!");
                 return false;
             }
-
-            // Update data object with new values
-            data.name = newName;
-            data.topic = newTopic;
 
             return true;
         },
