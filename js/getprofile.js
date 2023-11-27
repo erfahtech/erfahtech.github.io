@@ -12,6 +12,11 @@ export const responseProfileData = (data) => {
     document.getElementById("email").textContent = userData.email;
     document.getElementById("phonenumber").textContent = userData.phonenumber;
 
+    //Mengambil Lokasi
+    const location = localStorage.getItem("user-location");
+    document.getElementById("location").textContent = location;
+
+    //Mengambil Total devices
     const totalDevices = localStorage.getItem("totalDevices");
     document.getElementById("totaldev").textContent = totalDevices;
   } else {

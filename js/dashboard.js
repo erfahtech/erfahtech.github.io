@@ -1,8 +1,8 @@
 // Mengambil nilai dari local storage dengan kunci userEmail
-const userEmail = localStorage.getItem('userEmail');
+const userEmail = localStorage.getItem("userEmail");
 
 // Mengganti teks dalam elemen dengan ID userGreeting
-const userGreetingElement = document.getElementById('userGreeting');
+const userGreetingElement = document.getElementById("userGreeting");
 
 // Memastikan userEmail tidak kosong sebelum mengganti teks
 if (userEmail) {
@@ -43,9 +43,7 @@ const updateClock = () => {
 // Initial call to update the clock
 updateClock();
 
-
-
-const apiKey = 'c96a2bfbf2f7991983dbe8a1bc0df62d';
+const apiKey = "c96a2bfbf2f7991983dbe8a1bc0df62d";
 
 const updateWeather = async (latitude, longitude) => {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
@@ -54,49 +52,52 @@ const updateWeather = async (latitude, longitude) => {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
+    //simpan data cuaca ke local storage
+    localStorage.setItem("user-location", data.name);
+
     // Update the HTML elements with real-time data
-    document.getElementById('location').textContent = data.name;
-    document.getElementById('temperature').textContent = `${Math.round(data.main.temp - 273.15)}°C`;
-    document.getElementById('weather-description').textContent = data.weather[0].description;
+    document.getElementById("location").textContent = data.name;
+    document.getElementById("temperature").textContent = `${Math.round(data.main.temp - 273.15)}°C`;
+    document.getElementById("weather-description").textContent = data.weather[0].description;
 
     // Update the weather icon based on the weather condition code
-    const iconElement = document.querySelector('.weather-icon');
+    const iconElement = document.querySelector(".weather-icon");
     const weatherCode = data.weather[0].icon;
     const weatherIconClass = getWeatherIconClass(weatherCode);
     iconElement.className = `weather-icon material-symbols-outlined !text-6xl text-primary-600 dark:text-primary-200 ${weatherIconClass}`;
 
     // Update other weather information accordingly
-    document.getElementById('humidity').textContent = `Humidity: ${data.main.humidity}%`;
+    document.getElementById("humidity").textContent = `Humidity: ${data.main.humidity}%`;
 
     // Check if wind property exists in the response
     if (data.wind && data.wind.speed !== undefined) {
-      document.getElementById('wind-speed').textContent = `Wind: ${data.wind.speed} km/h`;
+      document.getElementById("wind-speed").textContent = `Wind: ${data.wind.speed} km/h`;
     } else {
-      document.getElementById('wind-speed').textContent = 'Wind information not available';
+      document.getElementById("wind-speed").textContent = "Wind information not available";
     }
 
     // Call the function again after a certain interval (e.g., 5 minutes)
     setTimeout(getLocationAndWeather, 300000); // 300,000 milliseconds = 5 minutes
   } catch (error) {
-    console.error('Error fetching weather data:', error);
-    document.getElementById('wind-speed').textContent = 'Error fetching weather data';
+    console.error("Error fetching weather data:", error);
+    document.getElementById("wind-speed").textContent = "Error fetching weather data";
   }
 };
 
 const getWeatherIconClass = (weatherCode) => {
   // Map OpenWeatherMap icon codes to Weather Icons classes
   switch (weatherCode) {
-    case '01d':
-      return 'wi-day-sunny';
-    case '01n':
-      return 'wi-night-clear';
-    case '02d':
-      return 'wi-day-cloudy';
-    case '02n':
-      return 'wi-night-alt-cloudy';
+    case "01d":
+      return "wi-day-sunny";
+    case "01n":
+      return "wi-night-clear";
+    case "02d":
+      return "wi-day-cloudy";
+    case "02n":
+      return "wi-night-alt-cloudy";
     // Add more cases for other weather conditions
     default:
-      return 'wi-day-sunny'; // Default to a sunny icon if code not found
+      return "wi-day-sunny"; // Default to a sunny icon if code not found
   }
 };
 
@@ -106,14 +107,14 @@ const getLocationAndWeather = () => {
       ({ coords: { latitude, longitude } }) => {
         updateWeather(latitude, longitude);
       },
-      error => {
-        console.error('Error getting location:', error);
-        document.getElementById('wind-speed').textContent = 'Error getting location';
+      (error) => {
+        console.error("Error getting location:", error);
+        document.getElementById("wind-speed").textContent = "Error getting location";
       }
     );
   } else {
-    console.error('Geolocation is not supported by this browser.');
-    document.getElementById('wind-speed').textContent = 'Geolocation not supported';
+    console.error("Geolocation is not supported by this browser.");
+    document.getElementById("wind-speed").textContent = "Geolocation not supported";
   }
 };
 
