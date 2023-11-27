@@ -56,9 +56,11 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             if (!value[1]) {
                 return "Topic perangkat tidak boleh kosong!";
             }
-            // Validate that the Topic is in lowercase
-            if (newTopic !== newTopic.toLowerCase()) {
-                return "Topic perangkat harus dalam huruf kecil!";
+            // Validate that the Topic allows only lowercase letters, numbers, and symbols
+            const newTopic = value[1];
+            const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/i; // i flag allows case-insensitive matching
+            if (!topicRegex.test(newTopic)) {
+                return "Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!";
             }
         },
     });
@@ -109,3 +111,4 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
 };
 
 window.editDevice = editDevice;
+
