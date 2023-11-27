@@ -73,6 +73,52 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to handle sign up
+// const postSignUp = () => {
+//   const email = getValue("emailsignup");
+//   const phonenumber = getValue("phonesignup");
+//   const username = getValue("usernamesignup");
+//   const password = getValue("passwordsignup");
+//   const loadingElement = document.getElementById("loading");
+
+//   loadingElement.style.display = "block";
+
+//   // Check if any of the fields are empty
+//   if (!email || !phonenumber || !username || !password) {
+//     Swal.fire({
+//       icon: "error",
+//       title: "Signup Failed",
+//       text: "Please fill in all fields.",
+//     });
+
+//     loadingElement.style.display = "none";
+//     return;
+//   }
+
+//   const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
+//   const datainjson = {
+//     email,
+//     phonenumber,
+//     username,
+//     password,
+//   };
+
+//   fetch(target_url, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(datainjson),
+//   })
+//     .then((response) => response.json())
+//     .then((result) => {
+//       responseData(result);
+//     })
+//     .finally(() => {
+//       loadingElement.style.display = "none";
+//     });
+// };
+
+// Function to handle sign up
 const postSignUp = () => {
   const email = getValue("emailsignup");
   const phonenumber = getValue("phonesignup");
@@ -82,8 +128,12 @@ const postSignUp = () => {
 
   loadingElement.style.display = "block";
 
+  console.log("Debug: Checking empty fields");
+
   // Check if any of the fields are empty
   if (!email || !phonenumber || !username || !password) {
+    console.log("Debug: Fields are empty. Showing error message.");
+
     Swal.fire({
       icon: "error",
       title: "Signup Failed",
@@ -93,6 +143,8 @@ const postSignUp = () => {
     loadingElement.style.display = "none";
     return;
   }
+
+  console.log("Debug: All fields are filled. Proceeding with signup.");
 
   const target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-signup";
   const datainjson = {
@@ -117,6 +169,7 @@ const postSignUp = () => {
       loadingElement.style.display = "none";
     });
 };
+
 
 // Function to handle response after sign up
 const responseData = (result) => {
