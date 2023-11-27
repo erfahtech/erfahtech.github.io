@@ -32,12 +32,18 @@ export const tableDevice = `
 `;
 
 export function responseData(results) {
-  console.log(results);
-  results.data.forEach(isiTable);
+  if (results.data && results.data.length > 0) {
+    console.log(results);
+    results.data.forEach(isiTable);
 
-  // Hitung jumlah data dan simpan di localStorage
-  const totalDevices = results.data.length;
-  localStorage.setItem("totalDevices", totalDevices);
+    // Hitung jumlah data dan simpan di localStorage
+    const totalDevices = results.data.length;
+    localStorage.setItem("totalDevices", totalDevices);
+  } else {
+    // Data perangkat kosong atau null
+    console.log("Data perangkat kosong atau null.");
+    localStorage.setItem("totalDevices", "0");
+  }
 }
 
 export function isiTable(value) {
