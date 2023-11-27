@@ -21,7 +21,7 @@ function updateHumidity(humidity) {
 
 function runFunction(topic, suhu, humidity) {
   if (isFunctionActive) {
-    logSubcribe(topic, suhu, humidity);
+    logSubcribe(topic, suhu, Math.abs(humidity));
     isFunctionActive = false;
     setTimeout(() => {
       isFunctionActive = true;
