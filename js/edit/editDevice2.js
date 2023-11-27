@@ -56,6 +56,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             if (!value[1]) {
                 return "Topic perangkat tidak boleh kosong!";
             }
+            // Validate that the Topic is in lowercase
+            if (newTopic !== newTopic.toLowerCase()) {
+                return "Topic perangkat harus dalam huruf kecil!";
+            }
         },
     });
 
@@ -81,10 +85,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 name: newName,
                 topic: newTopic,
             };
-        
+
             try {
                 const response = await updatetWithBearer(target_url, token, requestBody, (result) => result);
-        
+
                 if (response && response.status) {
                     await Swal.fire({
                         icon: "success",

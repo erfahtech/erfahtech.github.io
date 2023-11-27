@@ -81,21 +81,24 @@
             </a>
             <!-- title -->
             <h2 class="text-[1.375rem] leading-7"><b>Profile</b></h2>
-            <!-- light dark -->
-            <div class="md:hidden relative px-4" aria-label="Brightness" data-microtip-position="bottom" role="tooltip">
-                <!-- light & dark -->
-                <button data-type="theme" id="lightdark"
-                    class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
-                    <span class="material-symbols-outlined dark-hidden">light_mode</span>
-                    <span class="material-symbols-outlined dark-block">dark_mode</span>
-                </button>
-            </div>
-            <div class="md:hidden relative px-4" aria-label="Logout" data-microtip-position="bottom" role="tooltip">
-                <button data-type="Logout" id="logout" onclick="logout()" type="submit"
-                    class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
-                    <span class="material-symbols-outlined dark-hidden">Logout</span>
-                    <span class="material-symbols-outlined dark-block">Logout</span>
-                </button>
+            <div class="flex flex-row gap-x-2">
+                <!-- light dark -->
+                <div class="md:hidden relative px-4" aria-label="Brightness" data-microtip-position="bottom"
+                    role="tooltip">
+                    <!-- light & dark -->
+                    <button data-type="theme" id="lightdark"
+                        class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
+                        <span class="material-symbols-outlined dark-hidden">light_mode</span>
+                        <span class="material-symbols-outlined dark-block">dark_mode</span>
+                    </button>
+                </div>
+                <div class="md:hidden relative px-4" aria-label="Logout" data-microtip-position="bottom" role="tooltip">
+                    <button data-type="Logout" id="logout" onclick="logout()" type="submit"
+                        class="material-symbols-outlined relative !inline-flex !items-center justify-center w-12 h-12 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] text-center font-medium hover:bg-surface-300 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-300 dark:focus:bg-surfacedark-400">
+                        <span class="material-symbols-outlined dark-hidden">Logout</span>
+                        <span class="material-symbols-outlined dark-block">Logout</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
