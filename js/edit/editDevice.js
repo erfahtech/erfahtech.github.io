@@ -53,15 +53,12 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             if (!value[0]) {
                 return "Nama perangkat tidak boleh kosong!";
             }
-
             if (!value[1]) {
                 return "Topic perangkat tidak boleh kosong!";
             }
-
-            const topicRegex = /^[a-z0-9-_.]+$/;
-
-            if (!topicRegex.test(value[1])) {
-                return "Topic harus menggunakan huruf kecil, angka, dan simbol (-, _, .). Huruf kapital tidak diperbolehkan.";
+            // Tambahkan validasi huruf kecil untuk input topic
+            if (value[1] && !/^[a-z]+$/.test(value[1])) {
+                return "Topic perangkat harus berupa huruf kecil!";
             }
         },
     });
@@ -88,10 +85,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 name: newName,
                 topic: newTopic,
             };
-
+        
             try {
                 const response = await updatetWithBearer(target_url, token, requestBody, (result) => result);
-
+        
                 if (response && response.status) {
                     await Swal.fire({
                         icon: "success",
