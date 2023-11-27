@@ -80,7 +80,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             cancelButtonText: "Batal",
         });
 
-        if (isConfirmed.isConfirmed) {
+        if (isInputConfirmed) { // Change isConfirmed.isConfirmed to isInputConfirmed
             const token = getCookie("token");
             const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatedevice?id=${deviceId}`;
             const requestBody = {
