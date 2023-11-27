@@ -177,6 +177,7 @@
                     <input type="text" id="isiName" name="deviceName"
                       class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                       placeholder="Masukkan Nama Device" required />
+                      <span id="deviceValidationMessage" class="validation-message text-red-500 text-sm"></span>
                   </div>
 
                   <div class="mb-4">
@@ -184,7 +185,9 @@
                     <input type="text" id="isiTopic" name="topic"
                       class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                       placeholder="Masukkan Topic" required />
+                      <span id="topicValidationMessage" class="validation-message text-red-500 text-sm"></span>
                   </div>
+
                 </div>
                 <div id="diabutton" class="flex flex-row justify-end gap-2 px-8 py-8">
                   <button data-close="#dialog_add"
