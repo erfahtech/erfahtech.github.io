@@ -13,7 +13,7 @@ export const responseProfileData = (data) => {
     document.getElementById("username").textContent = userData.username;
     document.getElementById("email").textContent = userData.email;
     document.getElementById("phonenumber").textContent = userData.phonenumber;
-    document.getElementById("totaldevices").textContent = totalDevices;
+    document.getElementById("totaldev").textContent = totalDevices;
   } else {
     console.error("Data pengguna tidak valid atau tidak ditemukan.");
   }
