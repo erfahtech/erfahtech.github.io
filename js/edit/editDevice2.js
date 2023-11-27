@@ -45,21 +45,27 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
         preConfirm: (input) => {
             const newName = input[0];
             const newTopic = input[1];
-
+        
             if (!newName || !newTopic) {
                 Swal.showValidationMessage("Nama dan Topic perangkat tidak boleh kosong!");
                 return false;
             }
-
+        
             // Validate that the Topic allows only lowercase letters, numbers, and symbols
             const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/;
             if (!topicRegex.test(newTopic)) {
                 Swal.showValidationMessage("Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!");
                 return false;
             }
-
-            return [newName, newTopic];
-        },
+        
+            data = {
+                name: newName,
+                topic: newTopic
+            };
+        
+            return true;
+        }
+        ,
         didOpen: () => {
             const inputs = Swal.getPopup().querySelectorAll("input");
             inputs[0].focus();
