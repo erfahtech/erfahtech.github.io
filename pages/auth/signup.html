@@ -16,16 +16,7 @@
   <!-- Style Css -->
   <link rel="stylesheet" id="stylesheet" href="../../css/landingPage.css">
 
-  <style>
-    .validation-message {
-      font-size: 0.75rem;
-    }
 
-    .card-container {
-      min-height: 300px;
-      height: auto;
-    }
-  </style>
 </head>
 
 <body id="body-layout"
@@ -185,7 +176,7 @@
 
                 <span id="passwordValidationMessage" class="validation-message text-red-500 text-sm"></span>
               </div>
-
+              
               <button type="submit" id="buttonsignup" name="buttonsignup" onclick="postSignUpWithValidation()"
                 class="btn relative inline-flex flex-row items-center justify-center py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm md:text-base lg:text-lg tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
                 Signup
@@ -220,34 +211,27 @@
   <!-- Tailmater javascript -->
   <script type="module" src="../../js/tailmate.js"></script>
 
-  <script>
-    // Pemanggilan langsung setelah dokumen dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-      // Dapatkan elemen yang berisi kartu
-      const cardContainer = document.getElementById('cardContainer');
 
-      // Dapatkan lebar maksimum kartu berdasarkan panjang kontennya
-      const maxCardWidth = hitungLebarMaksimumKartu();
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardContainer = document.getElementById('cardContainer');
+    const maxCardWidth = hitungLebarMaksimumKartu(cardContainer);
+    cardContainer.style.maxWidth = `${maxCardWidth}px`;
 
-      // Terapkan lebar maksimum yang dihitung ke wadah kartu
-      cardContainer.style.maxWidth = `${maxCardWidth}px`;
-
-      // Hitung ulang dan terapkan lebar maksimum saat jendela diubah ukurannya
-      window.addEventListener('resize', () => {
-        const lebarMaksimumYangDihitung = hitungLebarMaksimumKartu();
-        cardContainer.style.maxWidth = `${lebarMaksimumYangDihitung}px`;
-      });
+    window.addEventListener('resize', () => {
+      const lebarMaksimumYangDihitung = hitungLebarMaksimumKartu(cardContainer);
+      cardContainer.style.maxWidth = `${lebarMaksimumYangDihitung}px`;
     });
-    function hitungLebarMaksimumKartu() {
-      // Anda dapat menyesuaikan logika ini berdasarkan kebutuhan Anda
-      const faktorLebarMaksimum = 30; // Sesuaikan faktor ini sesuai kebutuhan
-      const kontenKartu = document.querySelector('.card-container');
-      const lebarKontenKartu = kontenKartu.offsetWidth;
-      const lebarMaksimumKartu = lebarKontenKartu + faktorLebarMaksimum;
+  });
 
-      return lebarMaksimumKartu;
-    }
-  </script>
+  function hitungLebarMaksimumKartu(kontenKartu) {
+    const faktorLebarMaksimum = 30;
+    const lebarKontenKartu = kontenKartu.offsetWidth;
+    const lebarMaksimumKartu = lebarKontenKartu + faktorLebarMaksimum;
+
+    return lebarMaksimumKartu;
+  }
+</script>
 
 
 </body>

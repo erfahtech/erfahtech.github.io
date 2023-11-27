@@ -9603,3 +9603,12 @@ div.code-toolbar>.toolbar span {
     --tw-border-opacity: 1;
     border-color: rgba(var(--colors-gray-800-rgb), var(--tw-border-opacity));
 }
+
+.validation-message {
+    font-size: 0.75rem;
+}
+
+.card-container {
+    min-height: 300px;
+    height: auto;
+}

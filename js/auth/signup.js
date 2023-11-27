@@ -85,6 +85,13 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
 
   const validateAndDisplayMessage = () => {
     const inputValue = inputElement.value;
+    
+    // Check if the input is empty
+    if (inputValue === '') {
+      validationMessageElement.innerText = '';
+      return;
+    }
+
     const isValid = validationFunction(inputValue);
 
     if (!isValid) {
@@ -96,19 +103,13 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
 
   inputElement.addEventListener('input', validateAndDisplayMessage);
 
-  // Menangani penghapusan nilai input
-  inputElement.addEventListener('change', () => {
-    if (inputElement.value === '') {
-      validationMessageElement.innerText = '';
-    } else {
-      validateAndDisplayMessage();
-    }
-  });
+  // Handling input value deletion
+  inputElement.addEventListener('change', validateAndDisplayMessage);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Email tidak valid');
-  validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Nomor telepon diawali 62, panjang 7-13 karakter');
+  validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Email: Harus mengandung "@" dan "."');
+  validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Nomor telepon diawali 62, 7-13 karakter');
   validateInput('usernamesignup', validateUsername, 'usernameValidationMessage', 'Username: dua kata, awalan huruf besar');
   validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password: 8+ karakter, huruf & angka');
 });
