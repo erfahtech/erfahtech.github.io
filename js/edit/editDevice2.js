@@ -42,26 +42,27 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
         cancelButtonColor: "#999999",
         confirmButtonText: "Simpan",
         cancelButtonText: "Batal",
-        preConfirm: () => {
-            return [document.getElementById("swal-input1").value, document.getElementById("swal-input2").value];
+        preConfirm: (input) => {
+            const newName = input[0];
+            const newTopic = input[1];
+
+            if (!newName || !newTopic) {
+                Swal.showValidationMessage("Nama dan Topic perangkat tidak boleh kosong!");
+                return false;
+            }
+
+            // Validate that the Topic allows only lowercase letters, numbers, and symbols
+            const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/;
+            if (!topicRegex.test(newTopic)) {
+                Swal.showValidationMessage("Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!");
+                return false;
+            }
+
+            return [newName, newTopic];
         },
         didOpen: () => {
             const inputs = Swal.getPopup().querySelectorAll("input");
             inputs[0].focus();
-        },
-        inputValidator: (value) => {
-            if (!value[0]) {
-                return "Nama perangkat tidak boleh kosong!";
-            }
-            if (!value[1]) {
-                return "Topic perangkat tidak boleh kosong!";
-            }
-            // Validate that the Topic allows only lowercase letters, numbers, and symbols
-            const newTopic = value[1];
-            const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/; // Allow letters lower case, numbers, and symbols
-            if (!topicRegex.test(newTopic)) {
-                return "Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!";
-            }
         },
     });
 
