@@ -21,6 +21,8 @@ export function isiCard(value) {
   const topic = value.topic;
   const name = value.name;
   const status = value.status;
+  // Hapus dua bagian pertama dari topik
+  const displayTopic = topic.split("/").slice(2).join("/");
 
   // Buat elemen toggle switch
   const toggleSwitch = document.createElement("div");
@@ -47,7 +49,7 @@ export function isiCard(value) {
   <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
     <div class="flex flex-wrap flex-row items-center">
         <div class="flex-shrink max-w-full">
-            <h5 class="text-gray-500 mb-1">${topic}</h5>
+            <h5 class="text-gray-500 mb-1">${displayTopic}</h5>
             <h3 class="text-lg font-bold mb-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="inline-block ltr:mr-2 rtl:ml-2 -mt-1 bi bi-cpu" viewBox="0 0 16 16">
