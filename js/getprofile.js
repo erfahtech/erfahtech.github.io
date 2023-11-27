@@ -15,10 +15,6 @@ export const responseProfileData = (data) => {
     //Mengambil Lokasi
     const location = localStorage.getItem("userlocation");
     document.getElementById("location").textContent = location;
-
-    //Mengambil Total devices
-    const totalDevices = localStorage.getItem("totalDevices");
-    document.getElementById("totaldev").textContent = totalDevices;
   } else {
     console.error("Data pengguna tidak valid atau tidak ditemukan.");
   }
