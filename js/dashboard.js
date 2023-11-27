@@ -52,11 +52,9 @@ const updateWeather = async (latitude, longitude) => {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    //simpan data cuaca ke local storage
-    localStorage.setItem("user-location", data.name);
-
     // Update the HTML elements with real-time data
     document.getElementById("location").textContent = data.name;
+    localStorage.setItem("userlocation", data.name);
     document.getElementById("temperature").textContent = `${Math.round(data.main.temp - 273.15)}°C`;
     document.getElementById("weather-description").textContent = data.weather[0].description;
 

@@ -13,7 +13,7 @@ export const responseProfileData = (data) => {
     document.getElementById("phonenumber").textContent = userData.phonenumber;
 
     //Mengambil Lokasi
-    const location = localStorage.getItem("user-location");
+    const location = localStorage.getItem("userlocation");
     document.getElementById("location").textContent = location;
 
     //Mengambil Total devices
