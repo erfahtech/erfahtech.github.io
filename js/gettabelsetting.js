@@ -34,6 +34,10 @@ export const tableDevice = `
 export function responseData(results) {
   console.log(results);
   results.data.forEach(isiTable);
+
+  // Hitung jumlah data dan simpan di localStorage
+  const totalDevices = results.data.length;
+  localStorage.setItem("totalDevices", totalDevices);
 }
 
 export function isiTable(value) {
