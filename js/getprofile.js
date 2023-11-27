@@ -1,6 +1,6 @@
 // getprofile.js
 
-export const URLGetProfile = "https://api.example.com/get-profile";
+export const URLGetProfile = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getprofile";
 
 export const responseProfileData = (data) => {
   // Pastikan data adalah array dan memiliki elemen pertama
