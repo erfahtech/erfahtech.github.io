@@ -107,10 +107,10 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Format email tidak valid');
-  validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Format nomor telepon tidak valid');
-  validateInput('usernamesignup', validateUsername, 'usernameValidationMessage', 'Format username tidak valid');
-  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password minimal 8 karakter dengan setidaknya satu huruf dan angka');
+  validateInput('emailsignup', validateEmail, 'emailValidationMessage', 'Email tidak valid');
+  validateInput('phonesignup', validatePhone, 'phoneValidationMessage', 'Nomor telepon diawali 62, panjang 7-13 karakter');
+  validateInput('usernamesignup', validateUsername, 'usernameValidationMessage', 'Username: dua kata, awalan huruf besar');
+  validateInput('passwordsignup', validatePassword, 'passwordValidationMessage', 'Password: 8+ karakter, huruf & angka');
 });
 
 const postSignUp = () => {
