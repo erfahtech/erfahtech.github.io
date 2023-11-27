@@ -179,14 +179,14 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 return false;
             }
 
-            // Validasi bahwa Topic hanya boleh mengandung huruf kecil, angka, dan simbol
+            // Validate that the Topic allows only lowercase letters, numbers, and symbols
             const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/;
             if (!topicRegex.test(newTopic)) {
                 Swal.showValidationMessage("Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!");
                 return false;
             }
 
-            // Perbarui objek data dengan nilai baru
+            // Update data object with new values
             data.name = newName;
             data.topic = newTopic;
 
@@ -201,7 +201,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
     if (isInputConfirmed) {
         const [newName, newTopic] = combinedInput;
         const isConfirmed = await Swal.fire({
-            title: `Konfirmasi`,
+            title: "Konfirmasi",
             html: `<div>Apakah Anda yakin mengubah?</div>
                     <div>Nama: ${newName}</div>
                     <div>Topic: ${newTopic}</div>`,
@@ -213,13 +213,10 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             cancelButtonText: "Batal",
         });
 
-        if (isConfirmed.value) { // Change isConfirmed.isConfirmed to isConfirmed.value
+        if (isConfirmed.value) {
             const token = getCookie("token");
             const target_url = `https://asia-southeast2-urse-project.cloudfunctions.net/urse-updatedevice?id=${deviceId}`;
-            const requestBody = {
-                name: newName,
-                topic: newTopic,
-            };
+            const requestBody = data;
 
             try {
                 const response = await updateWithBearer(target_url, token, requestBody, (result) => result);
@@ -244,4 +241,3 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
 };
 
 window.editDevice = editDevice;
-
