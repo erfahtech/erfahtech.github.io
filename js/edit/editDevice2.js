@@ -58,7 +58,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             }
             // Validate that the Topic allows only lowercase letters, numbers, and symbols
             const newTopic = value[1];
-            const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/i; // i flag allows case-insensitive matching
+            const topicRegex = /^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/`-]+$/; // Allow letters lower case, numbers, and symbols
             if (!topicRegex.test(newTopic)) {
                 return "Topic perangkat hanya boleh mengandung huruf kecil, angka, dan simbol!";
             }
