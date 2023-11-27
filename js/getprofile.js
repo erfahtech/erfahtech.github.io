@@ -2,8 +2,6 @@
 
 export const URLGetProfile = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getprofile";
 
-const totalDevices = localStorage.getItem("totalDevices");
-
 export const responseProfileData = (data) => {
   // Pastikan data adalah array dan memiliki elemen pertama
   if (Array.isArray(data) && data.length > 0) {
@@ -13,6 +11,8 @@ export const responseProfileData = (data) => {
     document.getElementById("username").textContent = userData.username;
     document.getElementById("email").textContent = userData.email;
     document.getElementById("phonenumber").textContent = userData.phonenumber;
+
+    const totalDevices = localStorage.getItem("totalDevices");
     document.getElementById("totaldev").textContent = totalDevices;
   } else {
     console.error("Data pengguna tidak valid atau tidak ditemukan.");
