@@ -2,6 +2,71 @@ import { postWithToken } from "https://jscroot.github.io/api/croot.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
+const validateInput = (inputId, validationFunction, validationMessageId, errorMessage) => {
+  const inputElement = document.getElementById(inputId);
+  const validationMessageElement = document.getElementById(validationMessageId);
+
+  const validateAndDisplayMessage = () => {
+    const inputValue = inputElement.value;
+
+    // Check if the input is empty
+    if (inputValue === '') {
+      validationMessageElement.innerText = '';
+      return;
+    }
+
+    const isValid = validationFunction(inputValue);
+
+    if (!isValid) {
+      validationMessageElement.innerText = errorMessage;
+    } else {
+      validationMessageElement.innerText = '';
+    }
+  };
+
+  inputElement.addEventListener('input', validateAndDisplayMessage);
+
+  // Handling input value deletion
+  inputElement.addEventListener('change', validateAndDisplayMessage);
+};
+
+const validateLoginForm = () => {
+  const email = getValue('emaillogin');
+  const password = getValue('passwordlogin');
+  const loadingElement = document.getElementById('loading');
+  const loginButton = document.getElementById('buttonlogin');
+
+  loginButton.style.display = 'none';
+  loadingElement.style.display = 'block';
+
+  if (!email || !password) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Login Failed',
+      text: 'Please fill in both email and password fields.',
+    });
+    loadingElement.style.display = 'none';
+    loginButton.style.display = 'block';
+    return false;
+  }
+
+  const isValidEmail = validateEmail(email);
+  const isValidPassword = validatePassword(password);
+
+  if (!isValidEmail || !isValidPassword) {
+    loadingElement.style.display = 'none';
+    loginButton.style.display = 'block';
+    return false;
+  }
+
+  return true;
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  validateInput('emaillogin', validateEmail, 'emailValidationMessage', 'Email: Harus mengandung "@" dan "."');
+  validateInput('passwordlogin', validatePassword, 'passwordValidationMessage', 'Password: 8+ karakter, huruf & angka');
+});
+
 const postLogin = () => {
   const email = getValue("emaillogin");
   const password = getValue("passwordlogin");
@@ -33,6 +98,14 @@ const postLogin = () => {
     loadingElement.style.display = "none";
   });
 };
+window.postLogin = postLogin;
+
+const postLoginWithValidation = () => {
+  if (validateLoginForm()) {
+    postLogin();
+  }
+};
+window.postLoginWithValidation = postLoginWithValidation;
 
 function responseData(result) {
   if (result.token) {
@@ -74,6 +147,17 @@ const passwordFunc = () => {
   x.type = x.type === "password" ? "text" : "password";
   parent.classList.toggle("show", x.type === "text");
 };
-
-window.postLogin = postLogin;
 window.passwordFunc = passwordFunc;
+
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+const validatePassword = (password) => {
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+  return passwordRegex.test(password);
+}
+
+
+
