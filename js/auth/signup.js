@@ -1,13 +1,39 @@
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
 // Function to validate the entire form
-const validateForm = () => {
-  const emailIsValid = validateEmail(getValue("emailsignup"));
-  const phoneIsValid = validatePhone(getValue("phonesignup"));
-  const usernameIsValid = validateUsername(getValue("usernamesignup"));
-  const passwordIsValid = validatePassword(getValue("passwordsignup"));
+// const validateForm = () => {
+//   const emailIsValid = validateEmail(getValue("emailsignup"));
+//   const phoneIsValid = validatePhone(getValue("phonesignup"));
+//   const usernameIsValid = validateUsername(getValue("usernamesignup"));
+//   const passwordIsValid = validatePassword(getValue("passwordsignup"));
 
-  // Add more validation checks as needed
+//   // Add more validation checks as needed
+
+//   // Return true if all validations pass, otherwise return false
+//   return emailIsValid && phoneIsValid && usernameIsValid && passwordIsValid;
+// };
+
+const validateForm = () => {
+  const email = getValue("emailsignup");
+  const phone = getValue("phonesignup");
+  const username = getValue("usernamesignup");
+  const password = getValue("passwordsignup");
+
+  // Check if any of the fields are empty
+  if (!email || !phone || !username || !password) {
+    Swal.fire({
+      icon: "error",
+      title: "Signup Failed",
+      text: "Please fill in all fields.",
+    });
+    return false;
+  }
+
+  // Proceed with validation checks if all fields are not empty
+  const emailIsValid = validateEmail(email);
+  const phoneIsValid = validatePhone(phone);
+  const usernameIsValid = validateUsername(username);
+  const passwordIsValid = validatePassword(password);
 
   // Return true if all validations pass, otherwise return false
   return emailIsValid && phoneIsValid && usernameIsValid && passwordIsValid;
