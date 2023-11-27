@@ -39,10 +39,12 @@ export function responseData(results) {
     // Hitung jumlah data dan simpan di localStorage
     const totalDevices = results.data.length;
     localStorage.setItem("totalDevices", totalDevices);
+    document.getElementById("totaldev").textContent = totalDevices;
   } else {
     // Data perangkat kosong atau null
     console.log("Data perangkat kosong atau null.");
     localStorage.setItem("totalDevices", "0");
+    document.getElementById("totaldev").textContent = "0";
   }
 }
 
