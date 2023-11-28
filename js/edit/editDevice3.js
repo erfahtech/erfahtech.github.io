@@ -153,13 +153,17 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 Swal.showValidationMessage("Nama perangkat dan Topic perangkat tidak boleh kosong!");
                 return false;
             }
+
             // Tambahkan validasi huruf kecil untuk input topic
-            if (input2 && !/^[a-z]+$/) {
+            if (input2 && !/^[a-z]+$/.test(input2)) {
                 Swal.showValidationMessage("Topic harus menggunakan huruf kecil!");
                 return false;
             }
+        
+
             return [input1, input2];
         },
+
         didOpen: () => {
             const inputs = Swal.getPopup().querySelectorAll("input");
             inputs[0].focus();
@@ -203,7 +207,12 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                     location.reload();
                 } else {
                     console.error("Request failed with status:", response.status);
-                    // throw new Error("Request failed with status: " + response.status);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Edit Device Gagal",
+                        timer: 1500,
+                    });
                 }
             } catch (error) {
                 console.error("Error:", error);
