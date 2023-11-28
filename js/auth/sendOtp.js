@@ -28,9 +28,10 @@ function SendOTP() {
     },
     body: JSON.stringify(data),
   })
-    .then((response) => {
-      // Check if the request was successful (you may want to add more checks)
-      if (response.ok) {
+    .then((response) => response.json()) // Parse the JSON response
+    .then((data) => {
+      // Check if the status is true
+      if (data.status) {
         // Store the email in localStorage
         localStorage.setItem("sentEmail", emailInput);
 
@@ -38,17 +39,17 @@ function SendOTP() {
         Swal.fire({
           icon: "success",
           title: "OTP Terkirim",
-          text: "Perikas WhatsApp Anda untuk melihat OTP.",
+          text: `Perikas WhatsApp Anda untuk melihat OTP. ${data.message}`,
         });
 
         // Redirect the user to the OTP verification page
-        window.location.href = "verifyOtp.html";
+        window.location.href = "verifyotp.html";
       } else {
         // Display an error message
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "Gagal mengirim OTP. Silakan coba lagi.",
+          text: `Gagal mengirim OTP. ${data.message}`,
         });
       }
     })

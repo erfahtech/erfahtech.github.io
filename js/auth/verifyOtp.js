@@ -32,9 +32,10 @@ function VerifyOTP() {
     },
     body: JSON.stringify(data),
   })
-    .then((response) => {
-      // Check if the request was successful (you may want to add more checks)
-      if (response.ok) {
+    .then((response) => response.json()) // Parse the JSON response
+    .then((data) => {
+      // Check if the status is true
+      if (data.status) {
         // Store the email in localStorage
         localStorage.setItem("sentOTP", otpInput);
 
@@ -42,7 +43,7 @@ function VerifyOTP() {
         Swal.fire({
           icon: "success",
           title: "Kode OTP Benar",
-          text: "Kode OTP yang Anda masukkan benar. Silakan masukkan password baru Anda.",
+          text: `${data.message}. Silakan masukkan password baru Anda.`,
         });
 
         // Redirect the user to the OTP verification page
@@ -52,7 +53,7 @@ function VerifyOTP() {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "Gagal verifykasi OTP. Silakan coba lagi.",
+          text: `Gagal verifikasi OTP. ${data.message}`,
         });
       }
     })
@@ -61,12 +62,12 @@ function VerifyOTP() {
       Swal.fire({
         icon: "error",
         title: "Network Error",
-        text: "Gagal verifykasi OTP. Silakan coba lagi.",
+        text: "Gagal verifikasi OTP. Silakan coba lagi.",
       });
     });
 }
 
-// Function to validate otp format
+// Function to validate OTP format
 function isValidOTP(otp) {
   const otpRegex = /^\d{6}$/;
   return otpRegex.test(otp);
