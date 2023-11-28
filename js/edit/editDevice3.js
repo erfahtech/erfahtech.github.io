@@ -153,13 +153,16 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 Swal.showValidationMessage("Nama perangkat dan Topic perangkat tidak boleh kosong!");
                 return false;
             }
+
             // Tambahkan validasi huruf kecil untuk input topic
-            if (input2 && !/^[a-z]+$/) {
-                Swal.showValidationMessage("Topic harus menggunakan huruf kecil!");
+            if (input2 && !/[a-z]/.test(input2)) {
+                Swal.showValidationMessage("Topic harus memiliki setidaknya satu huruf kecil!");
                 return false;
             }
+
             return [input1, input2];
         },
+
         didOpen: () => {
             const inputs = Swal.getPopup().querySelectorAll("input");
             inputs[0].focus();
