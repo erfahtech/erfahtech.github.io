@@ -39,7 +39,8 @@ function SendOTP() {
         Swal.fire({
           icon: "success",
           title: "OTP Terkirim",
-          text: `Perikas WhatsApp Anda untuk melihat OTP. ${data.message}`,
+          text: `Perikas WhatsApp Anda untuk melihat OTP.`,
+          timer: 1500,
         });
 
         // Redirect the user to the OTP verification page
@@ -49,7 +50,8 @@ function SendOTP() {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: `Gagal mengirim OTP. ${data.message}`,
+          text: `Gagal mengirim OTP. Email tidak terdaftar.`,
+          timer: 1500,
         });
       }
     })
@@ -59,6 +61,7 @@ function SendOTP() {
         icon: "error",
         title: "Network Error",
         text: "Gagal mengirim OTP. Silakan coba lagi.",
+        timer: 1500,
       });
     });
 }

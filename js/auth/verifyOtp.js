@@ -43,7 +43,8 @@ function VerifyOTP() {
         Swal.fire({
           icon: "success",
           title: "Kode OTP Benar",
-          text: `${data.message}. Silakan masukkan password baru Anda.`,
+          text: `Silakan masukkan password baru Anda.`,
+          timer: 1500,
         });
 
         // Redirect the user to the OTP verification page
@@ -54,6 +55,7 @@ function VerifyOTP() {
           icon: "error",
           title: "Error",
           text: `Gagal verifikasi OTP. ${data.message}`,
+          timer: 1500,
         });
       }
     })
@@ -63,6 +65,7 @@ function VerifyOTP() {
         icon: "error",
         title: "Network Error",
         text: "Gagal verifikasi OTP. Silakan coba lagi.",
+        timer: 1500,
       });
     });
 }
