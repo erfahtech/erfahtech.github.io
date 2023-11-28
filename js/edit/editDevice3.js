@@ -192,7 +192,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             try {
                 const response = await updateWithBearer(target_url, token, requestBody, (result) => result);
                 console.log(response);
-                
+
                 if (response.status === true) {
                     await Swal.fire({
                         icon: "success",
@@ -203,7 +203,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                     location.reload();
                 } else {
                     console.error("Request failed with status:", response.status);
-                    throw new Error("Request failed with status: " + response.status);
+                    // throw new Error("Request failed with status: " + response.status);
                 }
             } catch (error) {
                 console.error("Error:", error);
