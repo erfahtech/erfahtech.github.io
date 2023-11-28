@@ -203,7 +203,11 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                     location.reload();
                 } else {
                     console.error("Request failed with status:", response.status);
-                    // throw new Error("Request failed with status: " + response.status);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Edit Device Gagal",
+                    });
                 }
             } catch (error) {
                 console.error("Error:", error);
