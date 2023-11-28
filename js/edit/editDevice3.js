@@ -207,6 +207,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                         icon: "error",
                         title: "Error",
                         text: "Edit Device Gagal",
+                        timer: 1500,
                     });
                 }
             } catch (error) {
