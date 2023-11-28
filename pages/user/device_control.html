@@ -303,8 +303,8 @@
     <!-- tailmater javascript -->
     <script src="../../js/tailmater.js"></script>
 
-    <!-- <script type="module" src="../../js/get-devices.js"></script>
-    <script type="module" src="../../js/post/post_device.js"></script> -->
+    <script type="module" src="../../js/get-devices.js"></script>
+    <!-- <script type="module" src="../../js/post/post_device.js"></script> -->
 
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.13/post/post_device.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.13/get/get-devices.js"></script>
@@ -312,19 +312,6 @@
     <script type="module" src="https://cdn.jsdelivr.net/gh/erfahtech/js_erfahtech@0.0.13/auth/authHalaman.js"></script>
     <script>
       localStorage.setItem("previousPageURL", window.location.href);
-    </script>
-
-    <script>
-      //Mengambil nilai dari local storage dengan kunci userEmail
-      var userEmail = localStorage.getItem("userEmail");
-
-      // Mengganti teks dalam elemen dengan ID userGreeting
-      var userGreetingElement = document.getElementById("userGreeting");
-
-      // Memastikan userEmail tidak kosong sebelum mengganti teks
-      if (userEmail) {
-        userGreetingElement.textContent = "Device milik " + userEmail;
-      }
     </script>
   </body>
 </html>

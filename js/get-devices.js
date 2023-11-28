@@ -1,24 +1,27 @@
-// import getDevices from "./getfunction-devices.js";
-// window.getDevices = getDevices;
+// import { URLGetDevice, responseData } from "./controlDevices.js";
+// import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-import { URLGetDevice, responseData } from "./controlDevices.js";
-// import { URLGetDevice, responseData } from "../js/device.control.js";
-import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+// const get = (target_url, responseFunction) => {
+//   const myHeaders = new Headers();
+//   myHeaders.append("Authorization", "Bearer " + getCookie("token"));
 
-const get = (target_url, responseFunction) => {
-  const myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer " + getCookie("token"));
+//   const requestOptions = {
+//     method: "GET",
+//     headers: myHeaders,
+//     redirect: "follow",
+//   };
 
-  const requestOptions = {
-    method: "GET",
-    headers: myHeaders,
-    redirect: "follow",
-  };
+//   fetch(target_url, requestOptions)
+//     .then((response) => response.text())
+//     .then((result) => responseFunction(JSON.parse(result)))
+//     .catch((error) => console.log("error", error));
+// };
 
-  fetch(target_url, requestOptions)
-    .then((response) => response.text())
-    .then((result) => responseFunction(JSON.parse(result)))
-    .catch((error) => console.log("error", error));
-};
+// get(URLGetDevice, responseData);
 
-get(URLGetDevice, responseData);
+// Mengambil nilai dari local storage dengan kunci userEmail
+const pesanlogin = localStorage.getItem("pesanlogin");
+
+// Mengganti teks dalam elemen dengan ID userGreeting
+const userGreetingElement = document.getElementById("userGreeting");
+userGreetingElement.innerText = pesanlogin;
