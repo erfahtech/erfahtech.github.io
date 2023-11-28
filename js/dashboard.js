@@ -1,13 +1,9 @@
 // Mengambil nilai dari local storage dengan kunci userEmail
-const userEmail = localStorage.getItem("userEmail");
+const pesanlogin = localStorage.getItem("pesanlogin");
 
 // Mengganti teks dalam elemen dengan ID userGreeting
 const userGreetingElement = document.getElementById("userGreeting");
-
-// Memastikan userEmail tidak kosong sebelum mengganti teks
-if (userEmail) {
-  userGreetingElement.textContent = `Selamat Datang, ${userEmail}!`;
-}
+userGreetingElement.innerText = pesanlogin;
 
 const updateClock = () => {
   const updateTime = () => {
