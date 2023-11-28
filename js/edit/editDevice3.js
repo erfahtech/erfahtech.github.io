@@ -186,7 +186,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             };
 
             try {
-                const response = await updatetWithBearer(target_url, token, requestBody, (result) => result);
+                const response = await updateWithBearer(target_url, token, requestBody, (result) => result);
 
                 if (response.status) {
                     await Swal.fire({
