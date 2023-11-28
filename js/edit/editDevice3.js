@@ -15,10 +15,11 @@ export function updateWithBearer(target_url, token, datajson, responseFunction) 
     };
 
     return fetch(target_url, requestOptions)
-        .then((response) => response.text())
-        .then((result) => responseFunction(JSON.parse(result)))
+        .then((response) => response.json())  // Parse response as JSON
+        .then((result) => responseFunction(result))  // Pass the parsed JSON result to the callback
         .catch((error) => console.log("error", error));
 }
+
 
 const editDevice = async (IDEDIT, NAME, TOPIC) => {
     const deviceId = IDEDIT;
@@ -50,7 +51,6 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 Swal.showValidationMessage("Topic harus menggunakan huruf kecil!");
                 return false;
             }
-
             return [input1, input2];
         },
         didOpen: () => {
@@ -85,7 +85,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             try {
                 const response = await updateWithBearer(target_url, token, requestBody, (result) => result);
 
-                if (response.status) {
+                if (response.status === true) {
                     await Swal.fire({
                         icon: "success",
                         title: response.message || "Perangkat berhasil diubah",
