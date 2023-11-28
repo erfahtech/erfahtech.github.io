@@ -155,7 +155,7 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
             }
 
             // Tambahkan validasi huruf kecil untuk input topic
-            if (input2 && !/^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/i.test(input2)) {
+            if (input2 && !/^[a-z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/.test(input2)) {
                 Swal.showValidationMessage("Topic harus menggunakan huruf kecil!");
                 return false;
             }
