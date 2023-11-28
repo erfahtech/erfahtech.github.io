@@ -148,21 +148,24 @@
             </a>
           </div>
           <div class="flex-shrink max-w-full w-full order-2 md:order-1 xl:w-2/3">
-            <div id="devices" class="flex flex-wrap flex-row dark:bg-surfacedark-100"></div>
-            <div data-type="dialogs" data-target="#dialog_add" class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
-              <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
-                <div class="flex flex-wrap flex-row items-center">
-                  <h3 class="text-title-md">Tambah Baru</h3>
-                </div>
-                <div class="flex flex-col items-center">
-                  <div
-                    class="group-hover:bg-surface-100 dark:group-hover:bg-surfacedark-100 btn-outline relative !inline-flex !items-center justify-center w-20 h-20 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] font-medium mb-2">
-                    <span class="material-symbols-outlined !text-[3rem]">add</span>
+            <div id="devices" class="flex flex-wrap flex-row dark:bg-surfacedark-100">
+              <div data-type="dialogs" data-target="#dialog_add"
+                class="flex-shrink max-w-full px-4 w-full sm:w-1/2 mb-6">
+                <div class="bg-white dark:bg-surfacedark-200 rounded-lg shadow-lg h-full p-6">
+                  <div class="flex flex-wrap flex-row items-center">
+                    <h3 class="text-title-md">Tambah Baru</h3>
                   </div>
-                  <span>Device</span>
+                  <div class="flex flex-col items-center">
+                    <div
+                      class="group-hover:bg-surface-100 dark:group-hover:bg-surfacedark-100 btn-outline relative !inline-flex !items-center justify-center w-20 h-20 gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] font-medium mb-2">
+                      <span class="material-symbols-outlined !text-[3rem]">add</span>
+                    </div>
+                    <span>Device</span>
+                  </div>
                 </div>
               </div>
             </div>
+
             <!-- default dialogs -->
             <div id="dialog_add"
               class="[&.show_.backDialog]:opacity-60 [&.show]:opacity-100 [&.show]:h-full [&.show_.backDialog]:block [&.show_.backDialog]:inset-0 [&.show]:inset-0 duration-[400ms] ease-[cubic-bezier(0, 0, 0, 1)] opacity-0 w-full h-0 z-50 overflow-auto fixed left-0 top-0 flex items-center justify-center">
@@ -177,7 +180,7 @@
                     <input type="text" id="isiName" name="deviceName"
                       class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                       placeholder="Masukkan Nama Device" required />
-                      <span id="deviceValidationMessage" class="validation-message text-red-500 text-sm"></span>
+                    <span id="deviceValidationMessage" class="validation-message text-red-500 text-sm"></span>
                   </div>
 
                   <div class="mb-4">
@@ -185,7 +188,7 @@
                     <input type="text" id="isiTopic" name="topic"
                       class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                       placeholder="Masukkan Topic" required />
-                      <span id="topicValidationMessage" class="validation-message text-red-500 text-sm"></span>
+                    <span id="topicValidationMessage" class="validation-message text-red-500 text-sm"></span>
                   </div>
 
                 </div>

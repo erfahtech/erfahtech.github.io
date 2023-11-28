@@ -151,6 +151,7 @@ function responseData(result) {
         window.location.href = "../user/dashboard.html";
         // Store the email in localStorage
         localStorage.setItem("userEmail", email);
+        localStorage.setItem("pesanlogin", result.message);
       }
     });
   } else {
