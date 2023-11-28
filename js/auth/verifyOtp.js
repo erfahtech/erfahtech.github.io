@@ -44,7 +44,7 @@ function VerifyOTP() {
           icon: "success",
           title: "Kode OTP Benar",
           text: `Silakan masukkan password baru Anda.`,
-          timer: 1500,
+          timer: 5000,
         });
 
         // Redirect the user to the OTP verification page
@@ -55,7 +55,7 @@ function VerifyOTP() {
           icon: "error",
           title: "Error",
           text: `Gagal verifikasi OTP. ${data.message}`,
-          timer: 1500,
+          timer: 3000,
         });
       }
     })
@@ -65,7 +65,7 @@ function VerifyOTP() {
         icon: "error",
         title: "Network Error",
         text: "Gagal verifikasi OTP. Silakan coba lagi.",
-        timer: 1500,
+        timer: 3000,
       });
     });
 }

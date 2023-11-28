@@ -40,7 +40,7 @@ function SendOTP() {
           icon: "success",
           title: "OTP Terkirim",
           text: `Perikas WhatsApp Anda untuk melihat OTP.`,
-          timer: 1500,
+          timer: 5000,
         });
 
         // Redirect the user to the OTP verification page
@@ -51,7 +51,7 @@ function SendOTP() {
           icon: "error",
           title: "Error",
           text: `Gagal mengirim OTP. Email tidak terdaftar.`,
-          timer: 1500,
+          timer: 3000,
         });
       }
     })
@@ -61,7 +61,7 @@ function SendOTP() {
         icon: "error",
         title: "Network Error",
         text: "Gagal mengirim OTP. Silakan coba lagi.",
-        timer: 1500,
+        timer: 3000,
       });
     });
 }

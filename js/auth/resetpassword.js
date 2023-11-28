@@ -42,6 +42,7 @@ function ResetPassword() {
           icon: "success",
           title: "Reset Password Berhasil",
           text: "Password Anda berhasil diubah. Silakan login dengan password baru Anda",
+          Timer: 5000,
         });
 
         // Remove the data in localStorage
@@ -57,6 +58,7 @@ function ResetPassword() {
           icon: "error",
           title: "Error",
           text: "Gagal Reset Password. Silakan coba lagi.",
+          timer: 3000,
         });
       }
     })
@@ -66,6 +68,7 @@ function ResetPassword() {
         icon: "error",
         title: "Network Error",
         text: "Gagal Reset Password. Silakan coba lagi.",
+        timer: 3000,
       });
     });
 }
