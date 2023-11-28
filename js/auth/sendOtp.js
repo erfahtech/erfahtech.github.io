@@ -41,10 +41,10 @@ function SendOTP() {
           title: "OTP Terkirim",
           text: `Perikas WhatsApp Anda untuk melihat OTP.`,
           timer: 5000,
+        }).then(() => {
+          // Redirect the user to the OTP verification page
+          window.location.href = "verifyotp.html";
         });
-
-        // Redirect the user to the OTP verification page
-        window.location.href = "verifyotp.html";
       } else {
         // Display an error message
         Swal.fire({
