@@ -45,10 +45,10 @@ function VerifyOTP() {
           title: "Kode OTP Benar",
           text: `Silakan masukkan password baru Anda.`,
           timer: 5000,
+        }).then(() => {
+          // Redirect the user to the OTP verification page
+          window.location.href = "resetpassword.html";
         });
-
-        // Redirect the user to the OTP verification page
-        window.location.href = "resetpassword.html";
       } else {
         // Display an error message
         Swal.fire({
