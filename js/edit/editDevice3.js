@@ -108,7 +108,7 @@
 
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
-export function updatetWithBearer(target_url, token, datajson, responseFunction) {
+export function updateWithBearer(target_url, token, datajson, responseFunction) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
     myHeaders.append("Content-Type", "application/json");
