@@ -45,6 +45,11 @@ const editDevice = async (IDEDIT, NAME, TOPIC) => {
                 Swal.showValidationMessage("Nama perangkat dan Topic perangkat tidak boleh kosong!");
                 return false;
             }
+            // Tambahkan validasi huruf kecil untuk input topic
+            if (input2[1] && !/^[a-z]+$/.test(input[2])) {
+                Swal.showValidationMessage("Topic harus menggunakan huruf kecil!");
+                return false;
+            }
 
             return [input1, input2];
         },
