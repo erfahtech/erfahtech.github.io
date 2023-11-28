@@ -42,7 +42,7 @@ function SendOTP() {
         });
 
         // Redirect the user to the OTP verification page
-        window.location.href = "verifyotp.html";
+        window.location.href = "verifyOtp.html";
       } else {
         // Display an error message
         Swal.fire({
