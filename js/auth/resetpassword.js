@@ -37,21 +37,20 @@ function ResetPassword() {
     .then((response) => {
       // Check if the request was successful (you may want to add more checks)
       if (response.ok) {
+        // Remove the data in localStorage
+        localStorage.removeItem("sentEmail");
+        localStorage.removeItem("sentOTP");
+        localStorage.removeItem("sentPassword");
         // Display a success message
         Swal.fire({
           icon: "success",
           title: "Reset Password Berhasil",
           text: "Password Anda berhasil diubah. Silakan login dengan password baru Anda",
           Timer: 5000,
+        }).then(() => {
+          // Redirect the user to the OTP verification page
+          window.location.href = "login.html";
         });
-
-        // Remove the data in localStorage
-        localStorage.removeItem("sentEmail");
-        localStorage.removeItem("sentOTP");
-        localStorage.removeItem("sentPassword");
-
-        // Redirect the user to the OTP verification page
-        window.location.href = "login.html";
       } else {
         // Display an error message
         Swal.fire({
