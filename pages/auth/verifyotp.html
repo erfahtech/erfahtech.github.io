@@ -109,29 +109,26 @@
                   <img src="../../images/Logo-Use.png" alt="Your Logo" width="150px" height="75px" class="max-w-full h-auto mb-4 md:mb-8" />
                   <h1 class="block text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">Reset Password</h1>
                   <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    Masukan Email Anda untuk Mendapatkan Kode OTP</a>
-                  </p>
-                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    yang akan dikirimkan melalui Whatsapp</a>
+                    Masukan Kode OTP yang anda dapatkan</a>
                   </p>
                 </div>
               </div>
               <div class="relative flex flex-col gap-6">
-                <!-- Email input -->
+                <!-- OTP input -->
                 <div class="relative z-0">
                   <input
-                    type="email"
-                    aria-label="email"
-                    name="email"
-                    id="email"
+                    type="otp"
+                    aria-label="otp"
+                    name="otp"
+                    id="otp"
                     class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
                     placeholder=" "
                     value=""
                   />
                   <label
-                    for="email"
+                    for="otp"
                     class="absolute tracking-[.03125em] text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200"
-                    >Email</label
+                    >Kode Otp</label
                   >
                   <span id="emailValidationMessage" class="validation-message text-red-500 text-sm"></span>
                 </div>
@@ -139,12 +136,12 @@
                 <!-- Submit button -->
                 <button
                   type="submit"
-                  id="buttonSendOtp"
-                  name="buttonSendOtp"
-                  onclick="SendOTP()"
+                  id="buttonVerifyOtp"
+                  name="buttonVerifyOtp"
+                  onclick="VerifyOTP()"
                   class="btn relative inline-flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm md:text-base lg:text-lg tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800"
                 >
-                  KIRIM OTP
+                  VERIFIKASI OTP
                 </button>
               </div>
             </div>
@@ -162,7 +159,7 @@
       </div>
     </footer>
 
-    <script type="module" src="../../js/auth/sendOtp.js"></script>
+    <script type="module" src="../../js/auth/verifyOtp.js"></script>
     <!-- Tailmater javascript -->
     <script type="module" src="../../js/tailmate.js"></script>
   </body>

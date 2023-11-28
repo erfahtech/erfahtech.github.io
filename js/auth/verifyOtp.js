@@ -1,27 +1,31 @@
-// sendOtp.js
+// verifyOtp.js
 
-function SendOTP() {
+function VerifyOTP() {
   // Get the email input value
-  const emailInput = document.getElementById("email").value;
+  const emailInput = localStorage.getItem("sentEmail");
+
+  // Get the OTP input value
+  const otpInput = document.getElementById("otp").value;
 
   // Validate the email (you may want to add more validation)
-  if (!isValidEmail(emailInput)) {
+  if (!isValidOTP(otpInput)) {
     // Display an error message
     Swal.fire({
       icon: "error",
-      title: "Invalid Email",
-      text: "Silakan masukkan email yang valid.",
+      title: "Invalid OTP",
+      text: "Silakan masukkan OTP yang valid. OTP terdiri dari 6 angka.",
     });
     return;
   }
 
   // Prepare the data to send in the request
   const data = {
+    otp: otpInput,
     email: emailInput,
   };
 
   // Make a POST request to your API endpoint
-  fetch("https://asia-southeast2-urse-project.cloudfunctions.net/urse-sendotp", {
+  fetch("https://asia-southeast2-urse-project.cloudfunctions.net/urse-verifyotp", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,23 +36,23 @@ function SendOTP() {
       // Check if the request was successful (you may want to add more checks)
       if (response.ok) {
         // Store the email in localStorage
-        localStorage.setItem("sentEmail", emailInput);
+        localStorage.setItem("sentOTP", otpInput);
 
         // Display a success message
         Swal.fire({
           icon: "success",
-          title: "OTP Terkirim",
-          text: "Perikas WhatsApp Anda untuk melihat OTP.",
+          title: "Kode OTP Benar",
+          text: "Kode OTP yang Anda masukkan benar. Silakan masukkan password baru Anda.",
         });
 
         // Redirect the user to the OTP verification page
-        window.location.href = "verifyOtp.html";
+        window.location.href = "resetpassword.html";
       } else {
         // Display an error message
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "Gagal mengirim OTP. Silakan coba lagi.",
+          text: "Gagal verifykasi OTP. Silakan coba lagi.",
         });
       }
     })
@@ -57,15 +61,15 @@ function SendOTP() {
       Swal.fire({
         icon: "error",
         title: "Network Error",
-        text: "Gagal mengirim OTP. Silakan coba lagi.",
+        text: "Gagal verifykasi OTP. Silakan coba lagi.",
       });
     });
 }
 
-// Function to validate email format (you may want to improve this)
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+// Function to validate otp format
+function isValidOTP(otp) {
+  const otpRegex = /^\d{6}$/;
+  return otpRegex.test(otp);
 }
 
-window.SendOTP = SendOTP;
+window.VerifyOTP = VerifyOTP;
