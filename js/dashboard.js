@@ -3,11 +3,7 @@ const pesanlogin = localStorage.getItem("pesanlogin");
 
 // Mengganti teks dalam elemen dengan ID userGreeting
 const userGreetingElement = document.getElementById("userGreeting");
-
-// Memastikan userEmail tidak kosong sebelum mengganti teks
-if (pesanlogin) {
-  userGreetingElement.textContent = `${pesanlogin}!`;
-}
+userGreetingElement.innerText = pesanlogin;
 
 const updateClock = () => {
   const updateTime = () => {
