@@ -193,40 +193,6 @@
       </div>
     </footer>
 
-    <!-- <script>
-    // Memeriksa apakah "Remember Me" dicentang
-    const rememberMeCheckbox = document.getElementById("remember-me");
-    const emailInput = document.getElementById("emaillogin");
-    const passwordInput = document.getElementById("passwordlogin");
-
-    // Cek apakah ada data tersimpan di localStorage
-    if (localStorage.getItem("rememberMeChecked") === "true") {
-      rememberMeCheckbox.checked = true;
-      // Setel nilai email dan password dari localStorage jika ada
-      if (localStorage.getItem("savedEmail")) {
-        emailInput.value = localStorage.getItem("savedEmail");
-      }
-      if (localStorage.getItem("savedPassword")) {
-        passwordInput.value = localStorage.getItem("savedPassword");
-      }
-    }
-
-    // Tambahkan event listener untuk menyimpan data saat kotak centang berubah
-    rememberMeCheckbox.addEventListener("change", () => {
-      if (rememberMeCheckbox.checked) {
-        // Simpan email dan password ke localStorage
-        localStorage.setItem("savedEmail", emailInput.value);
-        localStorage.setItem("savedPassword", passwordInput.value);
-        localStorage.setItem("rememberMeChecked", "true");
-      } else {
-        // Hapus data jika kotak centang tidak dicentang
-        localStorage.removeItem("savedEmail");
-        localStorage.removeItem("savedPassword");
-        localStorage.setItem("rememberMeChecked", "false");
-      }
-    });
-  </script> -->
-
     <script type="module" src="../../js/auth/login.js"></script>
     <!-- Tailmater javascript -->
     <script type="module" src="../../js/tailmate.js"></script>

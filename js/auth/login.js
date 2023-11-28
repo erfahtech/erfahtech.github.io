@@ -10,8 +10,8 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
     const inputValue = inputElement.value;
 
     // Check if the input is empty
-    if (inputValue === '') {
-      validationMessageElement.innerText = '';
+    if (inputValue === "") {
+      validationMessageElement.innerText = "";
       return;
     }
 
@@ -20,33 +20,33 @@ const validateInput = (inputId, validationFunction, validationMessageId, errorMe
     if (!isValid) {
       validationMessageElement.innerText = errorMessage;
     } else {
-      validationMessageElement.innerText = '';
+      validationMessageElement.innerText = "";
     }
   };
 
-  inputElement.addEventListener('input', validateAndDisplayMessage);
+  inputElement.addEventListener("input", validateAndDisplayMessage);
 
   // Handling input value deletion
-  inputElement.addEventListener('change', validateAndDisplayMessage);
+  inputElement.addEventListener("change", validateAndDisplayMessage);
 };
 
 const validateLoginForm = () => {
-  const email = getValue('emaillogin');
-  const password = getValue('passwordlogin');
-  const loadingElement = document.getElementById('loading');
-  const loginButton = document.getElementById('buttonlogin');
+  const email = getValue("emaillogin");
+  const password = getValue("passwordlogin");
+  const loadingElement = document.getElementById("loading");
+  const loginButton = document.getElementById("buttonlogin");
 
-  loginButton.style.display = 'none';
-  loadingElement.style.display = 'block';
+  loginButton.style.display = "none";
+  loadingElement.style.display = "block";
 
   if (!email || !password) {
     Swal.fire({
-      icon: 'error',
-      title: 'Login Failed',
-      text: 'Please fill in both email and password fields.',
+      icon: "error",
+      title: "Login Failed",
+      text: "Please fill in both email and password fields.",
     });
-    loadingElement.style.display = 'none';
-    loginButton.style.display = 'block';
+    loadingElement.style.display = "none";
+    loginButton.style.display = "block";
     return false;
   }
 
@@ -54,17 +54,43 @@ const validateLoginForm = () => {
   const isValidPassword = validatePassword(password);
 
   if (!isValidEmail || !isValidPassword) {
-    loadingElement.style.display = 'none';
-    loginButton.style.display = 'block';
+    loadingElement.style.display = "none";
+    loginButton.style.display = "block";
     return false;
   }
 
   return true;
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  validateInput('emaillogin', validateEmail, 'emailValidationMessage', 'Email: Harus mengandung "@" dan "."');
-  validateInput('passwordlogin', validatePassword, 'passwordValidationMessage', 'Password: 8+ karakter, huruf & angka');
+document.addEventListener("DOMContentLoaded", () => {
+  validateInput("emaillogin", validateEmail, "emailValidationMessage", 'Email: Harus mengandung "@" dan "."');
+  validateInput("passwordlogin", validatePassword, "passwordValidationMessage", "Password: 8+ karakter, huruf & angka");
+
+  // Retrieve Remember Me checkbox and email input
+  const rememberMeCheckbox = document.getElementById("remember-me");
+  const emailInput = document.getElementById("emaillogin");
+
+  // Check if Remember Me is checked and populate email if available
+  if (localStorage.getItem("rememberMeChecked") === "true") {
+    rememberMeCheckbox.checked = true;
+    const savedEmail = localStorage.getItem("savedEmail");
+    if (savedEmail) {
+      emailInput.value = savedEmail;
+    }
+  }
+
+  // Add an event listener to Remember Me checkbox
+  rememberMeCheckbox.addEventListener("change", () => {
+    if (rememberMeCheckbox.checked) {
+      // Save email to localStorage when Remember Me is checked
+      localStorage.setItem("savedEmail", emailInput.value);
+      localStorage.setItem("rememberMeChecked", "true");
+    } else {
+      // Clear saved email when Remember Me is unchecked
+      localStorage.removeItem("savedEmail");
+      localStorage.setItem("rememberMeChecked", "false");
+    }
+  });
 });
 
 const postLogin = () => {
@@ -152,12 +178,9 @@ window.passwordFunc = passwordFunc;
 const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
-}
+};
 
 const validatePassword = (password) => {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
   return passwordRegex.test(password);
-}
-
-
-
+};
