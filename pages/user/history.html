@@ -245,7 +245,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       let rowsPerPage = 5;
-      let tableBody;
+      let currentPage = 1;
 
       function changeRowsPerPage(rows) {
         rowsPerPage = parseInt(rows, 10);
@@ -253,7 +253,7 @@
       }
 
       function updateTable() {
-        tableBody = document.querySelector('#history tbody');
+        const tableBody = document.querySelector('#history tbody');
         const pagination = document.querySelector('#pagination');
 
         if (!tableBody) {
@@ -266,7 +266,7 @@
         pagination.innerHTML = '';
 
         // Retrieve data from the existing tbody
-        const dataRows = tableBody.querySelectorAll('tr');
+        const dataRows = Array.from(tableBody.querySelectorAll('tr'));
 
         // Calculate the total number of pages
         const totalPages = Math.ceil(dataRows.length / rowsPerPage);
@@ -283,7 +283,7 @@
         }
 
         // Display the current page
-        changePage(1);
+        changePage(currentPage);
       }
 
       function changePage(page) {
@@ -294,10 +294,11 @@
 
         const startIndex = (page - 1) * rowsPerPage;
         const endIndex = startIndex + rowsPerPage;
-        const dataRows = tableBody.querySelectorAll('tr');
-        const currentPageData = Array.from(dataRows).slice(startIndex, endIndex);
+        const dataRows = Array.from(tableBody.querySelectorAll('tr'));
+        const currentPageData = dataRows.slice(startIndex, endIndex);
 
         // Update the table with the current page data
+        tableBody.innerHTML = '';
         currentPageData.forEach(row => {
           tableBody.appendChild(row.cloneNode(true)); // Clone the existing row
         });
@@ -311,6 +312,9 @@
             item.classList.remove('datatable-active');
           }
         });
+
+        // Update the current page
+        currentPage = page;
       }
 
       // Initialize the table
