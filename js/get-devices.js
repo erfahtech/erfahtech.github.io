@@ -19,6 +19,13 @@ const get = (target_url, responseFunction) => {
 
 get(URLGetDevice, responseData);
 
+// // Mengambil nilai dari local storage dengan kunci userEmail
+// const pesanlogin = localStorage.getItem("pesanlogin");
+
+// // Mengganti teks dalam elemen dengan ID userGreeting
+// const userGreetingElement = document.getElementById("userGreeting");
+// userGreetingElement.innerText = pesanlogin;
+
 // Mengambil pesan login dari Local Storage
 var pesanLogin = localStorage.getItem("pesanlogin");
 
@@ -35,6 +42,8 @@ if (pesanLogin) {
 
   // Menampilkan pesan akhir
   console.log(pesanFinal);
+  const userGreetingElement = document.getElementById("userGreeting");
+  userGreetingElement.innerText = pesanFinal;
 } else {
   console.log("Tidak ada pesan login dalam Local Storage");
 }
