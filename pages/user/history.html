@@ -246,6 +246,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       let rowsPerPage = 5;
       let currentPage = 1;
+      let tableBody; // Declare tableBody globally
 
       function changeRowsPerPage(rows) {
         rowsPerPage = parseInt(rows, 10);
@@ -253,7 +254,7 @@
       }
 
       function updateTable() {
-        const tableBody = document.querySelector('#history tbody');
+        tableBody = document.querySelector('#history tbody');
         const pagination = document.querySelector('#pagination');
 
         if (!tableBody) {
@@ -321,6 +322,7 @@
       updateTable();
     });
   </script>
+
 
 
 </body>
