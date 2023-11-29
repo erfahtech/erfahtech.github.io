@@ -245,7 +245,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       let rowsPerPage = 5;
-      let tableBody; // Declare the variable here
+      let tableBody;
 
       function changeRowsPerPage(rows) {
         rowsPerPage = parseInt(rows, 10);
@@ -255,6 +255,11 @@
       function updateTable() {
         tableBody = document.querySelector('#history tbody');
         const pagination = document.querySelector('#pagination');
+
+        if (!tableBody) {
+          console.error("Table body not found.");
+          return;
+        }
 
         // Clear existing table content and pagination controls
         tableBody.innerHTML = '';
@@ -283,7 +288,7 @@
 
       function changePage(page) {
         if (!tableBody) {
-          // Check if tableBody is initialized
+          console.error("Table body not found.");
           return;
         }
 
@@ -293,8 +298,6 @@
         const currentPageData = Array.from(dataRows).slice(startIndex, endIndex);
 
         // Update the table with the current page data
-        tableBody.innerHTML = ''; // Clear tableBody
-
         currentPageData.forEach(row => {
           tableBody.appendChild(row.cloneNode(true)); // Clone the existing row
         });
@@ -314,6 +317,7 @@
       updateTable();
     });
   </script>
+
 
 </body>
 
