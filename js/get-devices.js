@@ -19,20 +19,13 @@ const get = (target_url, responseFunction) => {
 
 get(URLGetDevice, responseData);
 
-// // Mengambil nilai dari local storage dengan kunci userEmail
-// const pesanlogin = localStorage.getItem("pesanlogin");
-
-// // Mengganti teks dalam elemen dengan ID userGreeting
-// const userGreetingElement = document.getElementById("userGreeting");
-// userGreetingElement.innerText = pesanlogin;
-
 // Mengambil pesan login dari Local Storage
 var pesanLogin = localStorage.getItem("pesanlogin");
 
 // Memeriksa apakah pesan login ada
 if (pesanLogin) {
   // Menghapus "selamat datang" dan "di USE"
-  var namaPengguna = pesanLogin.replace("selamat datang", "").replace("di USE", "");
+  var namaPengguna = pesanLogin.replace("Selamat Datang", "").replace("di USE", "");
 
   // Memotong teks untuk menampilkan hanya nama pengguna
   var namaPenggunaTrimmed = namaPengguna.trim();
