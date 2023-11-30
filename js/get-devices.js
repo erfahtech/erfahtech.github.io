@@ -40,3 +40,5 @@ if (pesanLogin) {
 } else {
   console.log("Tidak ada pesan login dalam Local Storage");
 }
+
+initializeMqttConnection();
