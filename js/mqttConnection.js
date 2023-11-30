@@ -15,10 +15,6 @@ const mqttClient = mqtt.connect(brokerUrl, {
 // Set up event handler for successful connection
 mqttClient.on("connect", () => {
   console.log("Connected to MQTT broker");
-  // Uncomment and adjust if you need to subscribe to specific topics
-  // mqttClient.subscribe("urse/#");
-  // mqttClient.subscribe("urse/suhu");
-  // mqttClient.subscribe("urse/humidity");
 });
 
 // Set up event handler for connection errors
