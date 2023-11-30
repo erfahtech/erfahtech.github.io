@@ -60,9 +60,6 @@ export function initializeMqttConnection() {
   });
 }
 
-// Initialize MQTT connection when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initializeMqttConnection);
-
 // mqttPublish.js
 // getdevice.js
 export const URLGetDevice = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-getdevices";
