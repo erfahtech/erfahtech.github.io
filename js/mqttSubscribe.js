@@ -1,5 +1,5 @@
 // mqttconnection.js
-// import mqttClient from "./mqttConnection.js";
+import mqttClient from "./controlDevices.js";
 import { logSubcribe } from "./logSubcribe.js";
 
 let i = 1;

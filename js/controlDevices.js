@@ -114,3 +114,5 @@ export function isiCard(value) {
     }
   });
 }
+
+export default mqttClient;
