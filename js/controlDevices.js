@@ -45,7 +45,7 @@ function handleMqttMessage(topic, message) {
   }
 }
 
-function initializeMqttConnection() {
+export function initializeMqttConnection() {
   mqttClient.on("connect", () => {
     const email = localStorage.getItem("userEmail");
     console.log("Subcribing...");
