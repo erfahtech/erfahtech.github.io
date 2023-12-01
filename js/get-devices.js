@@ -1,4 +1,4 @@
-import { URLGetDevice, responseData } from "./controlDevices.js";
+import { URLGetDevice, responseData, initializeMqttConnection } from "./controlDevices.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 const get = (target_url, responseFunction) => {
@@ -40,3 +40,5 @@ if (pesanLogin) {
 } else {
   console.log("Tidak ada pesan login dalam Local Storage");
 }
+
+initializeMqttConnection();
