@@ -30,7 +30,7 @@
       </svg>
     </div>
   </div>
-  <header class="max-w-[90rem] md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
+  <header class="max-w-full md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
     <!-- navbar -->
     <nav class="relative flex flex-col md:flex-row justify-between items-center w-full">
       <div class="min-h-[80px] md:min-h-[60px] px-4 flex flex-row w-full md:w-auto justify-between items-center">
@@ -89,8 +89,8 @@
 
   <main class="relative overflow-hidden">
     <!-- Hero -->
-    <div class="relative max-w-[90rem] py-14 md:py-16 px-4 sm:px-6 lg:px-12 mx-auto bg-gray-200 dark:bg-gray-800">
-      <div class="absolute inset-0 bg-opacity-20 dark:bg-opacity-70"></div>
+    <div class="relative max-w-full py-14 md:py-16 px-4 sm:px-6 lg:px-12 mx-auto bg-gray-200 dark:bg-gray-800">
+      <div class="absolute inset-0 bg-surface-200 dark:bg-surfacedark-200"></div>
       <div class="z-30 relative grid lg:grid-cols-2 gap-8">
         <div class="flex flex-col justify-center items-start">
           <div class="mb-8 md:px-12 lg:px-0">
@@ -118,14 +118,14 @@
         </div>
 
         <div class="hidden w-full md:flex justify-center">
-          <img class="max-w-full h-auto w-full rounded-xl border-[10px] border-surface-500 dark:border-surfacedark-500"
+          <img class="max-w-full h-auto w-full rounded-xl border-[10px] border-gray-500 dark:border-surfacedark-500"
             src="./images/logo-horizontal.svg" alt="hero">
         </div>
       </div>
     </div>
 
     <!-- Features -->
-    <div class="max-w-[90rem] py-14 md:py-20 px-4 sm:px-6 lg:px-12 mx-auto bg-white dark:bg-gray-900">
+    <div class="max-w-full py-14 md:py-20 px-4 sm:px-6 lg:px-12 mx-auto bg-white dark:bg-gray-900">
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
         <!-- Block -->
         <div class="relative flex">
@@ -200,104 +200,108 @@
       </div>
 
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-8">
-      <div class="flex flex-col w-full px-6 md:pr-12 justify-center items-center">
-        <div class=" relative w-full h-[300px] sm:h-[350px] rounded-xl border-surface-500 dark:border-surfacedark-500">
-          <img src="/images/logo-horizontal.svg" class="absolute max-w-full h-auto w-full" alt="landing page">
+    <div class="max-w-full py-14 md:py-20 px-4 sm:px-6 lg:px-12 mx-auto bg-surface-200 dark:bg-surfacedark-200">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 py-8">
+        <div class="flex flex-col w-full px-6 md:pr-12 justify-center items-center">
+          <div
+            class=" relative w-full h-[300px] sm:h-[350px] rounded-xl border-surface-500 dark:border-surfacedark-500">
+            <img src="/images/logo-horizontal.svg" class="absolute max-w-full h-auto w-full" alt="landing page">
+          </div>
         </div>
+
+        <!-- processs vertical -->
+        <ol class="flex flex-col gap-4 w-full">
+          <li class="flex">
+            <div class="relative flex-shrink-0 w-16 text-center">
+              <span
+                class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
+              <div
+                class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
+                <span class="text-title-md text-primary-600 dark:text-primary-200">1</span>
+              </div>
+            </div>
+
+            <div class="ml-4 mb-4 lg:ml-6">
+              <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Ready to use Charts and Graphs</h3>
+              <p class="text-body-lg">Visualize your data in a meaningful and engaging way, allowing users to grasp
+                insights at a glance.</p>
+            </div>
+          </li>
+
+          <li class="flex">
+            <div class="relative flex-shrink-0 w-16 text-center">
+              <span
+                class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
+              <div
+                class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
+                <span class="text-title-md text-primary-600 dark:text-primary-200">2</span>
+              </div>
+            </div>
+
+            <div class="ml-4 mb-4 lg:ml-6">
+              <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Many choices of widgets</h3>
+              <p class="text-body-lg">These dynamic elements provide real-time updates and make your dashboard more
+                engaging and informative.</p>
+            </div>
+          </li>
+
+          <li class="flex">
+            <div class="relative flex-shrink-0 w-16 text-center">
+              <span
+                class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
+              <div
+                class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
+                <span class="text-title-md text-primary-600 dark:text-primary-200">3</span>
+              </div>
+            </div>
+
+            <div class="ml-4 mb-4 lg:ml-6">
+              <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Data Tables &amp; Forms Input</h3>
+              <p class="text-body-lg">Display tabular data in an organized and structured manner using Goodash's data
+                table component.</p>
+            </div>
+          </li>
+
+          <li class="flex">
+            <div class="relative flex-shrink-0 w-16 text-center">
+              <span
+                class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
+              <div
+                class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
+                <span class="text-title-md text-primary-600 dark:text-primary-200">4</span>
+              </div>
+            </div>
+
+            <div class="ml-4 mb-4 lg:ml-6">
+              <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Data Tables &amp; Forms Input</h3>
+              <p class="text-body-lg">Display tabular data in an organized and structured manner using Goodash's data
+                table component.</p>
+            </div>
+          </li>
+        </ol>
       </div>
-
-      <!-- processs vertical -->
-      <ol class="flex flex-col gap-4 w-full">
-        <li class="flex">
-          <div class="relative flex-shrink-0 w-16 text-center">
-            <span
-              class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
-            <div
-              class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
-              <span class="text-title-md text-primary-600 dark:text-primary-200">1</span>
-            </div>
-          </div>
-
-          <div class="ml-4 mb-4 lg:ml-6">
-            <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Ready to use Charts and Graphs</h3>
-            <p class="text-body-lg">Visualize your data in a meaningful and engaging way, allowing users to grasp
-              insights at a glance.</p>
-          </div>
-        </li>
-
-        <li class="flex">
-          <div class="relative flex-shrink-0 w-16 text-center">
-            <span
-              class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
-            <div
-              class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
-              <span class="text-title-md text-primary-600 dark:text-primary-200">2</span>
-            </div>
-          </div>
-
-          <div class="ml-4 mb-4 lg:ml-6">
-            <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Many choices of widgets</h3>
-            <p class="text-body-lg">These dynamic elements provide real-time updates and make your dashboard more
-              engaging and informative.</p>
-          </div>
-        </li>
-
-        <li class="flex">
-          <div class="relative flex-shrink-0 w-16 text-center">
-            <span
-              class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
-            <div
-              class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
-              <span class="text-title-md text-primary-600 dark:text-primary-200">3</span>
-            </div>
-          </div>
-
-          <div class="ml-4 mb-4 lg:ml-6">
-            <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Data Tables &amp; Forms Input</h3>
-            <p class="text-body-lg">Display tabular data in an organized and structured manner using Goodash's data
-              table component.</p>
-          </div>
-        </li>
-
-        <li class="flex">
-          <div class="relative flex-shrink-0 w-16 text-center">
-            <span
-              class="absolute left-1/3 top-12 -bottom-8 border-l-2 border-dashed border-gray-200 dark:border-gray-700"></span>
-            <div
-              class="flex items-center justify-center w-12 h-12 mr-auto rounded-full p-2 bg-surface-300 dark:bg-surfacedark-300 border border-gray-200 dark:border-gray-800">
-              <span class="text-title-md text-primary-600 dark:text-primary-200">4</span>
-            </div>
-          </div>
-
-          <div class="ml-4 mb-4 lg:ml-6">
-            <h3 class="text-title-lg text-gray-900 dark:text-gray-100 mb-2">Data Tables &amp; Forms Input</h3>
-            <p class="text-body-lg">Display tabular data in an organized and structured manner using Goodash's data
-              table component.</p>
-          </div>
-        </li>
-      </ol>
     </div>
 
-    <div class="max-w-[90rem] py-14 md:py-20 px-4 sm:px-6 lg:px-12 mx-auto bg-white dark:bg-gray-900">
+
+    <div class="max-w-full py-14 md:py-20 px-4 sm:px-6 lg:px-12 mx-auto bg-white dark:bg-gray-900">
       <class class="relative overflow-hidden">
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
           <div class="text-center">
             <h1 class="text-4xl sm:text-6xl font-bold text-gray-800 dark:text-gray-200">
               Coming Soon</h1>
-  
+
             <p class="mt-3 text-gray-600 dark:text-gray-400">Stay in the know with insights
               from industry experts.</p>
           </div>
         </div>
       </class>
     </div>
-    
+
   </main>
 
   <!-- footer start -->
   <footer
-    class="max-w-[90rem] px-4 sm:px-6 lg:px-12 mx-auto bg-gray-900 dark:bg-black text-gray-300 text-body-lg flex flex-col">
+    class="max-w-full px-4 sm:px-6 lg:px-12 mx-auto bg-gray-900 dark:bg-black text-gray-300 text-body-lg flex flex-col">
     <div class="py-10 md:py-16 flex flex-wrap flex-row justify-between">
       <!-- left widget -->
       <div class="max-w-full w-full lg:w-1/2 px-4 mb-7 lg:mb-0 leading-relaxed">
