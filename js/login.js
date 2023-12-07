@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputFields.forEach((input) => {
         input.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
+                event.preventDefault();
                 postLoginWithValidation();
             }
         });
