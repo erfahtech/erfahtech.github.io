@@ -23,11 +23,6 @@
       right: 2%;
       z-index: 1000;
     }
-
-    .contact-us-icon i {
-      font-size: 2em;
-      /* Sesuaikan ukuran ikon sesuai kebutuhan */
-    }
   </style>
 
 </head>
@@ -48,12 +43,107 @@
 
   <!-- contact-us icons -->
   <div class="contact-us-icon">
-    <button id="contact"
+    <button id="contact" data-type="dialogs" data-target="#dialog_contact"
       class="btn-inline relative flex flex-row items-center justify-center w-auto h-auto py-3 px-3 rounded-full text-sm tracking-[.00714em] font-medium border border-gray-500 text-primary-600 dark:border-gray-400 dark:text-primary-200">
       <span class="material-symbols-outlined">
         mail
       </span>
     </button>
+    <div id="dialog_contact"
+      class="[&.show_.backDialog]:opacity-60 [&.show]:opacity-100 [&.show]:h-full [&.show_.backDialog]:block [&.show_.backDialog]:inset-0 [&.show]:inset-0 duration-[400ms] ease-[cubic-bezier(0, 0, 0, 1)] opacity-0 w-full h-0 z-50 overflow-auto fixed left-0 top-0 flex items-center justify-center">
+      <div data-close="#dialog_xa" class="backDialog hidden z-40 overflow-auto fixed bg-black"></div>
+      <!-- dialogs -->
+      <div class="z-50 flex flex-col w-11/12 sm:w-[480px] h-auto bg-surface-300 dark:bg-surfacedark-300 rounded-[28px]">
+        <div class="flex flex-col gap-4 justify-start px-8 pt-8 pb-0">
+          <h3 class="text-title-lg text-center text-gray-900 dark:text-gray-100">Contact Us</h3>
+          <!-- input Nama Lengkap -->
+          <div class="relative z-0">
+            <input type="text" aria-label="NamaLengkap" name="namalengkap" id="namalengkap"
+              class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+              placeholder=" " />
+
+            <label for="NamaLengkap"
+              class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Nama
+              Lengkap</label>
+
+            <span id="NamaLengkapValidation" class="validation-message text-red-500 text-sm"></span>
+          </div>
+
+          <!-- input Email -->
+          <!-- <div class="relative z-0">
+            <input type="email" aria-label="emailcontact" name="emailcontact" id="emailcontact"
+              class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+              placeholder=" " />
+
+            <label for="emailcontact"
+              class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Email</label>
+
+            <span id="emailcontactValidation" class="validation-message text-red-500 text-sm"></span>
+          </div>
+          <div class="relative z-0">
+            <input type="tel" aria-label="nomorhp" name="nomorhp" id="nomorhp"
+              class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+              placeholder=" " />
+
+            <label for="nomorhp"
+              class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Nomor
+              HP</label>
+
+            <span id="nomorhpValidation" class="validation-message text-red-500 text-sm"></span>
+          </div> -->
+
+          <div class="flex flex-row gap-4">
+            <!-- input Email -->
+            <div class="relative z-0 flex-1">
+              <input type="email" aria-label="emailcontact" name="emailcontact" id="emailcontact"
+                class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+                placeholder=" " />
+
+              <label for="emailcontact"
+                class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Email</label>
+
+              <span id="emailcontactValidation" class="validation-message text-red-500 text-sm"></span>
+            </div>
+
+            <!-- input No HP -->
+            <div class="relative z-0 flex-1">
+              <input type="tel" aria-label="nomorhp" name="nomorhp" id="nomorhp"
+                class="w-full h-12 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+                placeholder=" " />
+
+              <label for="nomorhp"
+                class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Nomor
+                HP</label>
+
+              <span id="nomorhpValidation" class="validation-message text-red-500 text-sm"></span>
+            </div>
+          </div>
+
+          <!-- input Pesan -->
+          <div class="relative z-0">
+            <textarea aria-label="pesan" name="pesan" id="pesan"
+              class="w-full h-24 block leading-5 relative py-2 px-4 rounded bg-white dark:bg-gray-800 border focus:border-2 border-gray-500 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:border-gray-400 dark:focus:border-primary-200 peer"
+              placeholder=" "></textarea>
+
+            <label for="pesan"
+              class="absolute tracking-[.03125em] text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 duration-300 transform px-1 -translate-y-6 scale-75 top-3 z-10 origin-[0] left-4 peer-focus:left-4 peer-focus:text-primary-600 dark:peer-focus:text-primary-200 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:bg-neutral-10 dark:peer-focus:bg-neutral-900 peer-focus:px-1 peer-invalid:text-error-600 dark:peer-invalid:text-error-200">Pesan</label>
+
+            <span id="pesanValidation" class="validation-message text-red-500 text-sm"></span>
+          </div>
+        </div>
+        <div id="diabutton" class="flex flex-row justify-end gap-2 px-8 py-8">
+          <button data-close="#dialog_contact"
+            class="closeDialog relative flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] text-sm tracking-[.00714em] font-medium text-primary-600 hover:bg-surface-100 focus:bg-surface-400 dark:text-primary-200 dark:hover:bg-surfacedark-200 dark:focus:bg-surfacedark-400">
+            Cancel
+          </button>
+
+          <button onclick="" type="submit"
+            class="btn relative flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <header class="max-w-full md:px-6 lg:px-8 mx-auto bg-surface-200 dark:bg-gray-900">
