@@ -1,7 +1,7 @@
 emailjs.init("vJyMKJAarSbg10iVb");
 
- const sendEmail = () => {
-
+// Fungsi sendEmail Anda
+const sendEmail = () => {
   const form = {
     namalengkap: document.getElementById("namalengkap").value,
     emailcontact: document.getElementById("emailcontact").value,
@@ -13,11 +13,12 @@ emailjs.init("vJyMKJAarSbg10iVb");
   emailjs.send("service_tbpc7bn", "template_nqp29gs", form)
     .then(
       function (response) {
-        console.log("Email sent successfully:", response);
+        console.log("Email berhasil dikirim:", response);
       },
       function (error) {
-        console.log("Email failed to send:", error);
+        console.log("Email gagal dikirim:", error);
       }
     );
-}
+};
+
 window.sendEmail = sendEmail;

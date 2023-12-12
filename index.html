@@ -16,7 +16,13 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <!-- Sertakan file emailjs.com -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Inisialisasi emailjs -->
+  <script type="text/javascript">
+    emailjs.init("user_id_anda");
+  </script>
 
 
   <style>
@@ -129,7 +135,7 @@
 
           <button onclick="sendEmail()" type="submit"
             class="btn relative flex flex-row items-center justify-center gap-x-2 py-2.5 px-6 rounded-[6.25rem] hover:shadow-md text-sm tracking-[.00714em] font-medium bg-primary-600 text-white dark:bg-primary-200 dark:text-primary-800">
-            Save
+            Send
           </button>
         </div>
       </div>
