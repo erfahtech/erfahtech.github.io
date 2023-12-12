@@ -1,19 +1,23 @@
-import emailjs from 'emailjs-com';
+emailjs.init("vJyMKJAarSbg10iVb");
 
-emailjs.init("user_your_user_id"); // Ganti dengan User ID Anda dari Email.js
+ const sendEmail = () => {
 
-export const sendEmail = () => {
-    const contactForm = document.getElementById("contactForm");
+  const form = {
+    namalengkap: document.getElementById("namalengkap").value,
+    emailcontact: document.getElementById("emailcontact").value,
+    nomorhp: document.getElementById("nomorhp").value,
+    subject: document.getElementById("subject").value,
+    pesan: document.getElementById("pesan").value,
+  };
 
-    emailjs.sendForm("service_your_service_id", "template_your_template_id", contactForm)
-        .then(
-            (response) => {
-                console.log("Email sent successfully:", response);
-            },
-            (error) => {
-                console.log("Email failed to send:", error);
-            }
-        );
-};
-
-
+  emailjs.send("service_tbpc7bn", "template_nqp29gs", form)
+    .then(
+      function (response) {
+        console.log("Email sent successfully:", response);
+      },
+      function (error) {
+        console.log("Email failed to send:", error);
+      }
+    );
+}
+window.sendEmail = sendEmail;
