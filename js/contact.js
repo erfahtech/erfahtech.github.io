@@ -10,7 +10,7 @@ const sendEmail = () => {
     pesan: document.getElementById("pesan").value,
   };
 
-  emailjs.send("service_tbpc7bn", "template_nqp29gs", form)
+  emailjs.send("service_x7d8efw", "template_xk3ay8b", form)
     .then(
       function (response) {
         console.log("Email berhasil dikirim:", response);
